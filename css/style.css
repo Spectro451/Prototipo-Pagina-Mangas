@@ -209,7 +209,7 @@ body {
     border-radius: 8px;
     padding: 3px;
     margin: 3px 0;
-    width: 150px;
+    width: 160px;
     text-align: center;
     box-shadow: 0 2px 6px rgba(0,0,0,0.1);
     height: 260px;
@@ -217,7 +217,7 @@ body {
   
 .Popular img 
 {
-    width: 140px;
+    width: 155px;
     height: 200px;
     border-radius: 4px;
 }
@@ -306,7 +306,7 @@ footer
     .Peo
     {
         margin: 15px auto;/* Declara el margen vertical y horizontal*/
-        width: 900px;/* Declara el ancho del div*/
+        width: 700px;/* Declara el ancho del div*/
     }
     /* Style del parrafo dentro de Peo*/
     .Peo p
@@ -316,7 +316,7 @@ footer
     /* Style del la foto del div mangafoto*/
     .mangafoto img
     {
-        width: 440px;/* Declara el ancho maximo*/
+        width: 320px;/* Declara el ancho maximo*/
         height: 140px;/* Declara el alto maximo*/
     }
     /* Style de titulo dentro de mangafoto*/
@@ -371,5 +371,49 @@ footer
     .FooterColumna
     {
         font-size: 16px;
+    }
+}
+
+@media only screen and (max-width: 700px)
+{
+    .menu ul li {
+        padding: 10px;
+    }
+    .Peo
+    {
+        margin: 15px auto;/* Declara el margen vertical y horizontal*/
+        width: 500px;/* Declara el ancho del div*/
+    }
+    /* Style del parrafo dentro de Peo*/
+    .Peo p
+    {
+        font-size: 24px;/* Declara el tamaño de la fuente*/
+    }
+    /* Style del la foto del div mangafoto*/
+    .mangafoto img
+    {
+        width: 240px;/* Declara el ancho maximo*/
+        height: 140px;/* Declara el alto maximo*/
+    }
+    /* Style de titulo dentro de mangafoto*/
+    .mangafoto .Titulo
+    {
+        font-size: 16px; /*Declara el tamaño del texto*/
+    }
+    /* Style del div Peo*/
+    
+    .Container
+    {
+        width: 500px;/* Declara el ancho*/
+    }
+    .ListaPopulares 
+    {
+        width: 450px;
+        padding: 0 10px;
+        gap: 8px;
+    }
+    .FooterColumna
+    {
+        font-size: 12px;
     }
 }
