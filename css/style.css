@@ -156,16 +156,16 @@ body {
     border-radius: 5px;/* Redondea el borde*/
 }
 /* Style del div Peo*/
-.Peo
+.Recomm
 {
     display: flex;/* Declara el display como flex*/
-    background-color: goldenrod;/* Declara el color de fondo*/
+    background-color: rgb(255, 231, 170);/* Declara el color de fondo*/
     margin: 15px auto;/* Declara el margen vertical y horizontal*/
     width: 856px;/* Declara el ancho del div*/
     border-radius: 15px;/* Declara el redondeo del borde*/
 }
 /* Style del parrafo dentro de Peo*/
-.Peo p
+.Recomm p
 {
     margin: 8px auto;/* Declara el margen vertical y horizontal*/
     padding: 0 auto;/* Declara el padding vertical y horizontal*/
@@ -190,6 +190,8 @@ body {
     margin: 8px 15px;/* Declara el margen vertical y horizontal*/
     padding: 0 auto;/* Declara el padding vertical y horizontal*/
     font-size: 30px;/* Declara el tamaño de la fuente*/
+    color: white; /*Color de la letra*/
+    font-family: 'Pixelify Sans', sans-serif;/* Declara La fuente del texto*/
 }
 .ListaPopulares 
 {
@@ -249,7 +251,7 @@ body {
 }
 .Populares
 {
-    background-color: green;
+    background-color: rgb(203, 254, 191);
     width: fit-content;
     
 }
@@ -303,13 +305,13 @@ footer
 /* Reglas para pantallas de un ancho maximo*/
 @media only screen and (max-width: 1000px)
 {
-    .Peo
+    .Recomm
     {
         margin: 15px auto;/* Declara el margen vertical y horizontal*/
         width: 700px;/* Declara el ancho del div*/
     }
     /* Style del parrafo dentro de Peo*/
-    .Peo p
+    .Recomm p
     {
         font-size: 38px;/* Declara el tamaño de la fuente*/
     }
