@@ -1,42 +1,36 @@
-
+<?php
+session_start();
+if (!isset($_SESSION['usuario']) || $_SESSION['usuario']['admin'] !== 'SI') {
+    header('Location: ../view/PaginaMangaV2.php');
+    exit;
+}
+?>
 <!DOCTYPE html>
 <html lang="es">
 <head>
     <link href="https://fonts.googleapis.com/css2?family=Pixelify+Sans&display=swap" rel="stylesheet">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@500;700&display=swap" rel="stylesheet">
-    <link rel="icon" href="../img/kitsune.png" type="image/png">
-    <link rel="stylesheet" href="../stylesheets/style.css">
+    <link rel="icon" href="../view/img/kitsune.png" type="image/png">
+    <link rel="stylesheet" href="../view/stylesheets/style.css">
     <meta charset="UTF-8">
-    <title>KiwiMangas</title>
+    <title>KiwiMangas - Panel Admin</title>
 </head>
 <body>
     <!-- Encabezado -->
     <header class="logo-container">
-        <a href="PaginaMangaV2.php">
-            <img src="../img/Logo.png" alt="Logo de la página de mangas">
+        <a href="../view/PaginaMangaV2.php">
+            <img src="../view/img/Logo.png" alt="Logo de la página de mangas">
         </a>
     </header>
 <main>
-    <h2>Registro de Usuario</h2>
-
-    <!-- Formulario de registro -->
-    <form action="../public/index.php?controller=Usuario&action=registrarUsuario" method="POST">
-        <label for="nombre">Nombre:</label>
-        <input type="text" name="nombre" id="nombre" placeholder="Nombre" required>
-
-        <label for="email">Correo:</label>
-        <input type="email" name="email" id="email" placeholder="Correo electrónico" required>
-
-        <label for="password">Contraseña:</label>
-        <input type="password" name="password" id="password" placeholder="Contraseña" required>
-
-        <button type="submit">Registrarse</button>
-    </form>
-
-    <p><a href="PaginaMangaV2.php">¿Ya tienes cuenta? Iniciar sesión</a></p>
+    <h2>Panel de Administración</h2>
+    <a href="?controller=Usuario&action=listarUsuarios">Listar Usuarios</a>
+    <a href="?controller=Usuario&action=registro">Crear Usuarios</a>
+    <a href="?controller=Usuario&action=logout">Cerrar sesion</a>
+    <?php require $contenido; ?>
 </main>
-    
+
     <!-- Pie de página -->
     <footer>
         <div class="ContainerContacto">
@@ -62,12 +56,12 @@
                 </div>
             </div>
             <div class="FooterColumna">
-                <img src="../img/Logo.png" alt="Logo de la página de mangas">
+                <img src="../view/img/Logo.png" alt="Logo de la página de mangas">
             </div>
         </div>
     </footer>
 
-    <script src="../js/Populares.js"></script>
-    <script src="../js/DarkMode.js"></script>
+    <script src="../view/js/Populares.js"></script>
+    <script src="../view/js/DarkMode.js"></script>
 </body>
 </html>

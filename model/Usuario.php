@@ -37,6 +37,24 @@ class Usuario
         $stmt->execute([$nombre]);
         return $stmt->fetch(PDO::FETCH_ASSOC); // retorna solo un usuario
     }
+        public function obtenerUsuarioid($id) 
+        {
+        $query = "SELECT * FROM usuario WHERE id = ?";
+        $stmt = $this->pdo->prepare($query);
+        $stmt->execute([$id]);
+        return $stmt->fetch(PDO::FETCH_ASSOC);
+    }
+        public function eliminarUsuario($id) {
+        $query = "DELETE FROM usuario WHERE id = ?";
+        $stmt = $this->pdo->prepare($query);
+        return $stmt->execute([$id]);
+    }
+    public function modificarUsuario($id, $nombre, $email, $admin)
+    {
+        $query = "UPDATE usuario SET nombre = ?, email = ?, admin = ? WHERE id = ?";
+        $stmt = $this->pdo->prepare($query);
+        return $stmt->execute([$nombre, $email, $admin, $id]);
+    }
 }
 
 ?>

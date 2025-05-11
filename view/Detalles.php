@@ -51,11 +51,14 @@ session_start();
                 <?php unset($_SESSION['mensajeError']); // Limpiar el mensaje después de mostrarlo ?>
             <?php endif; ?>
             <?php else: ?>
+                <!-- Formulario de Cerrar Sesión -->
                 <form action="../public/index.php?controller=Usuario&action=logout" method="POST">
                     <button type="submit">Cerrar sesión</button>
-                    <?php if ($_SESSION['usuario']['admin'] === 'SI'): ?>
-                    <button type="button" onclick="window.location.href='../admin/panel_admin.php'">Panel Admin</button>
-                <?php endif; ?>
+                    
+                    <?php if (!empty($_SESSION['usuario']['admin']) && $_SESSION['usuario']['admin'] === 'SI'): ?>
+                        <!-- Botón Panel Admin con type="button" para no enviar el formulario -->
+                        <button type="button" onclick="window.location.href='../public/index.php?controller=Usuario&action=listarUsuarios'">Panel Admin</button>
+                    <?php endif; ?>
                 </form>
             <?php endif; ?>
         </div>

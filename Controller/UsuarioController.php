@@ -79,15 +79,72 @@ class UsuarioController
                 } else {
                     $resultado = $usuarioModel->crearUsuario($nombre, $email, $passwordHash, 'NO'); 
                     session_start();
-                    $_SESSION['usuario'] = [
-                        'nombre' => $nombre,
-                        'email' => $email
-                    ];
-                    header('Location: ../view/PaginaMangaV2.php');
-                    echo $resultado;
+                    if (!isset($_SESSION['usuario']) || $_SESSION['usuario']['admin'] !== 'SI') {
+                        $_SESSION['usuario'] = [
+                            'nombre' => $nombre,
+                            'email' => $email
+                        ];
+                        header('Location: ../view/PaginaMangaV2.php');
+                    } else {
+                        // Si es admin, solo redirigir a la lista de usuarios o mensaje de éxito
+                        echo "<script>alert('Usuario registrado correctamente.'); window.location.href = '../public/index.php?controller=Usuario&action=listarUsuarios';</script>";
+                    }
                     exit;
                 }
             }
+        }
+    }
+    public function listarUsuarios() 
+    {
+
+        $usuarioModel = new Usuario();
+        $usuarios = $usuarioModel->listarUsuario();
+        $contenido = '../view/usuario/listar.php';
+        require '../view/admin/adminPanel.php';
+    }
+    public function registro() 
+    {
+        $contenido = '../view/usuario/crear.php';
+        require '../view/admin/adminPanel.php';
+    }
+    public function modificarUsuario() 
+    {
+        $id = $_POST['id_usuario'] ?? 0;
+        $usuario = new Usuario();
+        $usuarios = $usuario->obtenerUsuarioid($id);
+        $contenido = '../view/usuario/modificar.php';
+        require '../view/admin/adminPanel.php';
+    }
+    public function guardarModificacionUsuario()
+    {
+        if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+            $id = $_POST['id_usuario'] ?? 0;
+            $nombre = $_POST['nombre'] ?? '';
+            $email = $_POST['email'] ?? '';
+            $admin = $_POST['admin'] ?? 'NO';
+
+            if ($id && $nombre && $email) {
+                $usuarioModel = new Usuario();
+
+                // Aquí podrías validar si el nombre o correo ya existen (opcional)
+                $usuarioModel->modificarUsuario($id, $nombre, $email, $admin);
+                header('Location: index.php?controller=Usuario&action=listarUsuarios');
+                exit;
+            } else {
+                echo "Faltan datos para actualizar.";
+            }
+        }
+    }
+    public function eliminarUsuario()
+    {
+        $id = $_POST['id_usuario'] ?? 0;
+        $usuario = new Usuario();
+        $usuarioCreado = $usuario->eliminarUsuario($id);
+        if($usuarioCreado) {
+            header('Location:index.php?controller=Usuario&action=listarUsuarios');
+            exit;
+        } else {
+            echo "Error al borrar el usuario";
         }
     }
 }

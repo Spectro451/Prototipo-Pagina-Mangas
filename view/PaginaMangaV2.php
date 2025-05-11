@@ -62,7 +62,7 @@ session_start();
                     
                     <?php if (!empty($_SESSION['usuario']['admin']) && $_SESSION['usuario']['admin'] === 'SI'): ?>
                         <!-- Botón Panel Admin con type="button" para no enviar el formulario -->
-                        <button type="button" onclick="window.location.href='../admin/panel_admin.php'">Panel Admin</button>
+                        <button type="button" onclick="window.location.href='../public/index.php?controller=Usuario&action=listarUsuarios'">Panel Admin</button>
                     <?php endif; ?>
                 </form>
             <?php endif; ?>
