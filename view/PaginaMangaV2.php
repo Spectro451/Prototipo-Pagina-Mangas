@@ -60,7 +60,7 @@ session_start();
                 <form action="../public/index.php?controller=Usuario&action=logout" method="POST">
                     <button type="submit">Cerrar sesión</button>
                     
-                    <?php if ($_SESSION['usuario']['admin'] === 'SI'): ?>
+                    <?php if (!empty($_SESSION['usuario']['admin']) && $_SESSION['usuario']['admin'] === 'SI'): ?>
                         <!-- Botón Panel Admin con type="button" para no enviar el formulario -->
                         <button type="button" onclick="window.location.href='../admin/panel_admin.php'">Panel Admin</button>
                     <?php endif; ?>
