@@ -53,7 +53,7 @@ async function agregarAlCatalogo(url) {
         const Popular = document.createElement("div");
         Popular.classList.add("Popular");
         Popular.innerHTML = `
-                            <a href="Detalles.html?id=${manga.mal_id}">
+                            <a href="Detalles.php?id=${manga.mal_id}">
                                 <img src="${manga.images.jpg.image_url}" alt="${
           manga.title
         }" />

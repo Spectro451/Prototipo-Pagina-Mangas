@@ -67,7 +67,7 @@ if (idPersonaje) {
             <div class="listaManga">
               ${Personaje.manga.map(m => `
                 <div class="itemManga">
-                  <a href="Detalles.html?id=${m.manga.mal_id}">
+                  <a href="Detalles.php?id=${m.manga.mal_id}">
                   <img src="${m.manga.images.jpg.image_url}" alt="${m.manga.title}">
                   <span>${m.manga.title}, (${m.role})</span>
                   </a>
@@ -120,6 +120,6 @@ if (!parametros.has("id")) {
     function redirigirBusqueda() {
     const titulo = document.getElementById('buscarTitulo').value.trim(); // Obtener el valor del input
     if (titulo) {
-        window.location.href = `Catalogo.html?q=${encodeURIComponent(titulo)}`; // Redirigir con el parámetro de búsqueda
+        window.location.href = `Catalogo.php?q=${encodeURIComponent(titulo)}`; // Redirigir con el parámetro de búsqueda
     }
 }

@@ -16,7 +16,7 @@ body {
     font-size: 12px;
     letter-spacing: 1px;
   }
-  /* 🌚 Modo oscuro para el fondo y texto */
+  /* Modo oscuro para el fondo y texto */
   .dark-mode {
     background-color: #121212; /*Color oscuro*/
     color: #f0e6ff; /*Color claro*/

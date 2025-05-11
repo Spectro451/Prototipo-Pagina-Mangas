@@ -10,6 +10,22 @@ Este es un proyecto web que hice junto a [@camicarrascoi](http://github.com/cami
 - Se pueden aplicar filtros para ordenar por puntuación, fecha o temporada.
 - La interfaz se adapta a distintos tamaños de pantalla.
 
+# Menciones honoríficas
+
+- Panchito (criticador de código)
+- Antonio (apoyo emocional)
+- Luchito (entretención)
+- Chatgpt
+- si estás leyendo todo esto seguramente seas el profe
+- no tengo nada que hacer por eso estoy escribiendo en esta cuestión
+- esta canción wena la recomiendo https://open.spotify.com/track/1njlnn8ZKHI77Pe9szIONR?si=bb440a72873f43f4
+- mi top 50 canciones de este mes https://open.spotify.com/playlist/07TlJyOqy55HrPjSGqtuU7?si=a7dd4779d51444f9
+- qué es más verde whatsapp o duolingo???
+
+# Menciones deshonoríficas
+
+- psint
+
 # Tecnologías usadas
 
 - HTML
@@ -26,3 +42,5 @@ Puedes ver el sitio en línea desde este enlace:
 Si quieres descargarlo y probarlo localmente:
 
 git clone https://github.com/Spectro451/Prototipo-Pagina-Mangas.git
+
+

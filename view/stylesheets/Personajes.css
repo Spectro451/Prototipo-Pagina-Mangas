@@ -17,7 +17,47 @@ body
     font-size: 12px;
     letter-spacing: 1px;
   }
+  /* Modo oscuro para el fondo y texto */
+  .dark-mode {
+    background-color: #121212; /*Color oscuro*/
+    color: #f0e6ff; /*Color claro*/
+}
 
+input, button { /* Aplica todos los estilos que vienen a continuación tanto a los elementos <input> como a los <button> del HTML.*/
+    background-color: white; /*Le pone un color de fondo blanco al botón y al input.*/
+    color: #ffb7ff; /*Cambia el color del texto a un rosado pastel*/
+    border: none; /*Quita el borde que normalmente tienen los inputs y botones por defecto.*/
+    cursor: pointer; /*Cuando pasas el mouse por encima del botón/input, el cursor cambia a una manito,*/
+    padding: 10px 20px; /*Da espacio interno (padding) de 10 píxeles arriba/abajo y 20 a los lados. Así se ve más amplio y cómodo.*/
+    margin: 10px auto; /*Aplica espacio externo (margin) de 10 píxeles arriba/abajo. auto a los lados centra el elemento horizontalmente si su contenedor lo permite.*/
+    font-size: 16px; /*Define el tamaño del texto dentro del input/botón a 16 píxeles, un tamaño legible y estándar.*/
+    font-weight: bold; /* Hace que el texto se vea en negrita, para que destaque más.*/
+    border-radius: 5px; /* Redondea las esquinas del borde, dándole un look más suave y amigable (no cuadrado rígido).*/
+    transition: all 0.3s ease; /*Aplica una transición suave de 0.3 segundos a todos los cambios de estilo (por ejemplo, cuando cambias color al pasar el mouse). El efecto es "ease", o sea, empieza lento, se acelera y termina suave.*/
+    box-shadow: 0 0 10px transparent; /* inicial sin brillo */
+
+}
+
+ /* Estilos de botones e inputs en modo oscuro */
+.dark-mode input, .dark-mode button {
+    background-color: #1e1e1e;
+    color: #ffb7ff;
+    border: 1px solid #ffb7ff;
+}
+
+/* 💫 Efecto al pasar el mouse (hover) */
+input:hover, button:hover {
+    background-color: #ffe6ff; /* un rosadito más claro */
+    color: #ff69b4; /* rosado fuerte tipo "pink Barbie" 💖 */
+    box-shadow: 0 0 15px #ffb7ff, 0 0 25px #ffb7ff; /* brillos mágicos */
+    transform: scale(1.05); /* un pelín más grande al pasar el mouse */
+}
+
+.dark-mode input:hover, .dark-mode button:hover {
+    background-color: #2b2b2b;
+    color: #ffb7ff;
+    box-shadow: 0 0 15px #ff69b4, 0 0 25px #ff69b4;
+}
 /* Style del contenedor del logo*/
 .logo-container 
 {
