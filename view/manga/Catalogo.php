@@ -1,6 +1,6 @@
        <div class="Grid">
                 <div class="Busqueda">
-            <input type="search" id="buscarTitulo" placeholder="Busca tu manga favorito" onchange="redirigirBusqueda()">
+            <input type="search" id="buscarTitulo" placeholder="Busca tu manga favorito" onchange="buscarMangas()">
           </div>
             <div class="Filtros">
                 <form id="form-filtros">
