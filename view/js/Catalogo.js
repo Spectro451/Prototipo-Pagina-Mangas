@@ -54,9 +54,7 @@ async function agregarAlCatalogo(url) {
         Popular.classList.add("Popular");
         Popular.innerHTML = `
                             <a href="index.php?controller=kiwi&action=detalles&id=${manga.mal_id}">
-                                <img src="${manga.images.jpg.image_url}" alt="${
-          manga.title
-        }" />
+                                <img src="${manga.images.jpg.image_url}" alt="${manga.title}" />
                                 <p title="${manga.title}">
                                 ${
                                   manga.title.length > 100

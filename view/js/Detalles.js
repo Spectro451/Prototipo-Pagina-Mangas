@@ -149,7 +149,7 @@ if (idManga) {
                 const divPersonaje = document.createElement('div');
                 divPersonaje.innerHTML = 
                 `
-                <a href="index.php?controller=kiwi&action=personaje&id=${personaje.character.mal_id}">
+                <a href="index.php?controller=kiwi&action=personajes&id=${personaje.character.mal_id}">
                     <img src="${personaje.character.images.jpg.image_url}" alt="${personaje.character.name}" />
                     <p>${personaje.character.name}</p>
                     <p>Rol: ${personaje.role}</p>
