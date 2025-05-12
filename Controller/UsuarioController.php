@@ -84,7 +84,7 @@ class UsuarioController
                             'nombre' => $nombre,
                             'email' => $email
                         ];
-                        header('Location: ../view/PaginaMangaV2.php');
+                        header('Location: index.php?controller=kiwi&action=paginaManga');
                     } else {
                         // Si es admin, solo redirigir a la lista de usuarios o mensaje de éxito
                         echo "<script>alert('Usuario registrado correctamente.'); window.location.href = '../public/index.php?controller=Usuario&action=listarUsuarios';</script>";
@@ -100,12 +100,12 @@ class UsuarioController
         $usuarioModel = new Usuario();
         $usuarios = $usuarioModel->listarUsuario();
         $contenido = '../view/usuario/listar.php';
-        require '../view/admin/adminPanel.php';
+        require '../view/admin/plantilla.php';
     }
     public function registro() 
     {
         $contenido = '../view/usuario/crear.php';
-        require '../view/admin/adminPanel.php';
+        require '../view/admin/plantilla.php';
     }
     public function modificarUsuario() 
     {
@@ -113,7 +113,7 @@ class UsuarioController
         $usuario = new Usuario();
         $usuarios = $usuario->obtenerUsuarioid($id);
         $contenido = '../view/usuario/modificar.php';
-        require '../view/admin/adminPanel.php';
+        require '../view/admin/plantilla.php';
     }
     public function guardarModificacionUsuario()
     {
@@ -148,3 +148,4 @@ class UsuarioController
         }
     }
 }
+?>

@@ -1,25 +1,24 @@
 <?php
+require '../config/basePoto.php'; // Aquí podrías tener tu autoload, conexión, etc.
 
-$controller = isset($_GET['controller']) ? $_GET['controller'] : '';
-$action = isset($_GET['action']) ? $_GET['action'] : '';
+$controller = $_GET['controller'] ?? 'kiwi';
+$action = $_GET['action'] ?? 'paginaManga';
 
-if(!$controller && !$action) return header('Location: ../view/PaginaMangaV2.php'); 
+$controllerFile = "../Controller/{$controller}Controller.php";
+$controllerClass = "{$controller}Controller";
 
-$controllerFile = '../Controller/' . $controller . 'Controller.php';
-
-if(file_exists($controllerFile)) {
+if (file_exists($controllerFile)) {
     require $controllerFile;
-
-    $controllerClass = $controller . 'Controller';
-    $controllerInstance = new $controllerClass();
-
-    if(method_exists($controllerInstance, $action)) {
-        $controllerInstance->$action();
+    if (class_exists($controllerClass)) {
+        $obj = new $controllerClass();
+        if (method_exists($obj, $action)) {
+            $obj->$action();
+        } else {
+            die("Acción '$action' no encontrada en el controlador '$controllerClass'");
+        }
     } else {
-        "No existe la acción " . $action;
+        die("Controlador '$controllerClass' no encontrado.");
     }
 } else {
-    echo "No existe el controlador " . $controller;
+    die("Archivo del controlador '$controllerFile' no existe.");
 }
-
-?>
