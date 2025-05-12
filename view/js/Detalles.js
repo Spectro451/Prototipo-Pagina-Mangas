@@ -6,6 +6,7 @@ const idManga = parametros.get('id');
 const imagenManga= document.querySelector('.imagenManga');
 const detallesManga = document.querySelector('.detallesManga');
 const estadisticas = document.querySelector('.estadisticas');
+const botonFavorito = document.querySelector('.favoritos');
 if (idManga) {
     fetch(`https://api.jikan.moe/v4/manga/${idManga}/full`)
         .then(response => response.json())
@@ -22,7 +23,8 @@ if (idManga) {
             const fechaFin = manga.published?.to ? new Date(manga.published.to).toLocaleDateString() : 'hasta hoy';
             let sinopsisFormateada = 'Desconocida';
 
-            if (manga.synopsis) {
+            if (manga.synopsis) 
+            {
                 const sinopsisLimpia = manga.synopsis.replace(/\[Written by MAL Rewrite\]/, '');
                 sinopsisFormateada = sinopsisLimpia
                     .split('\n\n')
@@ -30,6 +32,12 @@ if (idManga) {
                     .join('');
             }
 
+            botonFavorito.innerHTML=
+            `
+            <button id="btn-favorito">❤️ Añadir a Favoritos</button> 
+            `;
+            document.getElementById('btn-favorito').addEventListener('click', function() {agregarAFavoritos(manga);
+            });
             img.src=manga.images.jpg.image_url;
             img.alt=manga.title;
             
@@ -203,13 +211,57 @@ if (idManga) {
         })
         .catch(error => console.error('Error al obtener los datos del manga:', error));
 }
-if (!parametros.has("id")) {
+if (!parametros.has("id")) 
+{
        
     window.location.href = window.location.pathname + "?id=1";
-  }
-function redirigirBusqueda() {
+}
+function redirigirBusqueda() 
+{
     const titulo = document.getElementById('buscarTitulo').value.trim(); // Obtener el valor del input
     if (titulo) {
         window.location.href = `index.php?controller=kiwi&action=catalogo&q=${encodeURIComponent(titulo)}`; // Redirigir con el parámetro de búsqueda
     }
 }
+function agregarAFavoritos(manga) {
+    // Obtener el ID del usuario (ya está inyectado en JavaScript)
+    const usuarioId = window.usuario_id; // Ahora tenemos el ID del usuario
+
+    if (!usuarioId) {
+        alert('Debes iniciar sesión para agregar un manga a favoritos.');
+        return;
+    }
+
+    const favoritoData = {
+        usuario_id: usuarioId,  // Añadimos el ID del usuario
+        id: manga.mal_id,
+        titulo: manga.title,
+        imagen: manga.images.jpg.image_url
+    };
+
+    // Ver los datos que se enviarán al servidor
+    console.log('Datos a enviar:', favoritoData);
+
+    fetch('index.php?controller=favoritos&action=agregar', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(favoritoData)
+    })
+    .then(response => response.json())
+    .then(data => {
+        console.log('Datos recibidos:', data);
+        if (data.success) {
+            alert('¡Manga añadido a tus favoritos!');
+        } else {
+            alert('Hubo un error al añadir el manga a favoritos.');
+        }
+    })
+    .catch(error => {
+        console.error('Error al agregar manga a favoritos:', error);
+        alert('Hubo un problema al intentar agregar el manga a favoritos.');
+    });
+}
+
+

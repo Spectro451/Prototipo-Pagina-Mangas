@@ -6,8 +6,11 @@
             
             <!-- Sección de detalles del manga -->
             <section class="Detalles">
-                <div class="imagenManga">
+                <div class="imagenManga"></div>
+                <div class="favoritos">
+                    
                 </div>
+
                 <div class="detallesManga">
                    
                 </div>
