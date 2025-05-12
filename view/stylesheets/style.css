@@ -40,7 +40,7 @@
     padding: 5px 10px;/* Declara el padding vertical y horizontal*/
     border-radius: 5px;/* Redondea el borde*/
 }
-/* Style del div Peo*/
+
 .Recomm
 {
     display: flex;/* Declara el display como flex*/
@@ -49,7 +49,7 @@
     width: 856px;/* Declara el ancho del div*/
     border-radius: 15px;/* Declara el redondeo del borde*/
 }
-/* Style del parrafo dentro de Peo*/
+
 .Recomm p
 {
     margin: 8px auto;/* Declara el margen vertical y horizontal*/
@@ -204,7 +204,7 @@ footer
         margin: 15px auto;/* Declara el margen vertical y horizontal*/
         width: 900px;/* Declara el ancho del div*/
     }
-    /* Style del parrafo dentro de Peo*/
+
     .Recomm p
     {
         font-size: 38px;/* Declara el tamaño de la fuente*/
@@ -220,8 +220,6 @@ footer
     {
         font-size: 20px; /*Declara el tamaño del texto*/
     }
-    /* Style del div Peo*/
-    
     .Container
     {
         width: 900px;/* Declara el ancho*/

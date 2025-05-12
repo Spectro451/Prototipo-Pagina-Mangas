@@ -72,12 +72,12 @@ if (idManga) {
             <p class="Info"><strong>Capítulos:</strong><span> ${manga.chapters || 'N/A'}</span></p>
             <p class="Info"><strong>Volumenes:</strong> <span>${manga.volumes || 'N/A'}</span></p>
             <p class="Info"><strong>Estado:</strong> <span>${manga.status || 'N/A'}</span></p>
-            <p class="Info"><strong>Editorial:</strong> <span>${(manga.serializations?.length > 0 ? manga.serializations.map(peo => peo.name).join(', ') : 'N/A')}</span></p>
+            <p class="Info"><strong>Editorial:</strong> <span>${(manga.serializations?.length > 0 ? manga.serializations.map(editorial => editorial.name).join(', ') : 'N/A')}</span></p>
             <p class="Info"><strong>Fecha de publicación:</strong> <span>${fechaInicio} - ${fechaFin}</span></p>
             <hr>
             `;
             estadisticas.innerHTML = `
-            ${manga.score ? `<p class="Info"><strong>Puntuación:</strong><span> ${manga.score} (reseñado por <strong class ="peo">${manga.scored_by}</strong> usuarios)</span></p>` : ''}
+            ${manga.score ? `<p class="Info"><strong>Puntuación:</strong><span> ${manga.score} (reseñado por <strong class ="score">${manga.scored_by}</strong> usuarios)</span></p>` : ''}
             ${manga.rank ? `<p class="Info"><strong>Ranking:</strong><span> #${manga.rank}</span></p>` : ''}
             ${manga.popularity ? `<p class="Info"><strong>Ranking usuarios:</strong><span> #${manga.popularity}</span></p>` : ''}
             ${manga.favorites ? `<p class="Info"><strong>Favorito de:</strong><span> ${manga.favorites}</span></p>` : ''}

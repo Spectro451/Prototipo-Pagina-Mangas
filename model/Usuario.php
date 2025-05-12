@@ -1,13 +1,13 @@
 <?php
 
-require_once '../config/basePoto.php';
+require_once '../config/base.php';
 
 class Usuario
 {
     private $pdo;
     function __construct()
     {
-        $this->pdo = potoConexion();
+        $this->pdo = Conexion();
     }
 
     public function listarUsuario()

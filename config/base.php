@@ -2,7 +2,7 @@
 
 error_reporting(1);
 
-function potoConexion()
+function Conexion()
 {
     $host = "localhost";
     $dbname ="manga";
@@ -15,9 +15,9 @@ function potoConexion()
         $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
         return $pdo;
     }
-    catch(PDOException $errorPoto)
+    catch(PDOException $error)
     {
-        die("Ta malo el poto". $errorPoto->getMessage());
+        die("Ta malo la conexion". $error->getMessage());
     }
     
 }

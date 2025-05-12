@@ -5,7 +5,7 @@
         <!--Contenedor recomendaciones-->
         <div class="Recomm">
             <p>Nuestras Recomendaciones UwU</p><!--Parrafo-->
-        </div><!--Fin del Contenedor peo-->
+        </div>
         <!--ContenedorImagenes-->
         <div class="contenedorImagenes">
            <!--Contenedor MangaFoto-->
