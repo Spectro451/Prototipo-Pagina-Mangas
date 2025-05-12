@@ -14,13 +14,8 @@
                   <!-- Los géneros se insertarán aquí con JavaScript -->
                 </div>
               </section>
-
        </div>
-       
-       
-       
     </main><!--Fin Seccion Principal-->
-  
     <script src="../view/js/Categorias.js"></script>
 </body><!--Fin del cuerpo de pagina-->
 </html>

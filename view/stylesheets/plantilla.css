@@ -97,18 +97,6 @@ input:hover, button:hover {
     background-color: #f1c40f !important; /* línea animada dorada */
 }
 
-.dark-mode .itemAnime,
-.dark-mode .itemManga,
-.dark-mode .informacionContainer,
-.dark-mode .atributosColumna,
-.dark-mode .biografiaColumna {
-    background-color: #1e1e1e;
-    color: #f0e6ff;
-    border: 1px solid #ffb7ff;
-    border-radius: 10px;
-    padding: 10px;
-    margin-bottom: 10px;
-}
 .dark-mode footer {
     background-color: #1e1e1e; /* fondo oscuro */
     color: #f0e6ff; /* texto claro */
