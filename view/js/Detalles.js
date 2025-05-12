@@ -224,23 +224,17 @@ function redirigirBusqueda()
     }
 }
 function agregarAFavoritos(manga) {
-    // Obtener el ID del usuario (ya está inyectado en JavaScript)
-    const usuarioId = window.usuario_id; // Ahora tenemos el ID del usuario
-
-    if (!usuarioId) {
+    // Solo comprobamos si el usuario está logueado a través de una variable JS opcional
+    if (typeof window.usuario_id === 'undefined' || !window.usuario_id) {
         alert('Debes iniciar sesión para agregar un manga a favoritos.');
         return;
     }
 
     const favoritoData = {
-        usuario_id: usuarioId,  // Añadimos el ID del usuario
         id: manga.mal_id,
         titulo: manga.title,
         imagen: manga.images.jpg.image_url
     };
-
-    // Ver los datos que se enviarán al servidor
-    console.log('Datos a enviar:', favoritoData);
 
     fetch('index.php?controller=favoritos&action=agregar', {
         method: 'POST',
@@ -254,8 +248,10 @@ function agregarAFavoritos(manga) {
         console.log('Datos recibidos:', data);
         if (data.success) {
             alert('¡Manga añadido a tus favoritos!');
+            // Llamamos a verificarFavorito para actualizar el botón después de añadir
+            verificarFavorito(manga.mal_id);
         } else {
-            alert('Hubo un error al añadir el manga a favoritos.');
+            alert(data.message || 'Hubo un error al añadir el manga a favoritos.');
         }
     })
     .catch(error => {
@@ -263,5 +259,8 @@ function agregarAFavoritos(manga) {
         alert('Hubo un problema al intentar agregar el manga a favoritos.');
     });
 }
+
+
+
 
 

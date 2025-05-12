@@ -25,6 +25,7 @@ class UsuarioController
             if ($usuario && password_verify($clave, $usuario['password'])) {
                 // Guardamos la información del usuario en la sesión
                 $_SESSION['usuario'] = [
+                    'id' => $usuario['id'],
                     'nombre' => $usuario['nombre'],
                     'email' => $usuario['email'],
                     'admin' => $usuario['admin']

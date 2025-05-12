@@ -135,6 +135,9 @@ session_start();
             </div>
         </div>
     </footer>
+    <script>
+        window.usuario_id = <?php echo isset($_SESSION['usuario']['id']) ? $_SESSION['usuario']['id'] : 'null'; ?>;
+    </script>
     <script src="../view/js/DarkMode.js"></script>
     <?php if (isset($scripts)) echo $scripts; ?>
 </body>
