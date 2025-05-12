@@ -17,7 +17,7 @@ body
     font-size: 12px;
     letter-spacing: 1px;
   }
-  /* Modo oscuro para el fondo y texto */
+   /* Modo oscuro para el fondo y texto */
   .dark-mode {
     background-color: #121212; /*Color oscuro*/
     color: #f0e6ff; /*Color claro*/
@@ -58,6 +58,74 @@ input:hover, button:hover {
     color: #ffb7ff;
     box-shadow: 0 0 15px #ff69b4, 0 0 25px #ff69b4;
 }
+
+.dark-mode .iconos-superiores {
+    display: flex;
+    justify-content: flex-end;
+    gap: 20px;
+    align-items: center;
+    margin: 0 20px;
+    background-color: #121212;
+    font-family: 'Quicksand', sans-serif;
+  }
+
+.dark-mode .promo-barra {
+    background-color: #4402b6; /* Un tono turquesa bonito como el de la imagen */
+    color: white;
+}
+
+.dark-mode .menu,
+.dark-mode .Busqueda {
+    background-color: #121212;
+}
+
+.dark-mode .Submenu {
+    background-color: #1e1e1e !important;
+    box-shadow: 0 4px 10px rgba(255, 183, 255, 0.2); /* sombra más clara y rosada */
+}
+
+.dark-mode .Submenu ul a li {
+    color: #ffb7ff !important; /* rosadito pastel */
+}
+
+.dark-mode .Submenu ul a li:hover {
+    background-color: #333 !important; /* fondo más oscuro al hacer hover */
+    color: #f1c40f !important; /* sigue destacando con dorado */
+}
+
+.dark-mode .Submenu ul a li:before {
+    background-color: #f1c40f !important; /* línea animada dorada */
+}
+
+.dark-mode .itemAnime,
+.dark-mode .itemManga,
+.dark-mode .informacionContainer,
+.dark-mode .atributosColumna,
+.dark-mode .biografiaColumna {
+    background-color: #1e1e1e;
+    color: #f0e6ff;
+    border: 1px solid #ffb7ff;
+    border-radius: 10px;
+    padding: 10px;
+    margin-bottom: 10px;
+}
+.dark-mode footer {
+    background-color: #1e1e1e; /* fondo oscuro */
+    color: #f0e6ff; /* texto claro */
+}
+
+.dark-mode .FooterColumna a {
+    color: #ffb7ff; /* enlaces rosados pastel */
+}
+
+.dark-mode .FooterColumna h4 {
+    color: #f1c40f; /* títulos dorados */
+}
+
+.dark-mode .Social p {
+    color: #e0d7f5; /* texto más claro */
+}
+
 /* Style del contenedor del logo*/
 .logo-container 
 {
