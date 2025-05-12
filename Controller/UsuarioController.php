@@ -30,7 +30,7 @@ class UsuarioController
                     'admin' => $usuario['admin']
                 ];
                 // Redirigimos a la página principal (PaginaMangaV2.php)
-                header("Location: " . $_SERVER['PHP_SELF']);
+                header('Location: index.php');
                 exit;
             } else {
                 // Si los datos son incorrectos, mostramos un mensaje de error
@@ -50,7 +50,7 @@ class UsuarioController
     session_destroy(); // Destruye la sesión
 
     // Redirigir al usuario a la página de inicio o login
-    header("Location: " . $_SERVER['PHP_SELF']);
+    header('Location: index.php');
     exit;
     }
 
@@ -104,6 +104,7 @@ class UsuarioController
     }
     public function registro() 
     {
+        $title = "Registro";
         $contenido = '../view/usuario/crear.php';
         require '../view/admin/plantilla.php';
     }

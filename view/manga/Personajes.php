@@ -1,9 +1,3 @@
-
-<head>
-    <link rel="stylesheet" href="../view/stylesheets/Personajes.css"><!--Hace la conexion con el style-->
-</head>
-<body><!--Cuerpo de la pagina-->
-    <main>
         <div class="Grid">
             <!-- Barra de búsqueda -->
             <div class="Busqueda">
@@ -37,10 +31,4 @@
                 </div>
             </section>
         </div>
-    </main><!-- Fin Sección Principal -->
-    <!--Pie de pagina-->
-    
-    <script src="../view/js/Personajes.js"></script>
-</body><!--Fin del cuerpo de pagina-->
-</html>
 

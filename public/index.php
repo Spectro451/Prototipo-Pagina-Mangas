@@ -1,5 +1,4 @@
 <?php
-require '../config/basePoto.php'; // Aquí podrías tener tu autoload, conexión, etc.
 
 $controller = $_GET['controller'] ?? 'kiwi';
 $action = $_GET['action'] ?? 'paginaManga';

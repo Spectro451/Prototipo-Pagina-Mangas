@@ -1,12 +1,6 @@
-
-<head>
-    <link rel="stylesheet" href="../view/stylesheets/Catalogo.css"><!--Hace la conexion con el style-->
-</head>
-<body><!--Cuerpo de la pagina-->
-    <main>
        <div class="Grid">
                 <div class="Busqueda">
-            <input type="search" id="buscarTitulo" placeholder="Busca tu manga favorito" onchange="buscarMangas()">
+            <input type="search" id="buscarTitulo" placeholder="Busca tu manga favorito" onchange="redirigirBusqueda()">
           </div>
             <div class="Filtros">
                 <form id="form-filtros">
@@ -42,14 +36,4 @@
                 
                 
             </div>
-       </div>
-
-    </main><!--Fin Seccion Principal-->
-   
-    <!--Pie de pagina-->
-
-    <script src="../view/js/Catalogo.js" defer></script>
-
-</body><!--Fin del cuerpo de pagina-->
-</html>
-
+</div>

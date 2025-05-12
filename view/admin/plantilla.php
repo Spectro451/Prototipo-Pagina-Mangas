@@ -4,14 +4,14 @@ session_start();
 <!DOCTYPE html>
 <html lang="es">
 <head>
-
     <link href="https://fonts.googleapis.com/css2?family=Pixelify+Sans&display=swap" rel="stylesheet">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@500;700&display=swap" rel="stylesheet">
     <link rel="icon" href="../view/img/kitsune.png" type="image/png">
     <link rel="stylesheet" href="../view/stylesheets/plantilla.css">
+    <?php if (isset($styles)) echo $styles; ?>
     <meta charset="UTF-8">
-    <title>KiwiMangas</title>
+    <title><?= isset($title) ? $title : 'KiwiMangas' ?></title>
 </head>
 <body>
     <!--barra de descuento-->
@@ -61,11 +61,6 @@ session_start();
                     <?php endif; ?>
                 </form>
             <?php endif; ?>
-        </div>
-    </div>
-        <div class="carrito">
-        <i class="fas fa-shopping-cart"></i>
-        <span class="contador-carrito">(0)</span>
         </div>
     </div>
 </div>
@@ -141,5 +136,6 @@ session_start();
         </div>
     </footer>
     <script src="../view/js/DarkMode.js"></script>
+    <?php if (isset($scripts)) echo $scripts; ?>
 </body>
 </html>
