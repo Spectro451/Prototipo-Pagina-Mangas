@@ -15,7 +15,7 @@ Este es un proyecto web que hice junto a [@camicarrascoi](http://github.com/cami
 - Panchito (criticador de código)
 - Antonio (apoyo emocional)
 - Luchito (entretención)
-- Chatgpt
+- Chatgpt (Senior developer)
 - si estás leyendo todo esto seguramente seas el profe
 - no tengo nada que hacer por eso estoy escribiendo en esta cuestión
 - esta canción wena la recomiendo https://open.spotify.com/track/1njlnn8ZKHI77Pe9szIONR?si=bb440a72873f43f4
