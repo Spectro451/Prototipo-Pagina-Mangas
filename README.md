@@ -32,15 +32,22 @@ Este es un proyecto web que hice junto a [@camicarrascoi](http://github.com/cami
 - CSS
 - JavaScript
 - Jikan API (https://docs.api.jikan.moe)
-- GitHub Pages
+- infinityFree(host)
+- Xampp
+- Php
+- Mysql
 
 # Cómo usarlo?
 
 Puedes ver el sitio en línea desde este enlace:  
-[Ver página](https://spectro451.github.io/Prototipo-Pagina-Mangas/PaginaMangaV2.html)
+[Ver página](https://spectro451.infinityfreeapp.com/manga)
 
 Si quieres descargarlo y probarlo localmente:
 
-git clone https://github.com/Spectro451/Prototipo-Pagina-Mangas.git
+- git clone https://github.com/Spectro451/Prototipo-Pagina-Mangas.git
+- copiar carpeta en htdocs
+- ejecutar xampp
+- disfrutar
+
 
 
