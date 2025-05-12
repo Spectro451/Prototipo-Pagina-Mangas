@@ -51,21 +51,21 @@ if (idManga) {
             ${manga.demographics?.length > 0 ? `
                 <p class="Info"><strong>Categoria:</strong> 
                   <span>
-                    ${manga.demographics.map(categ => `<a href="Catalogo.php?categoria=${categ.mal_id}&type=demographics">${categ.name}</a>`).join(', ')}
+                    ${manga.demographics.map(categ => `<a href="index.php?controller=kiwi&action=catalogo&categoria=${categ.mal_id}&type=demographics">${categ.name}</a>`).join(', ')}
                   </span>
                 </p>` : ''}
               
               ${manga.genres?.length > 0 ? `
                 <p class="Info"><strong>Genero/s:</strong> 
                   <span>
-                    ${manga.genres.map(gen => `<a href="Catalogo.php?categoria=${gen.mal_id}&type=genres">${gen.name}</a>`).join(', ')}
+                    ${manga.genres.map(gen => `<a href="index.php?controller=kiwi&action=catalogo&categoria=${gen.mal_id}&type=genres">${gen.name}</a>`).join(', ')}
                   </span>
                 </p>` : ''}
               
               ${manga.themes?.length > 0 ? `
                 <p class="Info"><strong>Tema/s:</strong> 
                   <span>
-                    ${manga.themes.map(tem => `<a href="Catalogo.php?categoria=${tem.mal_id}&type=themes">${tem.name}</a>`).join(', ')}
+                    ${manga.themes.map(tem => `<a href="index.php?controller=kiwi&action=catalogo&categoria=${tem.mal_id}&type=themes">${tem.name}</a>`).join(', ')}
                   </span>
                 </p>` : ''}
             ${manga.authors?.length > 0 ?`<p class="Info"><strong>Autor:</strong> <span> ${manga.authors.map(autor => autor.name).join(', ')}</span></p>`: ''}
@@ -149,7 +149,7 @@ if (idManga) {
                 const divPersonaje = document.createElement('div');
                 divPersonaje.innerHTML = 
                 `
-                <a href="Personajes.php?id=${personaje.character.mal_id}">
+                <a href="index.php?controller=kiwi&action=personaje&id=${personaje.character.mal_id}">
                     <img src="${personaje.character.images.jpg.image_url}" alt="${personaje.character.name}" />
                     <p>${personaje.character.name}</p>
                     <p>Rol: ${personaje.role}</p>
@@ -207,9 +207,9 @@ if (!parametros.has("id")) {
        
     window.location.href = window.location.pathname + "?id=1";
   }
-  function redirigirBusqueda() {
+function redirigirBusqueda() {
     const titulo = document.getElementById('buscarTitulo').value.trim(); // Obtener el valor del input
     if (titulo) {
-        window.location.href = `Catalogo.php?q=${encodeURIComponent(titulo)}`; // Redirigir con el parámetro de búsqueda
+        window.location.href = `index.php?controller=kiwi&action=catalogo&q=${encodeURIComponent(titulo)}`; // Redirigir con el parámetro de búsqueda
     }
 }

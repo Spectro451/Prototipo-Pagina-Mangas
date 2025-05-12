@@ -17,7 +17,7 @@
                 Popular.classList.add('Popular');
   
                 Popular.innerHTML = `
-                    <a href="Detalles.php?id=${manga.mal_id}">
+                    <a href="index.php?controller=kiwi&action=detalles&id=${manga.mal_id}">
                     <img src="${manga.images.jpg.image_url}" alt="${manga.title}" />
                     <p title="${manga.title}">
                       ${manga.title.length > 50 ? manga.title.slice(0, 35) + '...' : manga.title}
@@ -50,7 +50,7 @@
               personajes.classList.add('Popular');
 
               personajes.innerHTML = `
-                  <a href="Personajes.php?id=${character.mal_id}">
+                  <a href="index.php?controller=kiwi&action=personajes&id=${character.mal_id}">
                   <img src="${character.images.jpg.image_url}" alt="" />
                   <p class="Nombre">${character.name}</p>
                   </a>
@@ -70,12 +70,13 @@
     cargarPersonajes(currentPage);
     cargarPopularesManga(currentPage);
   });
-  function redirigirBusqueda() {
+function redirigirBusqueda() {
     const titulo = document.getElementById('buscarTitulo').value.trim(); // Obtener el valor del input
     if (titulo) {
-        window.location.href = `Catalogo.php?q=${encodeURIComponent(titulo)}`; // Redirigir con el parámetro de búsqueda
+        window.location.href = `index.php?controller=kiwi&action=catalogo&q=${encodeURIComponent(titulo)}`; // Redirigir con el parámetro de búsqueda
     }
 }
+
 let scrollContainers = document.querySelectorAll('.ListaPopulares');
 
 scrollContainers.forEach((container) => {

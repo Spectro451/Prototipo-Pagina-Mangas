@@ -12,7 +12,7 @@
           const div = document.createElement("div");
           div.classList.add("genero");
           div.innerHTML = `
-          <a href="Catalogo.php?categoria=${genero.mal_id}">${genero.name}</a>
+          <a href="index.php?controller=kiwi&action=catalogo&categoria=${genero.mal_id}">${genero.name}</a>
           `;
           contenedor.appendChild(div);
         }
@@ -23,9 +23,9 @@
     });
   
   });
-  function redirigirBusqueda() {
+function redirigirBusqueda() {
     const titulo = document.getElementById('buscarTitulo').value.trim(); // Obtener el valor del input
     if (titulo) {
-        window.location.href = `Catalogo.php?q=${encodeURIComponent(titulo)}`; // Redirigir con el parámetro de búsqueda
+        window.location.href = `index.php?controller=kiwi&action=catalogo&q=${encodeURIComponent(titulo)}`; // Redirigir con el parámetro de búsqueda
     }
 }

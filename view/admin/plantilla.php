@@ -72,23 +72,23 @@ session_start();
     <!--Navegacion-->
 <nav class="menu">
     <ul><!--Lista Principal del menu-->
-        <li><a href="PaginaMangaV2.php">INICIO</a></li><!--Enlace a inicio-->
+        <li><a href="index.php?controller=kiwi&action=paginaManga">INICIO</a></li><!--Enlace a inicio-->
         <li><!--Lista-->
-            <a href="Categorias.php">CATEGORIAS</a><!--Opcion con submenu-->
+            <a href="index.php?controller=kiwi&action=categorias">CATEGORIAS</a><!--Opcion con submenu-->
             <div class="Submenu"><!--Submenu-->
                 <ul><!--Lista de Categorias-->
-                    <a href="Catalogo.php"><li>Populares ✨</li></a><!--Opcion Categorias-->
-                    <a href="Catalogo.php?categoria=1"><li>Acción ✨</li></a><!--Opcion Categorias-->
-                    <a href="Catalogo.php?categoria=4"><li>Comedia ✨</li></a><!--Opcion Categorias-->
-                    <a href="Catalogo.php?categoria=22"><li>Romance ✨</li></a><!--Opcion Categorias-->
-                    <a href="Catalogo.php?categoria=2"><li>Aventura ✨</li></a><!--Opcion Categorias-->
-                    <a href="Catalogo.php?categoria=62"><li>Isekai ✨</li></a><!--Opcion Categorias-->
-                    <a href="Catalogo.php?categoria=Publishing"><li>En emisión ✨</li></a><!--Opcion Categorias-->
-                    <a href="Catalogo.php?categoria=Complete"><li>Finalizados ✨</li></a><!--Opcion Categorias-->
+                    <a href="index.php?controller=kiwi&action=catalogo&categoria=populares"><li>Populares ✨</li></a>
+                    <a href="index.php?controller=kiwi&action=catalogo&categoria=1"><li>Acción ✨</li></a>
+                    <a href="index.php?controller=kiwi&action=catalogo&categoria=4"><li>Comedia ✨</li></a>
+                    <a href="index.php?controller=kiwi&action=catalogo&categoria=22"><li>Romance ✨</li></a>
+                    <a href="index.php?controller=kiwi&action=catalogo&categoria=2"><li>Aventura ✨</li></a>
+                    <a href="index.php?controller=kiwi&action=catalogo&categoria=62"><li>Isekai ✨</li></a>
+                    <a href="index.php?controller=kiwi&action=catalogo&categoria=Publishing"><li>En emisión ✨</li></a>
+                    <a href="index.php?controller=kiwi&action=catalogo&categoria=Complete"><li>Finalizados ✨</li></a>
                 </ul><!--Fin Lista de Categorias-->
             </div><!--Fin Submenu-->
         </li>
-        <li><a href="Catalogo.php">CATALOGO</a></li><!--Enlace a catalogo-->
+        <li><a href="index.php?controller=kiwi&action=catalogo&categoria=populares">CATALOGO</a></li><!--Enlace a catalogo-->
         <li><a href="#">AYUDA</a></li><!--Enlace a Ayuda-->
         
         <?php if (!empty($_SESSION['usuario']['admin']) && $_SESSION['usuario']['admin'] === 'SI'): ?>

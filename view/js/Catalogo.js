@@ -38,7 +38,7 @@ const easterEggs = [
 
 window.addEventListener("DOMContentLoaded", () => {
   if (busqueda) {
-    document.getElementById("buscar").value = busqueda;
+    document.getElementById("buscarTitulo").value = busqueda;
     buscarMangas();
   } else {
     cargarmangas();
@@ -53,7 +53,7 @@ async function agregarAlCatalogo(url) {
         const Popular = document.createElement("div");
         Popular.classList.add("Popular");
         Popular.innerHTML = `
-                            <a href="Detalles.php?id=${manga.mal_id}">
+                            <a href="index.php?controller=kiwi&action=detalles&id=${manga.mal_id}">
                                 <img src="${manga.images.jpg.image_url}" alt="${
           manga.title
         }" />
@@ -120,7 +120,7 @@ async function buscarMangas(resetPage = true) {
   const urlParams = new URLSearchParams(window.location.search);
   if (resetPage) currentPage = 1;
   catalogo.innerHTML = "";
-  const busqueda = document.getElementById("buscar").value.trim().toLowerCase();
+  const busqueda = document.getElementById("buscarTitulo").value.trim().toLowerCase();
 
   //if (busqueda === "" && filtro === "" && !nsfw) {
   //  // Remove all URL parameters
