@@ -9,10 +9,17 @@ class Favoritos
     }
     public function agregarFavoritos($usuario_id, $manga_id, $titulo, $imagen)
     {
-        $query = "INSERT INTO favoritos(usuario_id, manga_id, titulo, imagen) VALUES (?,?,?,?)";
-        $stmt = $this->pdo->prepare($query);
-        $stmt->execute([$usuario_id, $manga_id, $titulo, $imagen]);
-        return $stmt;
+        try 
+        {
+            $query = "INSERT INTO favoritos (usuario_id, manga_id, titulo, imagen) VALUES (?, ?, ?, ?)";
+            $stmt = $this->pdo->prepare($query);
+            $stmt->execute([$usuario_id, $manga_id, $titulo, $imagen]);
+            return $stmt->rowCount() > 0;
+        } 
+        catch (PDOException $e) 
+        {
+            return false;
+        }
     }
      public function listarFavoritos($usuario_id)
     {

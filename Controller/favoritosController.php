@@ -1,82 +1,68 @@
 <?php
+session_start();
 require_once '../model/Favoritos.php';
 
 class favoritosController
 {
-    public function agregar()
+    private $favoritos;
+
+    public function __construct()
     {
-        session_start();
-        if (isset($_SESSION['usuario'])) 
-        {
+        $this->favoritos = new Favoritos();
+    }
+
+    public function toggleFavorito()
+    {
+        if (isset($_SESSION['usuario'])) {
             $usuario_id = $_SESSION['usuario']['id'];
             $data = json_decode(file_get_contents('php://input'), true);
 
-            if (isset($data['id'], $data['titulo'], $data['imagen'])) 
-            {
+            if (isset($data['id'], $data['titulo'], $data['imagen'])) {
                 $manga_id = $data['id'];
                 $titulo = $data['titulo'];
                 $imagen = $data['imagen'];
 
-                $favoritos = new Favoritos();
+                if ($this->favoritos->verificarFavorito($usuario_id, $manga_id)) {
+                    // Ya está en favoritos, eliminarlo
+                    $resultado = $this->favoritos->eliminarFavorito($usuario_id, $manga_id);
 
-                $mangaExistente = $favoritos->verificarFavorito($usuario_id, $manga_id);
-        
-                if ($mangaExistente) 
-                {
-                    echo json_encode(['success' => false, 'message' => 'Este manga ya está en tus favoritos.']);
-                } 
-                else 
-                {
-                $resultado = $favoritos->agregarFavoritos($usuario_id, $manga_id, $titulo, $imagen);
-                if ($resultado) 
-                {
-                    echo json_encode(['success' => true]);
-                } 
-                else 
-                {
-                    echo json_encode(['success' => false, 'message' => 'No se pudo agregar a favoritos']);
+                    if ($resultado) {
+                        echo json_encode(['success' => true, 'message' => 'Manga eliminado de favoritos', 'estado' => 'eliminado']);
+                    } else {
+                        echo json_encode(['success' => false, 'message' => 'Error al eliminar el manga de favoritos']);
+                    }
+                } else {
+                    // No está en favoritos, agregarlo
+                    $resultado = $this->favoritos->agregarFavoritos($usuario_id, $manga_id, $titulo, $imagen);
+
+                    if ($resultado) {
+                        echo json_encode(['success' => true, 'message' => 'Manga agregado a favoritos', 'estado' => 'agregado']);
+                    } else {
+                        echo json_encode(['success' => false, 'message' => 'Error al agregar el manga a favoritos']);
+                    }
                 }
-                }
-            }    
-            else 
-            {
-                echo json_encode(['success' => false, 'message' => 'Datos incompletos']);
-            }
-        } 
-        else 
-        {
-        echo json_encode(['success' => false, 'message' => 'Debe iniciar sesión para agregar favoritos']);
-        }
-    }
-    public function eliminarFavorito()
-    {
-        if (isset($_SESSION['usuario'])) {
-        $usuario_id = $_SESSION['usuario']['id'];
-        
-        // Recibimos los datos enviados desde el frontend (JavaScript)
-        $data = json_decode(file_get_contents('php://input'), true);
-
-        if (isset($data['id'])) {
-            $manga_id = $data['id'];
-
-            // Crear una instancia del modelo Favoritos
-            $favoritos = new Favoritos();
-
-            // Eliminar el manga de los favoritos del usuario
-            $resultado = $favoritos->eliminarFavorito($usuario_id, $manga_id);
-
-            if ($resultado) {
-                echo json_encode(['success' => true]);
             } else {
-                echo json_encode(['success' => false, 'message' => 'No se pudo eliminar el manga de favoritos']);
+                echo json_encode(['success' => false, 'message' => 'Datos incompletos. Faltan ID, título o imagen']);
             }
         } else {
-            echo json_encode(['success' => false, 'message' => 'Datos incompletos']);
+            echo json_encode(['success' => false, 'message' => 'Debe iniciar sesión para modificar sus favoritos']);
         }
-        } 
-        else 
-        {
-        echo json_encode(['success' => false, 'message' => 'Debe iniciar sesión para eliminar favoritos']);
+    }
+    public function verificar()
+    {
+        if (isset($_SESSION['usuario'])) {
+            $usuario_id = $_SESSION['usuario']['id'];
+            $data = json_decode(file_get_contents('php://input'), true);
+
+            if (isset($data['id'])) {
+                $manga_id = $data['id'];
+                $existe = $this->favoritos->verificarFavorito($usuario_id, $manga_id);
+                echo json_encode(['favorito' => $existe]);
+            } else {
+                echo json_encode(['favorito' => false, 'message' => 'ID del manga no recibido']);
+            }
+        } else {
+            echo json_encode(['favorito' => false, 'message' => 'Usuario no autenticado']);
         }
     }
 }

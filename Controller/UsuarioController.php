@@ -77,13 +77,18 @@ class UsuarioController
                 } elseif ($usuarioExistenteNombre) {
                     echo "<script>alert('El nombre de usuario ya está en uso.'); window.location.href = '../public/index.php?controller=Usuario&action=mostrarFormularioRegistro';</script>";
                     exit;
-                } else {
-                    $resultado = $usuarioModel->crearUsuario($nombre, $email, $passwordHash, 'NO'); 
+                } 
+                else 
+                {
+                    $usuarioModel->crearUsuario($nombre, $email, $passwordHash, 'NO');
+                    $id = $usuarioModel->obtenerUsuarioPorNombre($nombre)['id'];
                     session_start();
                     if (!isset($_SESSION['usuario']) || $_SESSION['usuario']['admin'] !== 'SI') {
                         $_SESSION['usuario'] = [
+                            'id' => $id,
                             'nombre' => $nombre,
-                            'email' => $email
+                            'email' => $email,
+                            'admin' => 'NO',
                         ];
                         header('Location: index.php?controller=kiwi&action=paginaManga');
                     } else {
