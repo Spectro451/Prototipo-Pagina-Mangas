@@ -53,6 +53,22 @@ class kiwiController
         require '../view/admin/plantilla.php';
 
     }
+    public function quienesSomos() 
+    {
+        $title = "Quienes Somos?";
+        $styles = '<link rel="stylesheet" href="../view/stylesheets/Faq.css">';
+        
+        $contenido = '../view/manga/quienesSomos.php';
+        require '../view/admin/plantilla.php';
+    }
+    public function afiliados() 
+    {
+        $title = "Tiendas Afiliadas";
+        $styles = '<link rel="stylesheet" href="../view/stylesheets/Afiliados.css">';
+        
+        $contenido = '../view/manga/Afiliados.php';
+        require '../view/admin/plantilla.php';
+    }
     
 }
 ?>

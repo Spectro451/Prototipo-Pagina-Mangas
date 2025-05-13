@@ -5,7 +5,7 @@ session_start();
 <html lang="es">
 <head>
     <link href="https://fonts.googleapis.com/css2?family=Pixelify+Sans&display=swap" rel="stylesheet">
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@500;700&display=swap" rel="stylesheet">
     <link rel="icon" href="../view/img/kitsune.png" type="image/png">
     <link rel="stylesheet" href="../view/stylesheets/plantilla.css">
@@ -114,8 +114,8 @@ session_start();
         <div class="ContainerContacto">
             <div class="FooterColumna">
                 <h4>Información</h4>
-                <p><a href="#">Quiénes Somos?</a></p>
-                <p><a href="#">Tiendas Afiliadas</a></p>
+                <p><a href="index.php?controller=kiwi&action=quienesSomos">Quiénes Somos?</a></p>
+                <p><a href="index.php?controller=kiwi&action=afiliados">Tiendas Afiliadas</a></p>
                 <p><a href="https://www.nyan.cat/" target="_blank">Secretito</a></p>
             </div>
             <div class="FooterColumna">
@@ -128,9 +128,9 @@ session_start();
                 <h4>Contáctanos</h4>
                 <div class="Social">
                     <p><a href="https://facebook.com" target="_blank"><i class="fab fa-facebook"></i> KiwiMangas</a></p>
-                    <p><a href="https://twitter.com" target="_blank"><i class="fab fa-twitter"></i> Pilin</a></p>
-                    <p><a href="https://www.instagram.com/kiwimangas_/" target="_blank"><i class="fab fa-instagram"></i> @KiwiMangas</a></p>
-                    <p><a href="https://linkedin.com" target="_blank"><i class="fab fa-linkedin"></i> KiwiMangas</a></p>
+                    <p><a href="https://twitter.com" target="_blank"><i class="fab fa-twitter"></i> KiwiMangas</a></p>
+                    <p><a href="https://www.instagram.com/kiwimangas_/" target="_blank"><i class="fab fa-instagram"></i> @kiwimangas_</a></p>
+                    <p><a href="https://www.linkedin.com/in/kiwi-mangas-5a15ba365/" target="_blank"><i class="fab fa-linkedin"></i> KiwiMangas</a></p>
                 </div>
             </div>
             <div class="FooterColumna">

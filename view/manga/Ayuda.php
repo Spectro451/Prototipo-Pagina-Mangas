@@ -1,12 +1,4 @@
-<!DOCTYPE html>
-<html lang="es">
-<head>
-  <meta charset="UTF-8">
-  <title>Ayuda</title>
-  <link rel="stylesheet" href="Ayuda.css">
-</head>
 
-<body>
   <section class="contenedor-ayuda">
     <h1 class="titulo">¿Necesitas ayuda? 💌</h1>
 
@@ -33,5 +25,3 @@
       </form>
     </div>
   </section>
-</body>
-</html>

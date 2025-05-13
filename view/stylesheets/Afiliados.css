@@ -1,0 +1,13 @@
+.divAfiliados
+{
+    margin: 0 auto;
+    background-color: #fff0f5;
+    border: 2px solid #c71585;
+    border-radius: 15px;
+    padding: 20px;
+    box-shadow: 0 0 10px #f8c0d9;
+    text-align: center;
+    margin-bottom: 40px;
+    width: 100%;
+    max-width: 800px;
+}

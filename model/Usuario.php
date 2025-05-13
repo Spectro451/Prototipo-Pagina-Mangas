@@ -44,10 +44,15 @@ class Usuario
         $stmt->execute([$id]);
         return $stmt->fetch(PDO::FETCH_ASSOC);
     }
-        public function eliminarUsuario($id) {
-        $query = "DELETE FROM usuario WHERE id = ?";
-        $stmt = $this->pdo->prepare($query);
-        return $stmt->execute([$id]);
+    public function eliminarUsuario($id) 
+    {
+        $query1 = "DELETE FROM favoritos WHERE usuario_id = ?";
+        $stmt1 = $this->pdo->prepare($query1);
+        $stmt1->execute([$id]);
+
+        $query2 = "DELETE FROM usuario WHERE id = ?";
+        $stmt2 = $this->pdo->prepare($query2);
+        return $stmt2->execute([$id]);
     }
     public function modificarUsuario($id, $nombre, $email, $admin)
     {

@@ -1,0 +1,49 @@
+table {
+    width: 90%;
+    margin: 30px auto;
+    border-collapse: collapse;
+    font-family: 'Quicksand', sans-serif;
+    box-shadow: 0 0 10px #f8c0d9;
+    border-radius: 12px;
+    overflow: hidden;
+}
+
+th, td {
+    padding: 15px;
+    text-align: center;
+    border-bottom: 1px solid #f2a7c2;
+}
+
+th {
+    background-color: #ffe4ec;
+    color: #c71585;
+    font-size: 1.1em;
+}
+
+td {
+    background-color: #fff0f5;
+}
+
+tr:hover td {
+    background-color: #fce6f1;
+}
+
+button#modificar,
+button#eliminar 
+{
+    padding: 5px 10px;
+    border: none;
+    border-radius: 8px;
+    background-color: #c71585;
+    color: white;
+    font-weight: bold;
+    cursor: pointer;
+    margin: 2px;
+    transition: background-color 0.3s;
+}
+
+button#modificar:hover,
+button#eliminar:hover 
+{
+    background-color: #a0146b;
+}

@@ -1,4 +1,4 @@
-<h3>Modificar Usuario</h3>
+<h2>Modificar Usuario</h2>
     <?php if (isset($usuarios)): ?>
     <form action="../public/index.php?controller=Usuario&action=guardarModificacionUsuario" method="POST">
         <input type="hidden" name="id_usuario" value="<?= $usuarios['id'] ?>">

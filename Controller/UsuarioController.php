@@ -102,7 +102,8 @@ class UsuarioController
     }
     public function listarUsuarios() 
     {
-
+        $styles = '<link rel="stylesheet" href="../view/stylesheets/Listar.css">';
+        $title = "ListaUsuarios";
         $usuarioModel = new Usuario();
         $usuarios = $usuarioModel->listarUsuario();
         $contenido = '../view/usuario/listar.php';
@@ -110,12 +111,15 @@ class UsuarioController
     }
     public function registro() 
     {
+        $styles = '<link rel="stylesheet" href="../view/stylesheets/Registrar.css">';
         $title = "Registro";
         $contenido = '../view/usuario/crear.php';
         require '../view/admin/plantilla.php';
     }
     public function modificarUsuario() 
     {
+        $title = "Modificar";
+        $styles = '<link rel="stylesheet" href="../view/stylesheets/Modificar.css">';
         $id = $_POST['id_usuario'] ?? 0;
         $usuario = new Usuario();
         $usuarios = $usuario->obtenerUsuarioid($id);

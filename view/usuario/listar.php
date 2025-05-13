@@ -9,7 +9,6 @@
             <th>Acciones</th>
         </tr>
         <?php 
-        // Aquí iría el código para obtener y mostrar los usuarios desde el modelo
         foreach ($usuarios as $usuario): ?>
             <tr>
                 <td><?= htmlspecialchars($usuario['nombre']) ?></td>
@@ -19,18 +18,15 @@
                     <!-- Formulario para Modificar Usuario -->
                     <form action="../public/index.php?controller=Usuario&action=modificarUsuario" method="POST" style="display:inline;">
                         <input type="hidden" name="id_usuario" value="<?= $usuario['id'] ?>">
-                        <button type="submit">Modificar</button>
+                        <button type="submit" id="modificar">Modificar</button>
                     </form>
 
                     <!-- Formulario para Eliminar Usuario -->
                     <form action="../public/index.php?controller=Usuario&action=eliminarUsuario" method="POST" style="display:inline;">
                         <input type="hidden" name="id_usuario" value="<?= $usuario['id'] ?>">
-                        <button type="submit" onclick="return confirm('¿Eliminar este usuario?')">Eliminar</button>
+                        <button type="submit" id="eliminar" onclick="return confirm('¿Eliminar este usuario?')">Eliminar</button>
                     </form>
                 </td>
             </tr>
         <?php endforeach; ?>
     </table>
-
-    <!-- Formulario de Modificación de Usuario (solo si se selecciona un usuario a modificar) -->
-    

@@ -1,0 +1,57 @@
+form 
+{
+    width: 400px;
+    margin: 30px auto;
+    background-color: #fff0f5;
+    padding: 25px;
+    border: 2px solid #c71585;
+    border-radius: 15px;
+    box-shadow: 0 0 10px #f8c0d9;
+    font-family: 'Quicksand', sans-serif;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+form input[type="text"],
+form input[type="email"],
+form select 
+{
+    padding: 10px;
+    border: 1px solid #f2a7c2;
+    border-radius: 8px;
+    background-color: #fff;
+    font-size: 1em;
+    color: #ffb7ff;
+}
+
+form input[type="text"]:hover,
+form input[type="email"]:hover,
+form select:hover 
+{
+    background-color: #fff;
+    border-color: #f2a7c2;
+    box-shadow: none;
+    outline: none;
+    transform: scale(1.0);
+    color: #ff69b4;
+}
+form button 
+{
+    padding: 10px;
+    border: none;
+    border-radius: 8px;
+    background-color: #c71585;
+    color: white;
+    font-weight: bold;
+    font-size: 1em;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+form button:hover 
+{
+    background-color: #a0146b;
+}
+
+
