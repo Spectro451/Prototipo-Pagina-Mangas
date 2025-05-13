@@ -14,13 +14,13 @@
                     </fieldset>
                 </form>
                 <form id="form-filtros2">
-                    <fieldset class="filtro-categoria" id="filtro-tipo">
+                    <fieldset class="filtro-categoria" id="filtro-tipo2">
                         <legend>Tipo</legend>
                         <label><input type="checkbox" name="tipo" value="paja" onchange="aplicarNsfw()"> Paja</label><br>
                     </fieldset>
                 </form>
-                <form id="form-filtros2">
-                    <fieldset class="filtro-categoria" id="filtro-tipo">
+                <form id="form-filtros3">
+                    <fieldset class="filtro-categoria" id="filtro-tipo3">
                         <legend>Tipo</legend>
                         <label><input id="fechaInicio" type="text" name="tipo" value="1934" style="width: 40px;" onkeydown="cambioFecha(event)"> Año de Inicio</label><br>
                         <label><input id="fechaFinal" type="text" name="tipo" value="2025" style="width: 40px;" onkeydown="cambioFecha(event)"> Año ......Final</label><br> <!-- Alineado con psint -->
