@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 11-05-2025 a las 06:04:05
+-- Tiempo de generación: 13-05-2025 a las 01:13:48
 -- Versión del servidor: 10.4.32-MariaDB
 -- Versión de PHP: 8.2.12
 
@@ -40,7 +40,10 @@ CREATE TABLE `favoritos` (
 --
 
 INSERT INTO `favoritos` (`id`, `usuario_id`, `manga_id`, `titulo`, `imagen`) VALUES
-(1, 5, 1145, '...no Onna', 'https://cdn.myanimelist.net/images/manga/2/817.jpg');
+(1, 5, 1145, '...no Onna', 'https://cdn.myanimelist.net/images/manga/2/817.jpg'),
+(3, 7, 2, 'Berserk', 'https://cdn.myanimelist.net/images/manga/1/157897.jpg'),
+(5, 7, 4632, 'Oyasumi Punpun', 'https://cdn.myanimelist.net/images/manga/3/266834.jpg'),
+(6, 7, 642, 'Vinland Saga', 'https://cdn.myanimelist.net/images/manga/2/188925.jpg');
 
 -- --------------------------------------------------------
 
@@ -68,7 +71,8 @@ INSERT INTO `usuario` (`id`, `nombre`, `email`, `password`, `admin`) VALUES
 (10, 'fawdaz<x<da', 'kiwipoto123@gmail.com', '$2y$10$q.NoVPFoyGAwecRl28msGOiFujPuv2sgm9JilMj44PcwV2w54dMUG', 'NO'),
 (11, 'fnwauiodboia', 'peo@gmail.com', '$2y$10$U7yorRwz16zbxL8/tKWnk.EaDHwoJ/HURotgfXaBAo0QAfFm1H5Im', 'NO'),
 (12, 'pilinpi', 'poto21312@gmail.com', '$2y$10$FyKr0jKxWp8H7Z.diP37G.xnIbvvocnDLhwbFyDXuigCrvNLsR95W', 'NO'),
-(14, 'reyAdmin', 'ReyAdmin', 'SuperAdmin', 'SI');
+(14, 'reyAdmin', 'ReyAdmin', 'SuperAdmin', 'SI'),
+(15, 'mwapfnwoia', 'fniowandoa@gmail.copo', '$2y$10$OtcOsgr0CT2mRv/kQlDjXuOBmQs1z0MvQvT20YNHCiaP1ANFKouQW', 'NO');
 
 --
 -- Índices para tablas volcadas
@@ -95,13 +99,13 @@ ALTER TABLE `usuario`
 -- AUTO_INCREMENT de la tabla `favoritos`
 --
 ALTER TABLE `favoritos`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT de la tabla `usuario`
 --
 ALTER TABLE `usuario`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
 
 --
 -- Restricciones para tablas volcadas

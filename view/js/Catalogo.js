@@ -204,9 +204,6 @@ function cambiarPagina(nuevaPagina) {
     cargarmangas();
   }
 }
-if (!params.has("categoria") && !params.has("q")) {
-  window.location.href = window.location.pathname + "?categoria=populares";
-}
 
 function aplicarFiltros() {
   const form = document.getElementById("form-filtros");

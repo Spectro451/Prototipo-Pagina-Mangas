@@ -6,7 +6,7 @@ const idManga = parametros.get('id');
 const imagenManga= document.querySelector('.imagenManga');
 const detallesManga = document.querySelector('.detallesManga');
 const estadisticas = document.querySelector('.estadisticas');
-const botonFavorito = document.querySelector('.favoritos');
+const divFavorito = document.querySelector('.favoritos')
 if (idManga) {
     fetch(`https://api.jikan.moe/v4/manga/${idManga}/full`)
         .then(response => response.json())
@@ -32,12 +32,65 @@ if (idManga) {
                     .join('');
             }
 
-            botonFavorito.innerHTML=
+            divFavorito.innerHTML = 
             `
-            <button id="btn-favorito">❤️ Añadir a Favoritos</button> 
+                <button id="btn-Favorito"></button>
             `;
-            document.getElementById('btn-favorito').addEventListener('click', function() {agregarAFavoritos(manga);
+            const btnFavorito = document.getElementById('btn-Favorito');
+            fetch('/manga/public/index.php?controller=favoritos&action=verificar', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({ id: idManga })
+            })
+            .then(response => response.json())
+            .then(data => {
+                if (data.favorito) {
+                    btnFavorito.textContent = "Eliminar de Favoritos";
+                    btnFavorito.style.backgroundColor = "red";
+                } else {
+                    btnFavorito.textContent = "Agregar a Favoritos";
+                    btnFavorito.style.backgroundColor = "green";
+                }
+            })
+            .catch(error => {
+                console.error('Error al verificar estado de favorito:', error);
             });
+            btnFavorito.addEventListener('click', function () {
+                fetch('/manga/public/index.php?controller=favoritos&action=toggleFavorito', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify({
+                        id: idManga,
+                        titulo: manga.titles[0].title,
+                        imagen: manga.images.jpg.image_url
+                    })
+                })
+                .then(response => response.json())
+                .then(data => {
+                    if (data.success) {
+                        alert(data.message);
+
+                        if (data.estado === 'agregado') {
+                            btnFavorito.textContent = "Eliminar de Favoritos";
+                            btnFavorito.style.backgroundColor = "red";
+                        } else if (data.estado === 'eliminado') {
+                            btnFavorito.textContent = "Agregar a Favoritos";
+                            btnFavorito.style.backgroundColor = "green";
+                        }
+                    } else {
+                        alert('Error: ' + data.message);
+                    }
+                })
+                .catch(error => {
+                    console.error('Error al modificar favorito:', error);
+                });
+            });
+
+
             img.src=manga.images.jpg.image_url;
             img.alt=manga.title;
             
@@ -223,45 +276,9 @@ function redirigirBusqueda()
         window.location.href = `index.php?controller=kiwi&action=catalogo&q=${encodeURIComponent(titulo)}`; // Redirigir con el parámetro de búsqueda
     }
 }
-function agregarAFavoritos(manga) {
-    // Obtener el ID del usuario (ya está inyectado en JavaScript)
-    const usuarioId = window.usuario_id; // Ahora tenemos el ID del usuario
 
-    if (!usuarioId) {
-        alert('Debes iniciar sesión para agregar un manga a favoritos.');
-        return;
-    }
 
-    const favoritoData = {
-        usuario_id: usuarioId,  // Añadimos el ID del usuario
-        id: manga.mal_id,
-        titulo: manga.title,
-        imagen: manga.images.jpg.image_url
-    };
 
-    // Ver los datos que se enviarán al servidor
-    console.log('Datos a enviar:', favoritoData);
 
-    fetch('index.php?controller=favoritos&action=agregar', {
-        method: 'POST',
-        headers: {
-            'Content-Type': 'application/json',
-        },
-        body: JSON.stringify(favoritoData)
-    })
-    .then(response => response.json())
-    .then(data => {
-        console.log('Datos recibidos:', data);
-        if (data.success) {
-            alert('¡Manga añadido a tus favoritos!');
-        } else {
-            alert('Hubo un error al añadir el manga a favoritos.');
-        }
-    })
-    .catch(error => {
-        console.error('Error al agregar manga a favoritos:', error);
-        alert('Hubo un problema al intentar agregar el manga a favoritos.');
-    });
-}
 
 

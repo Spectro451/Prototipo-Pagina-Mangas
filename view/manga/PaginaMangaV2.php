@@ -56,7 +56,6 @@
         </a>
     </div><!--Fin del Contenedor MangaFoto-->
 </div><!--Fin del ContenedorImagenes-->
-</main><!--Fin Seccion Principal-->
 <section class="Populares">
     <div class="Container">
         <p>Populares🔥</p>
