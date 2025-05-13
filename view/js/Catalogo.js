@@ -110,8 +110,8 @@ async function cargarmangas() {
       break;
   }
   const url = new URL(window.location.href);
-  url.search = ''; // Clear search params
-  history.replaceState(null, '', url);
+url.searchParams.set("pagina", currentPage); // ejemplo
+history.replaceState(null, '', url);
 }
 async function buscarMangas(resetPage = true) {
   Buscado = true;

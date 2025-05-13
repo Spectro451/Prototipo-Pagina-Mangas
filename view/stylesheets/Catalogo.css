@@ -184,7 +184,7 @@
     {
         grid-column: 1 / 7;
         flex-direction:row;
-        justify-content: space-between;             /* Asegura que ocupe todo el ancho disponible */
+        justify-content: space-between;
     }
     .Busqueda 
     {
