@@ -44,8 +44,15 @@ class kiwiController
         $contenido = '../view/manga/Personajes.php';
         require '../view/admin/plantilla.php';
     }
-    
 
-   
+    public function ayuda(){
+        $title = "Ayuda";
+        $styles = '<link rel="stylesheet" href="../view/stylesheets/Ayuda.css">';
+        $scripts = '<script src="../view/js/Ayuda.js"></script>';
+        $contenido = '../view/manga/Ayuda.php';
+        require '../view/admin/plantilla.php';
+
+    }
+    
 }
 ?>

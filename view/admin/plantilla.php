@@ -84,7 +84,7 @@ session_start();
             </div><!--Fin Submenu-->
         </li>
         <li><a href="index.php?controller=kiwi&action=catalogo&categoria=populares">CATALOGO</a></li><!--Enlace a catalogo-->
-        <li><a href="#">AYUDA</a></li><!--Enlace a Ayuda-->
+        <li><a href="index.php?controller=kiwi&action=ayuda">AYUDA</a></li><!--Enlace a Ayuda-->
         
         <?php if (!empty($_SESSION['usuario']['admin']) && $_SESSION['usuario']['admin'] === 'SI'): ?>
             <li>

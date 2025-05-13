@@ -1,0 +1,78 @@
+/* Reglas para pantallas de un ancho maximo*/
+@media only screen and (max-width: 1000px){}
+
+.contenedor-ayuda {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 30px 20px;
+}
+
+.titulo {
+  text-align: center;
+  font-size: 32px;
+  margin-bottom: 30px;
+}
+
+.cuadro-info-contacto {
+  background-color: #fff0f5;
+  border: 2px solid #c71585;
+  border-radius: 15px;
+  padding: 20px;
+  box-shadow: 0 0 10px #f8c0d9;
+  text-align: center;
+  margin-bottom: 40px;
+}
+
+.cuadro-info-contacto h2 {
+  margin-bottom: 15px;
+}
+
+.cuadro-info-contacto p {
+  margin: 8px 0;
+  font-size: 16px;
+}
+
+.formulario-ayuda h2 {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.formulario-ayuda form {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  background-color: #fff0f5;
+  padding: 25px;
+  border-radius: 20px;
+  border: 2px solid #c71585;
+  box-shadow: 0 0 10px #f8c0d9;
+}
+
+.formulario-ayuda label {
+  font-weight: bold;
+}
+
+.formulario-ayuda input,
+.formulario-ayuda textarea {
+  padding: 10px;
+  border-radius: 10px;
+  border: 1px solid #c71585;
+  font-size: 14px;
+  color: #333;
+}
+
+.formulario-ayuda button {
+  background-color: #c71585;
+  color: white;
+  border: none;
+  padding: 12px;
+  font-size: 16px;
+  border-radius: 15px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.formulario-ayuda button:hover {
+  background-color: #a1126e;
+}
+
