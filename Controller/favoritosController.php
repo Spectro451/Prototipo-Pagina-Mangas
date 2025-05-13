@@ -65,5 +65,21 @@ class favoritosController
             echo json_encode(['favorito' => false, 'message' => 'Usuario no autenticado']);
         }
     }
+    public function listarFavoritos() 
+    {
+        
+        
+        $usuario_id = $_SESSION['usuario']['id'];
+        
+        $modelo = new Favoritos();
+        $favoritos = $modelo->listarFavoritos($usuario_id);
+        
+        $title = "Favoritos";
+        $styles = '<link rel="stylesheet" href="../view/stylesheets/Favoritos.css">';
+        $scripts = '<script src="../view/js/Favoritos.js"></script>';
+        $contenido = '../view/favoritos/Favoritos.php';
+        require '../view/admin/plantilla.php';
+        
+    }
 }
 ?>
