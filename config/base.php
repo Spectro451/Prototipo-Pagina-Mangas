@@ -4,7 +4,7 @@ error_reporting(1);
 
 function Conexion()
 {
-    $host = "";
+    $host = "localhost";
     $dbname ="manga";
     $username = "root";
     $password = "";

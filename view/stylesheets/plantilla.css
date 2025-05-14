@@ -2,7 +2,7 @@
 body {
     margin: 0;/*Declara el margen en 0*/
     font-family: 'Arial', sans-serif;/* Usa la siguiente fuente */
-    background-color: blanco; /* Declara el color de fondo en blanco*/
+    background-color: white; /* Declara el color de fondo en blanco*/
     text-align: center; /* Centra el texto del contenido*/
 }
 
@@ -16,11 +16,14 @@ body {
     font-size: 12px;
     letter-spacing: 1px;
   }
-
+.dark-mode h3, .login-desplegable {
+    color: #f1c40f; /* títulos dorados */
+}
     /* Modo oscuro para el fondo y texto */
-  .dark-mode {
+.dark-mode 
+{
     background-color: #121212; /*Color oscuro*/
-    color: #f0e6ff; /*Color claro*/
+    
 }
 
 input, button { /* Aplica todos los estilos que vienen a continuación tanto a los elementos <input> como a los <button> del HTML.*/
@@ -44,7 +47,9 @@ input, button { /* Aplica todos los estilos que vienen a continuación tanto a l
     color: #ffb7ff;
     border: 1px solid #ffb7ff;
 }
-
+.dark-mode .menu ul li a:hover {
+    color: #f1c40f /* Declara el color*/
+}
 /* 💫 Efecto al pasar el mouse (hover) */
 input:hover, button:hover {
     background-color: #ffe6ff; /* un rosadito más claro */
