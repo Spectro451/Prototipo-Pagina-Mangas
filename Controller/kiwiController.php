@@ -70,5 +70,20 @@ class kiwiController
         require '../view/admin/plantilla.php';
     }
     
+    public function politicas(){
+        $title = "Politicas";
+        $styles = '<link rel="stylesheet" href="../view/stylesheets/Politicas.css">';
+
+        $contenido = '../view/manga/Politicas.php';
+        require '../view/admin/plantilla.php';
+    }
+
+    public function terminos(){
+        $title = "Terminos";
+        $styles = '<link rel="stylesheet" href="../view/stylesheets/Terminos.css">';
+
+        $contenido = '../view/manga/Terminos.php';
+        require '../view/admin/plantilla.php';
+    }
 }
 ?>

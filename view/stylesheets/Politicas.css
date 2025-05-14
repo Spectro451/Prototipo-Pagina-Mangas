@@ -1,0 +1,80 @@
+
+.pagina-devoluciones {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 20px;
+  font-family: 'Segoe UI', sans-serif;
+  background-color: #fffafc;
+  border-radius: 15px;
+  box-shadow: 0 4px 12px rgba(255, 105, 180, 0.1);
+}
+
+.pagina-devoluciones h1 {
+  color: #d63384;
+  font-size: 2em;
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.pagina-devoluciones h2 {
+  color: #ff69b4;
+  margin-top: 25px;
+  font-size: 1.3em;
+}
+
+.pagina-devoluciones p, .pagina-devoluciones li {
+  color: #333;
+  line-height: 1.6;
+  margin-bottom: 10px;
+}
+
+.pagina-devoluciones a {
+  color: #d63384;
+  text-decoration: underline;
+}
+
+.dark-mode .pagina-devoluciones {
+  background-color: #292929;
+  box-shadow: 0 4px 12px rgba(255, 183, 255, 0.2);
+  color: #ffb7ff;
+}
+
+.dark-mode .pagina-devoluciones h1 {
+  color: #f1c40f;
+}
+
+.dark-mode .pagina-devoluciones h2 {
+  color: #ffd700;
+}
+
+.dark-mode .pagina-devoluciones p,
+.dark-mode .pagina-devoluciones li {
+  color: #ffb7ff;
+}
+
+.dark-mode .pagina-devoluciones a {
+  color: #f1c40f;
+}
+
+/* Estilos para pantallas más pequeñas */
+@media only screen and (max-width: 1000px) {
+  .pagina-devoluciones {
+    padding: 15px; /* Menos padding para ajustarse a pantallas pequeñas */
+  }
+
+  .pagina-devoluciones h1 {
+    font-size: 1.8em; /* Reducir el tamaño del encabezado principal */
+  }
+
+  .pagina-devoluciones h2 {
+    font-size: 1.1em; /* Reducir el tamaño del subencabezado */
+  }
+
+  .pagina-devoluciones p, .pagina-devoluciones li {
+    font-size: 0.95em; /* Reducir el tamaño del texto para mayor legibilidad */
+  }
+  
+  .pagina-devoluciones a {
+    font-size: 0.95em; /* Reducir el tamaño de los enlaces */
+  }
+}

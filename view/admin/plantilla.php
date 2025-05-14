@@ -120,9 +120,9 @@ session_start();
             </div>
             <div class="FooterColumna">
                 <h4>Servicio al Cliente</h4>
-                <p><a href="#">Política de Devoluciones</a></p>
-                <p><a href="#">Términos y condiciones</a></p>
-                <p><a href="#">Condiciones GiftCard</a></p>
+                <p><a href="index.php?controller=kiwi&action=politicas">Política de Devoluciones</a></p>
+                <p><a href="index.php?controller=kiwi&action=terminos">Términos y condiciones</a></p>
+                
             </div>
             <div class="FooterColumna">
                 <h4>Contáctanos</h4>
