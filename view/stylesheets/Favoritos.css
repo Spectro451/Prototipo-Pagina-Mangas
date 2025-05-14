@@ -111,7 +111,31 @@
     margin: 5px auto;
     text-align:center;
 }
+.Favorito
+{
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background-color: #ffffffcc;
+    padding: 6px;
+    border-radius: 100%;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+    display: none;
+}
+.Popular:hover .Favorito 
+{
+  display: block;
+}
+.Favorito i {
+    transition: transform 0.3s ease;
+    font-size: 24px;
+}
 
+.Favorito:hover i {
+    transform: scale(1.2);
+}
 
 /* Reglas para pantallas de un ancho maximo*/
 @media only screen and (max-width: 1000px)

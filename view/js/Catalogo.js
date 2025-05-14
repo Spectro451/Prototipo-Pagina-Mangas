@@ -73,7 +73,7 @@ async function agregarAlCatalogo(url) {
                             </a>
                         `;
        
-            fetch('/manga/public/index.php?controller=favoritos&action=verificar', 
+            fetch('index.php?controller=favoritos&action=verificar', 
               {
                 method: 'POST',
                 headers: 
@@ -104,7 +104,7 @@ async function agregarAlCatalogo(url) {
               });
             Favorito.addEventListener('click', function () 
             {
-              fetch('/manga/public/index.php?controller=favoritos&action=toggleFavorito', {
+              fetch('index.php?controller=favoritos&action=toggleFavorito', {
                   method: 'POST',
                   headers: {
                       'Content-Type': 'application/json'
