@@ -42,6 +42,34 @@ input:hover, button:hover {
 .dark-mode h3, .login-desplegable {
     color: #f1c40f; /* títulos dorados */
 }
+/* Modo oscuro */
+.dark-mode .formulario-login {
+    background-color: #121212; /* Fondo oscuro */
+}
+
+.dark-mode .formulario-login input[type="email"],
+.dark-mode .formulario-login input[type="password"] {
+    background-color: #292929; /* Fondo oscuro para inputs */
+    border: 1px solid #ffb7ff; /* Bordes en rosa pastel */
+    color: #ffb7ff; /* Texto en rosa pastel */
+}
+
+.dark-mode .formulario-login button[type="submit"],
+.dark-mode .formulario-login button[type="button"] {
+    background-color: #c71585; /* Botón rosa */
+    color: white;
+}
+
+.dark-mode .formulario-login input[type="email"]:focus,
+.dark-mode .formulario-login input[type="password"]:focus {
+    border-color: #f1c40f; /* Borde dorado al enfocar */
+}
+
+.dark-mode .formulario-login button[type="submit"]:hover,
+.dark-mode .formulario-login button[type="button"]:hover {
+    background-color: #a3136f; /* Hover en rosa más oscuro */
+}
+
     /* Modo oscuro para el fondo y texto */
 .dark-mode 
 {

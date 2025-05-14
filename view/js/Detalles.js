@@ -175,14 +175,14 @@ if (idManga) {
             sinopsis.innerHTML =
             `
             
-            <h4>Sinopsis</h4> 
+            <h3>Sinopsis</h3> 
             <p>${sinopsisFormateada || 'Desconocida'}</p>
             <hr>
             `;
             relacionados.innerHTML =
             relaciones?.length > 0 ? 
             `
-                <h4>Relacionado</h4> 
+                <h3>Relacionado</h3> 
                 <div class="relaciones-container">
                     ${relaciones
                         .map(rel => `
@@ -226,7 +226,7 @@ if (idManga) {
                 if (data.data && data.data.length > 0) {
                     const reseñas = data.data.slice(0, 3); // Limita a 3 reseñas
                     foro.innerHTML = `
-                        <h4>Reseñas</h4>
+                        <h3>Reseñas</h3>
                         <ul>
                             ${reseñas.map(review => {
                                 let reseñaFormateada = review.review

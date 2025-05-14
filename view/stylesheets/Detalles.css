@@ -116,11 +116,11 @@
 {
     border-left: none;
 }
-#sinopsis h4
+#sinopsis h3
 {
     margin: 10px auto;
 }
-#relacionados h4
+#relacionados h3
 {
     margin: 10px auto;
 }
@@ -195,7 +195,7 @@
     padding: 10px 20px;
     margin: 15px 0;
 }
-#foro  h4 
+#foro  h3 
 {
     display: block;
     border-bottom: 2px solid #ccc;
@@ -230,6 +230,130 @@
     font-size: 12px;
     color: #999;
 }
+/* Modo oscuro */
+.dark-mode .Detalles {
+    background-color: #292929; /* Fondo oscuro */
+    border: 1px solid #ffb7ff; /* Bordes en rosa pastel */
+}
+
+.dark-mode .informacionPersonaje {
+    color: #ffb7ff; /* Texto en rosa pastel */
+}
+
+.dark-mode .imagenManga img {
+    border: 5px solid #ffb7ff; /* Bordes en rosa pastel */
+}
+
+.dark-mode .detallesManga h4 {
+    color: #ffb7ff; /* Títulos en rosa pastel */
+}
+
+.dark-mode .detallesManga ul {
+    color: #ffb7ff; /* Texto de lista en rosa pastel */
+}
+
+.dark-mode .Info {
+    color: #ffb7ff; /* Texto en rosa pastel */
+}
+
+.dark-mode .Info a {
+    color: #ffb7ff; /* Enlaces en rosa pastel */
+}
+
+.dark-mode .Info strong {
+    color: #f1c40f; /* Títulos en dorado */
+}
+
+.dark-mode .Info span {
+    color: #ffb7ff; /* Texto de información en rosa pastel */
+}
+
+.dark-mode .score {
+    color: #f1c40f; /* Subrayado en dorado */
+}
+
+.dark-mode .EstadisticasContainer {
+    background-color: #292929; /* Fondo oscuro */
+    border: 2px solid #ffb7ff; /* Bordes en rosa pastel */
+}
+
+.dark-mode .EstadisticaColumna {
+    color: #ffb7ff; /* Texto en rosa pastel */
+}
+
+.dark-mode .EstadisticaColumna:first-child {
+    border-left: none;
+}
+
+.dark-mode #sinopsis h3,
+.dark-mode #relacionados h3 {
+    color: #f1c40f; /* Títulos en rosa pastel */
+}
+
+.dark-mode #sinopsis p
+{
+    color: #ffb7ff; /* Títulos en rosa pastel */
+}
+.dark-mode .relacionTipo {
+    background-color: #292929; /* Fondo oscuro */
+    color: #ffb7ff; /* Texto en rosa pastel */
+}
+
+.dark-mode .relacionTipo strong {
+    color: #f1c40f; /* Títulos en dorado */
+}
+
+.dark-mode #personajes {
+    background-color: #121212; /* Fondo oscuro */
+}
+
+.dark-mode #personajes div {
+    background-color: #292929; /* Fondo oscuro */
+    border: 1px solid #ffb7ff; /* Bordes en rosa pastel */
+}
+
+.dark-mode #personajes div:hover {
+    transform: scale(1.2);
+    box-shadow: 0 0 10px rgba(255, 183, 255, 0.3); /* Sombra suave en rosa pastel */
+}
+
+.dark-mode #personajes img {
+    border-radius: 25px;
+}
+
+.dark-mode #personajes p {
+    color: #ffb7ff; /* Texto en rosa pastel */
+}
+
+.dark-mode #foro {
+    background-color: #292929; /* Fondo oscuro */
+    border: 1px solid #ffb7ff; /* Bordes en rosa pastel */
+}
+
+.dark-mode #foro strong
+ {
+    color: #f1c40f;
+}
+.dark-mode #foro h3 {
+    color: #ffb7ff; /* Título en rosa pastel */
+}
+.dark-mode #foro p
+{
+    color: #ffb7ff;
+}
+.dark-mode #foro li {
+    background-color: #292929; /* Fondo oscuro */
+    border: 1px solid #ffb7ff; /* Bordes en rosa pastel */
+}
+
+.dark-mode #foro li p:first-of-type {
+    color: #f1c40f; /* Texto en dorado */
+}
+
+.dark-mode #foro li em {
+    color: #ffb7ff; /* Texto en rosa pastel */
+}
+
 /* Reglas para pantallas de un ancho maximo*/
 @media only screen and (max-width: 1000px)
 {
@@ -296,7 +420,7 @@
     {
         font-size: 18px;
     }
-    #foro  h4 
+    #foro  h3 
     {
         font-size: 22px;
     }
@@ -318,7 +442,7 @@
     #foro li p:first-of-type 
     {
         margin: 10px 0;
-        font-size: 14px;
+        font-size: 18px;
         color: #666;
     }
     #foro li em {

@@ -1,202 +1,5 @@
 
-.dark-mode .itemAnime,
-.dark-mode .itemManga,
-.dark-mode .informacionContainer,
-.dark-mode .atributosColumna,
-.dark-mode .biografiaColumna {
-    background-color: #1e1e1e;
-    color: #f0e6ff;
-    border: 1px solid #ffb7ff;
-    border-radius: 10px;
-    padding: 10px;
-    margin-bottom: 10px;
-}
 
-/* Style del contenedor del logo*/
-.logo-container 
-{
-    margin: 0 auto;  /* Declara el margen en 0 a los lados y automatico verticalmente */
-    height: fit-content;  /* La altura se ajustara al tamaño usado*/
-}
- /* Style de la imagen dentro del logo*/
-.logo-container img 
-{
-    height: 100px; /* Ajusta el tamaño según sea necesario */
-}
-
-/*Style del login*/
-.iconos-superiores {
-    display: flex;
-    justify-content: flex-end;
-    gap: 20px;
-    align-items: center;
-    margin: 0 20px;
-    background-color: white;
-    font-family: 'Quicksand', sans-serif;
-  }
-  
-  .login-desplegable {
-    position: relative;
-    cursor: pointer;
-    padding: 10px 20px;
-  }
-  
-  .login-desplegable i {
-    
-    color: #ff69b4;
-  }
-  
-  .formulario-login {
-    display: none;
-    position: absolute;
-    top: 38px;
-    right: 0;
-    background: #ffe6f2;
-    padding: 10px;
-    border: 2px solid #ff69b4;
-    border-radius: 10px;
-    width: 250px;
-    z-index: 9999999;
-  }
-  
-  .formulario-login input {
-    display: block;
-    width: 100%;
-    margin-bottom: 10px;
-    padding: 6px;
-    border: 1px solid #ffb6c1;
-    border-radius: 6px;
-  }
-  
-  .formulario-login button {
-    width: 100%;
-    background-color: #ff69b4;
-    color: white;
-    border: none;
-    padding: 8px;
-    border-radius: 6px;
-    cursor: pointer;
-  }
-  
-  .login-desplegable:hover .formulario-login {
-    display: block;
-  }
-  
-  .carrito {
-    cursor: pointer;
-    font-size: 16px;
-    color: #ff69b4;
-  }
-
-  .formulario-login input, .formulario-login button {
-  width: 100%;
-  box-sizing: border-box; /* Para que el padding no agrande más la caja */
-}
-
-/* Style del menu*/
-.menu 
-{
-    background-color: rgba(255, 232, 251); /* Declara el color del fondo*/
-    box-shadow: 0 2px 4px rgba(0,0,0,0.1);  /* Le da una sombra*/
-    padding: 10px 0;/*Le da un padding vertical y horizontal */
-}
-/* Style de la lista no numerada*/
-.menu ul 
-{
-    list-style: none;/* Le quita el estilo a la lista (•)*/
-    display:flex;/* Declara el display como un flex*/
-    justify-content: center; /* Centra los elementos horizontalmente */
-    align-items: center;/* Centra los elementos verticalmente */
-    margin: 0;/* Declara el margen en 0*/
-    padding: 0;/* Declara el padding en 0*/
-}
-/* Style de la lista dentro de la lista*/
-.menu ul li 
-{
-    padding: 10px 25px;/* Declara el padding*/
-    position: relative;/* Declara la Posicion como relativa*/
-    z-index: 99999;/* Le da un index sobre todos los elementos*/
-}
-/* Style de las referencias dentro de la lista*/
-.menu ul li a 
-{
-    text-decoration: none;/* Le quita el diseño a las referencias*/
-    color: rgba(255, 109, 228 ); /* Declara el color*/
-    font-weight: bold;/* Le da un relleno a la letra*/
-    padding: 15px 0;/* Declara el padding*/
-    display: block;/* Declara el display como un block*/
-    transition: all 0.4s;/* Declara el tiempo de la animacion*/
-}
-/* Style del efecto hover de las referencias*/
-.menu ul li a:hover 
-{
-    color: rgba(147, 0, 255); /* Declara el color*/
-}
-/* Style del submenu*/
-.Submenu
-{
-    display: none;/* Lo declara invisible*/
-    border-radius: 12px;/* Declara el redondeo de los bordes*/
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);/* Le da una sombra*/
-    min-width: fit-content; /* El ancho minimo dependera del contenido*/
-    z-index: 999;/* Le da un index sobre los elementos*/
-}
-/* Style del efecto hover del submenu*/
-.menu ul li:hover .Submenu
-{
-    display: block;/* Lo declara como bloque*/
-    position: absolute;/* Declara su posicion como absoluta*/
-    left: 0;/* Su posicion a la izquierda sera la minima*/
-    background-color: rgba(255, 232, 251 );/* Declara el color de fondo*/
-    width: fit-content;/* El ancho dependera del contenido*/
-    
-}
-/* Style de la lista no numerada del submenu*/
-.Submenu ul
-{
-    display: block;/* Lo declara como bloque*/
-    margin: 0;/* Declara el margen en 0*/
-    padding: 0;/* Declara el padding en 0*/
-}
-/* Style de la lista dentro del submenu*/
-.Submenu ul li
-{
-    margin: 0 0;/* Declara el margen*/
-}
-/* Style de las referencias dentro del submenu*/
-.Submenu ul a li 
-{
-    color: rgba(255, 109, 228 );/* Declara el color de la letra*/
-    text-decoration: none;/* Quita la decoracion de referencia*/
-    font-size: 14px;/* Declara el tamaño de la letra*/
-    transition: all 0.4s;/* Declara el tiempo de la animacion*/
-}
-/* Style de las referencias al pasar el mouse encima*/
-.Submenu ul a li:hover 
-{
-    color: #f1c40f; /* Declara el color de la letra*/
-    background-color: #8e44ad; /* Declara el color de fondo*/
-}
-/*Style de animacion*/
-.Submenu ul a li:before 
-{
-    content: "";/* Declara el contenido en vacio*/
-    position: absolute;/* Declara la posicion como absoluta*/
-    bottom: 0;/* inicializa el contenido desde abajo*/
-    left: 0;/* inicializa el contenido desde la izquierda*/
-    width: 100%;/*Declara que use todo el ancho*/
-    height: 2px;/*Declara la altura maxima*/
-    background-color: #f1c40f; /*declara el color de fondo*/
-    transform: scaleX(0);/*oculta el elemento*/
-    transform-origin: bottom right;/*desplaza el item*/
-    transition: transform 0.3s ease-out;/*declara el tiempo de la animacion*/
-}
-
-/* Style de la animacion al hacer hover*/
-.Submenu ul a li:hover:before {
-    transform: scaleX(1);/*Muestra el elemento*/
-    transform-origin: bottom left;/*desplaza el item*/
-}
 .Grid
 {
     display: grid;
@@ -403,6 +206,76 @@
     font-size: 16px;
     line-height: 1.6;
 }
+.dark-mode .Detalles {
+    border: 1px solid #ffb7ff; /* Bordes en rosa pastel */
+    background-color: #292929; /* Fondo oscuro */
+}
+
+.dark-mode .informacionManga {
+    color: #ffb7ff; /* Texto en rosa pastel */
+}
+
+.dark-mode .imagenPersonaje img {
+    border: 1px solid #ffb7ff; /* Bordes en rosa pastel */
+}
+.dark-mode .detallesPersonaje h4,
+.dark-mode .detallesPersonaje h6 
+{
+    color: #f1c40f; /* Títulos en rosa pastel */
+}
+.dark-mode .aparicionesAnime h4,
+.dark-mode .aparicionesManga h4 
+{
+    color: #f1c40f; /* Títulos en rosa pastel */
+}
+.dark-mode .estadisticas p 
+{
+    color: #f1c40f; /* Títulos en rosa pastel */
+}
+.dark-mode .itemAnime span {
+    color: #ffb7ff; /* Texto en rosa pastel */
+}
+
+.dark-mode .itemManga a {
+    color: #ffb7ff; /* Enlaces en rosa pastel */
+}
+.dark-mode .informacionPersonaje h4 {
+    color: #f1c40f; /* Fondo oscuro */
+}
+.dark-mode #voz {
+    background-color: #121212; /* Fondo oscuro */
+}
+
+.dark-mode #voz div {
+    border: 1px solid #ffb7ff; /* Bordes en rosa pastel */
+    background-color: #292929; /* Fondo oscuro */
+}
+
+.dark-mode #voz p {
+    color: #ffb7ff; /* Texto en rosa pastel */
+}
+
+.dark-mode #info .informacionContainer {
+    border: 2px solid #ffb7ff; /* Bordes en rosa pastel */
+    background-color: #292929; /* Fondo oscuro */
+}
+
+.dark-mode #info .atributosColumna,
+.dark-mode #info .biografiaColumna h4 {
+    color: #f1c40f; /* Títulos en dorado */
+}
+
+.dark-mode #info .atributosColumna li strong {
+    color: #ffb7ff; /* Texto en rosa pastel */
+}
+
+.dark-mode #info .atributosColumna li span {
+    color: #ffb7ff; /* Texto en rosa pastel */
+}
+
+.dark-mode #info .biografiaColumna p {
+    color: #ffb7ff; /* Texto en rosa pastel */
+}
 
 /* Reglas para pantallas de un ancho maximo*/
 @media only screen and (max-width: 1000px)
@@ -420,6 +293,11 @@
         font-size: 22px;
     }
     .estadisticas p
+    {
+        font-size: 18px;
+    }
+    .informacionContainer,
+    .biografiaColumna p
     {
         font-size: 18px;
     }
