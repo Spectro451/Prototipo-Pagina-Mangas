@@ -121,8 +121,9 @@ footer a {
         font-size: 1.3em; /* Reducir el tamaño de los subtítulos */
     }
 
-    p {
-        font-size: 0.95em; /* Reducir el tamaño de los párrafos */
+    .container p
+    {
+        font-size: 20px;
     }
 
     footer {

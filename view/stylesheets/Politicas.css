@@ -1,7 +1,7 @@
 
 .pagina-devoluciones {
   max-width: 800px;
-  margin: 0 auto;
+  margin: 20px auto;
   padding: 20px;
   font-family: 'Segoe UI', sans-serif;
   background-color: #fffafc;
@@ -77,4 +77,12 @@
   .pagina-devoluciones a {
     font-size: 0.95em; /* Reducir el tamaño de los enlaces */
   }
+}
+
+@media only screen and (max-width: 1000px)
+{
+   .pagina-devoluciones p
+   {
+      font-size: 20px;
+   }
 }

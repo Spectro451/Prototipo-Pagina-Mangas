@@ -1,4 +1,4 @@
-<main class="pagina-devoluciones">
+<div class="pagina-devoluciones">
   <h1>🍃 Cambios y Devoluciones - kiwiMANGAS 🍃</h1>
   <p>En <strong>kiwiMANGAS</strong> nos preocupamos por tu experiencia. Aquí te dejamos nuestros términos y condiciones para cambios y devoluciones:</p>
 
@@ -41,4 +41,4 @@
       <strong>kiwiMANGAS</strong> no realiza devoluciones por satisfacción ni fallas. Solo se permiten <strong>cambios</strong>, según los puntos 1 y 2 anteriores.
     </p>
   </section>
-</main>
+</div>

@@ -16,6 +16,11 @@
     text-decoration: underline;
     color: black;
 }
+.FaQ p,
+.FaQ a
+{
+    font-size: 18px;
+}
 .FaQ a:hover 
 {
     color: #c71585;
@@ -64,4 +69,49 @@
 .GitHub a:hover i 
 {
     color: white;
+}
+.dark-mode .FaQ {
+    background-color: #292929; /* Fondo oscuro suave */
+    border: 2px solid #ffb7ff; /* Borde rosa pastel */
+    box-shadow: 0 0 10px #ff69b4; /* Sombra rosada fuerte */
+    color: #ffb7ff; /* Texto rosa pastel */
+}
+
+.dark-mode .FaQ a {
+    color: #ffb7ff; /* Enlace rosa pastel */
+    text-decoration: underline;
+}
+
+.dark-mode .FaQ a:hover {
+    color: #f1c40f; /* Hover dorado */
+    text-decoration: none;
+}
+
+.dark-mode .GitHub {
+    background-color: #292929; /* Fondo oscuro suave */
+    box-shadow: 0 0 10px #ff69b4; /* Sombra rosada fuerte */
+}
+
+.dark-mode .GitHub a {
+    color: #ffb7ff; /* Texto rosa pastel */
+    background-color: #2b2b2b; /* Fondo para botón */
+    border: 2px solid #ffb7ff;
+}
+
+.dark-mode .GitHub a:hover {
+    background-color: #ff69b4; /* Hover rosa fuerte */
+    color: #121212; /* Texto oscuro para contraste */
+}
+
+.dark-mode .GitHub a:hover i {
+    color: #121212; /* Ícono también oscuro para contraste */
+}
+
+@media only screen and (max-width: 1000px)
+{
+    .FaQ p,
+    .FaQ a
+    {
+        font-size: 20px;
+    }
 }
