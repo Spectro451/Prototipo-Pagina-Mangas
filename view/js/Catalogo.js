@@ -49,10 +49,18 @@ async function agregarAlCatalogo(url) {
   await fetch(url)
     .then((response) => response.json())
     .then((data) => {
-      data.data.forEach((manga) => {
-        const Popular = document.createElement("div");
-        Popular.classList.add("Popular");
-        Popular.innerHTML = `
+      data.data.forEach((manga) => 
+        {
+          const Popular = document.createElement("div");
+          const Favorito = document.createElement("div");
+          const idManga = manga.mal_id;
+
+          Favorito.innerHTML = `<i class="far fa-heart"></i>`;
+          const icono = Favorito.querySelector("i");
+
+          Favorito.classList.add("Favorito");
+          Popular.classList.add("Popular");
+          Popular.innerHTML = `
                             <a href="index.php?controller=kiwi&action=detalles&id=${manga.mal_id}">
                                 <img src="${manga.images.jpg.image_url}" alt="${manga.title}" />
                                 <p title="${manga.title}">
@@ -64,7 +72,77 @@ async function agregarAlCatalogo(url) {
                                 </p>
                             </a>
                         `;
+       
+            fetch('/manga/public/index.php?controller=favoritos&action=verificar', 
+              {
+                method: 'POST',
+                headers: 
+                {
+                  'Content-Type': 'application/json'
+                },
+                  body: JSON.stringify({ id: idManga })
+              })
+            .then(response => response.json())
+            .then(data => 
+              {
+                if (data.favorito) 
+                {
+                  icono.classList.remove('far');
+                  icono.classList.add('fas');
+                  icono.style.color = 'red';
+                } 
+                else 
+                {
+                  icono.classList.remove('fas');
+                  icono.classList.add('far');
+                  icono.style.color = 'gray';
+                }
+            })
+            .catch(error => 
+              {
+                console.error('Error al verificar estado de favorito:', error);
+              });
+            Favorito.addEventListener('click', function () 
+            {
+              fetch('/manga/public/index.php?controller=favoritos&action=toggleFavorito', {
+                  method: 'POST',
+                  headers: {
+                      'Content-Type': 'application/json'
+                  },
+                  body: JSON.stringify({
+                      id: idManga,
+                      titulo: manga.titles[0].title,
+                      imagen: manga.images.jpg.image_url
+                  })
+              })
+              .then(response => response.json())
+              .then(data => {
+                  if (data.success) {
+                      alert(data.message);
+
+                      if (data.estado === 'agregado') 
+                      {
+                        icono.classList.remove('far');
+                        icono.classList.add('fas');
+                        icono.style.color = 'red';
+                      } 
+                      else if (data.estado === 'eliminado') 
+                      {
+                        icono.classList.remove('fas');
+                        icono.classList.add('far');
+                        icono.style.color = 'gray';
+                      }
+                  } else {
+                      alert('Error: ' + data.message);
+                  }
+              })
+              .catch(error => {
+                  console.error('Error al modificar favorito:', error);
+              });
+            });
+
         catalogo.appendChild(Popular);
+        Popular.appendChild(Favorito);
       });
       crearPaginacion(data.pagination.last_visible_page);
     });
