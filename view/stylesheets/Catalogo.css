@@ -39,6 +39,13 @@
     background-color: #b0b0b0;
     text-align: center;
 }
+#form-filtros,
+#form-filtros2,
+#form-filtros3
+{
+    background-color: #b0b0b0;
+}
+
 .Catalogo 
 {
     background-color: #e8e8e8; /* Fondo del catálogo */
@@ -148,9 +155,87 @@
     font-size: 24px;
 }
 
-.Favorito:hover i {
+.Favorito:hover i 
+{
     transform: scale(1.2);
 }
+.dark-mode .Grid 
+{
+    background-color: #121212;
+}
+
+
+.dark-mode .Filtros 
+{
+    background-color: #121212; /* Fondo oscuro */
+}
+
+.dark-mode #form-filtros,
+.dark-mode #form-filtros2,
+.dark-mode #form-filtros3
+{
+    background-color: #1e1e1e; /* Fondo más oscuro */
+}
+.dark-mode .Filtros legend
+{
+    color: #f1c40f; /* Fondo más oscuro */
+}
+.dark-mode .Filtros label
+{
+    color: #ffb7ff; /* Fondo más oscuro */
+}
+
+.dark-mode .Catalogo 
+{
+    background-color: #121212; /* Fondo oscuro */
+}
+
+.dark-mode .Paginacion 
+{
+    background-color: #121212;
+}
+
+.dark-mode .numeroPagina 
+{
+    border: 1px solid #ffb7ff; /* Borde rosado pastel */
+    color: #ffb7ff; /* Texto rosado pastel */
+}
+
+.dark-mode .numeroPagina:hover 
+{
+    background-color: #f1c40f; /* Fondo dorado */
+    color: #121212; /* Texto oscuro */
+}
+
+.dark-mode .activo 
+{
+    background-color: #f1c40f;
+    color: #121212;
+}
+
+.dark-mode .Popular 
+{
+    background-color: #292929;
+    color: #ffeaff;
+    box-shadow: 0 2px 6px rgba(255, 183, 255, 0.3);
+    border: 1px solid #ffb7ff;
+}
+
+.dark-mode .Popular p 
+{
+    color: #ffb7ff; /* Texto rosado pastel */
+}
+.dark-mode .Popular:hover 
+{
+    border: 2px solid #f1c40f;
+    box-shadow: 0 0 10px #f1c40f;
+}
+
+.dark-mode .Popular p 
+{
+    color: #f1c40f;
+}
+
 /* Reglas para pantallas de un ancho maximo*/
 @media only screen and (max-width: 1000px)
 {
@@ -208,9 +293,17 @@
         grid-column: 1 / 7;
         flex-direction:row;
         justify-content: space-between;
+        align-items: center;
     }
     .Busqueda 
     {
         grid-column: 1 /7; 
+    }
+    #form-filtros,
+    #form-filtros2,
+    #form-filtros3
+    {
+        height: fit-content;
+    
     }
 }

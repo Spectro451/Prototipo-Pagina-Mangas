@@ -23,7 +23,7 @@
                     <fieldset class="filtro-categoria" id="filtro-tipo3">
                         <legend>Tipo</legend>
                         <label><input id="fechaInicio" type="text" name="tipo" value="1934" style="width: 40px;" onkeydown="cambioFecha(event)"> Año de Inicio</label><br>
-                        <label><input id="fechaFinal" type="text" name="tipo" value="2025" style="width: 40px;" onkeydown="cambioFecha(event)"> Año ......Final</label><br> <!-- Alineado con psint -->
+                        <label><input id="fechaFinal" type="text" name="tipo" value="2025" style="width: 40px;" onkeydown="cambioFecha(event)"> Año de Fin</label><br> <!-- Alineado con psint -->
                     </fieldset>
                 </form>
             </div> 

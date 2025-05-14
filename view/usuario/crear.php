@@ -1,7 +1,7 @@
 <h2>Registro de Usuario</h2>
 
     <!-- Formulario de registro -->
-    <form action="../public/index.php?controller=Usuario&action=registrarUsuario" method="POST">
+    <form action="../public/index.php?controller=Usuario&action=registrarUsuario" method="POST" class="RegistroAdmin">
         <label for="nombre">Nombre:</label>
         <input type="text" name="nombre" id="nombre" placeholder="Nombre" required>
 

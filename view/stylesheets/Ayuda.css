@@ -1,5 +1,4 @@
-/* Reglas para pantallas de un ancho maximo*/
-@media only screen and (max-width: 1000px){}
+
 
 .contenedor-ayuda {
   max-width: 900px;
@@ -51,7 +50,12 @@
 .formulario-ayuda label {
   font-weight: bold;
 }
-
+ .formulario-ayuda input
+  {
+    
+    width: 400px;
+    
+  }
 .formulario-ayuda input,
 .formulario-ayuda textarea {
   padding: 10px;
@@ -75,4 +79,65 @@
 .formulario-ayuda button:hover {
   background-color: #a1126e;
 }
+.dark-mode .cuadro-info-contacto {
+  background-color: #292929;
+  border-color: #ffb7ff;
+  box-shadow: 0 0 10px rgba(255, 183, 255, 0.3);
+  color: #ffb7ff;
+}
 
+.dark-mode .formulario-ayuda form {
+  background-color: #292929;
+  border-color: #ffb7ff;
+  box-shadow: 0 0 10px rgba(255, 183, 255, 0.3);
+}
+
+.dark-mode .formulario-ayuda label {
+  color: #f1c40f;
+}
+
+.dark-mode .formulario-ayuda input,
+.dark-mode .formulario-ayuda textarea {
+  background-color: #121212;
+  color: #ffb7ff;
+  border: 1px solid #ffb7ff;
+}
+
+.dark-mode .formulario-ayuda button {
+  background-color: #f1c40f;
+  color: #121212;
+}
+
+.dark-mode .formulario-ayuda button:hover {
+  background-color: #ffd700;
+}
+
+.dark-mode .titulo,
+.dark-mode .cuadro-info-contacto p {
+  color: #ffb7ff;
+}
+.dark-mode .formulario-ayuda h2,
+.dark-mode .cuadro-info-contacto h2
+{
+  color: #f1c40f;
+}
+/* Reglas para pantallas de un ancho maximo*/
+@media only screen and (max-width: 1000px)
+{
+  .cuadro-info-contacto p 
+  {
+    font-size: 24px;
+  }
+  .formulario-ayuda label 
+  {
+    font-size: 24px;
+  }
+  .formulario-ayuda input,
+  .formulario-ayuda textarea 
+  {
+    
+    font-size: 20px;
+    
+  }
+ 
+}

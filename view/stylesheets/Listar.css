@@ -47,3 +47,35 @@ button#eliminar:hover
 {
     background-color: #a0146b;
 }
+.dark-mode table {
+    box-shadow: 0 0 10px rgba(255, 183, 255, 0.3);
+    background-color: #292929;
+    color: #ffb7ff;
+}
+
+.dark-mode th {
+    background-color: #2e004f;
+    color: #f1c40f;
+    border-bottom: 1px solid #ffb7ff;
+}
+
+.dark-mode td {
+    background-color: #2b2b2b;
+    color: #ffb7ff;
+    border-bottom: 1px solid #444;
+}
+
+.dark-mode tr:hover td {
+    background-color: #3a003d;
+}
+
+.dark-mode button#modificar,
+.dark-mode button#eliminar {
+    background-color: #f1c40f;
+    color: #121212;
+}
+
+.dark-mode button#modificar:hover,
+.dark-mode button#eliminar:hover {
+    background-color: #ffd700;
+}

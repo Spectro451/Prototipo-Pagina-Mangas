@@ -149,53 +149,87 @@
     border: black solid 2px;
     
   }
-/* Style del footer*/
-footer
-{
 
-    position:static;/* Declara la posicion como fija*/
-    width: 100%;/* Declara que use todo el ancho*/
-    bottom: 0;/* Declara la posicion al fondo*/
-    height: fit-content;/* Declara la altura para que se ajuste al contenido*/
-    background-color:rgba(255, 232, 251); /* Declara el contenido del fondo */
-}
-/* Style del ContainerContacto*/
-.ContainerContacto
+.dark-mode .contenedorImagenes 
 {
-    display: flex;/* Declara el display como flex*/
-    justify-content: space-between;/* Declara el espacio entre el contenido*/
-    padding: 5px ;/* Declara el padding*/
+    background-color: transparent;
 }
-/* Style del FooterColumna*/
-.FooterColumna
-{
-    padding: 0 auto;/* Declara el padding vertical y horizontal*/
-    margin: 0 auto;/* Declara el margin vertical y horizontal*/
-}
-/* Style de los enlaces de FooterColumna*/
-.FooterColumna a
-{
-    text-decoration: none;/* Quita la decoracion del enlace*/
-    color: rgba(255, 109, 228 );/* Declara el color del texto*/
-}
-/* Style de los h4 de FooterColumna*/
-.FooterColumna h4
-{
-    color: #8e44ad; /* Declara el color del texto*/
-}
-/* Style de las imagenes de FooterColumna*/
-.FooterColumna img
-{
-    width: 200px;/* Declara el ancho maximo*/
-    margin: 50px auto;/* Declara el margin vertical y horizontal*/
 
-}
-/* Style de los parrafos en el div Social*/
-.Social p
+
+.dark-mode .mangafoto img 
 {
-    padding: 0 auto;/* Declara el padding vertical y horizontal*/
-    margin: 8px auto;/* Declara el margin vertical y horizontal*/
+    border: 2px solid #ffb7ff;
+    box-shadow: 0 0 15px #ff69b4;
 }
+
+.dark-mode .mangafoto .Titulo 
+{
+    background-color: #1e1e1e;
+    color: #f1c40f;
+    border: 1px solid #ffb7ff;
+}
+
+
+.dark-mode .Recomm 
+{
+    background-color: #1e1e1e;
+    color: #ffb7ff;
+    border: 1px solid #ffb7ff;
+}
+
+
+.dark-mode .Recomm p 
+{
+    color: #f1c40f;
+}
+
+
+.dark-mode .Container 
+{
+    background-color: #2e004f;
+}
+
+
+.dark-mode .Container p 
+{
+    color: #ffb7ff;
+}
+
+
+.dark-mode .Populares 
+{
+    background-color: #1e1e1e;
+}
+
+.dark-mode .ListaPopulares 
+{
+    background-color: #121212;
+}
+
+
+.dark-mode .Popular 
+{
+    background-color: #292929;
+    color: #ffeaff;
+    box-shadow: 0 2px 6px rgba(255, 183, 255, 0.3);
+    border: 1px solid #ffb7ff;
+}
+
+
+.dark-mode .Popular:hover 
+{
+    border: 2px solid #f1c40f;
+    box-shadow: 0 0 10px #f1c40f;
+}
+
+
+.dark-mode .Popular .Nombre,
+.dark-mode .Popular .Seguidores,
+.dark-mode .Popular p 
+{
+    color: #f1c40f;
+}
+
 /* Reglas para pantallas de un ancho maximo*/
 @media only screen and (max-width: 1000px)
 {
@@ -250,33 +284,22 @@ footer
     .Popular .Seguidores
     {
         font-size: clamp(13px, 3vw, 14px);
-
         margin: 2px auto;
-
     }
     .Popular .Nombre
     {
         font-size: 14px;
         font-style: bold;
-        
         margin: 3px auto;
         text-align: center;
     }
-    .FooterColumna
+    .promo-barra 
     {
-        font-size: 16px;
+        font-size: 14px; 
     }
-    .promo-barra {
-       
-        font-size: 14px;
-        
-      }
-         .Busqueda input
-    {
-        
-        font-size: 22px;
-        
-        
+    .Busqueda input
+    {   
+        font-size: 22px;  
     }
     
 }

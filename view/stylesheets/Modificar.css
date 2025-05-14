@@ -1,4 +1,4 @@
-form 
+.RegistroAdmin
 {
     width: 400px;
     margin: 30px auto;
@@ -13,9 +13,9 @@ form
     gap: 15px;
 }
 
-form input[type="text"],
-form input[type="email"],
-form select 
+.RegistroAdmin input[type="text"],
+.RegistroAdmin input[type="email"],
+.RegistroAdmin select 
 {
     padding: 10px;
     border: 1px solid #f2a7c2;
@@ -25,9 +25,9 @@ form select
     color: #ffb7ff;
 }
 
-form input[type="text"]:hover,
-form input[type="email"]:hover,
-form select:hover 
+.RegistroAdmin input[type="text"]:hover,
+.RegistroAdmin input[type="email"]:hover,
+.RegistroAdmin select:hover 
 {
     background-color: #fff;
     border-color: #f2a7c2;
@@ -36,7 +36,7 @@ form select:hover
     transform: scale(1.0);
     color: #ff69b4;
 }
-form button 
+.RegistroAdmin button 
 {
     padding: 10px;
     border: none;
@@ -49,9 +49,43 @@ form button
     transition: background-color 0.3s;
 }
 
-form button:hover 
+.RegistroAdmin button:hover 
 {
     background-color: #a0146b;
 }
+.dark-mode .RegistroAdmin {
+    background-color: #2b2b2b;
+    border: 2px solid #ffb7ff;
+    box-shadow: 0 0 10px rgba(255, 183, 255, 0.2);
+    color: #ffb7ff;
+}
 
+.dark-mode .RegistroAdmin input[type="text"],
+.dark-mode .RegistroAdmin input[type="email"],
+.dark-mode .RegistroAdmin select {
+    background-color: #121212;
+    border: 1px solid #ffb7ff;
+    color: #ffb7ff;
+}
 
+.dark-mode .RegistroAdmin input[type="text"]:hover,
+.dark-mode .RegistroAdmin input[type="email"]:hover,
+.dark-mode .RegistroAdmin select:hover {
+    background-color: #1e1e1e;
+    border-color: #f1c40f;
+    color: #f1c40f;
+}
+
+.dark-mode .RegistroAdmin button {
+    background-color: #f1c40f;
+    color: #121212;
+}
+
+.dark-mode .RegistroAdmin button:hover {
+    background-color: #ffd700;
+}
+
+.dark-mode h2 
+{
+    color: #f1c40f;
+}
