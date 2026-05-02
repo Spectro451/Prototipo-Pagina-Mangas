@@ -1,25 +1,17 @@
 <?php
-
 error_reporting(1);
-
 function Conexion()
 {
-    $host = "localhost";
-    $dbname ="manga";
-    $username = "root";
-    $password = "";
-
-    try
-    {
+    $host = getenv('DB_HOST');
+    $dbname = getenv('DB_NAME');
+    $username = getenv('DB_USER');
+    $password = getenv('DB_PASS');
+    try {
         $pdo = new PDO("mysql:host=$host;dbname=$dbname;charset=UTF8", $username, $password);
         $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
         return $pdo;
+    } catch(PDOException $error) {
+        die("Ta malo la conexion" . $error->getMessage());
     }
-    catch(PDOException $error)
-    {
-        die("Ta malo la conexion". $error->getMessage());
-    }
-    
 }
-
 ?>
