@@ -14,7 +14,7 @@ Este es un proyecto web que hice junto a [@camicarrascoi](http://github.com/cami
 
 - Panchito (criticador de código)
 - Antonio (apoyo emocional)
-- Luchito (entretención)
+- Luchito S(entretención)
 
 # Tecnologías usadas
 
