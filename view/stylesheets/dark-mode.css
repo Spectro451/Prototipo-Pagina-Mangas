@@ -1,0 +1,691 @@
+:root {
+    --dm-bg-primary: #121212;
+    --dm-bg-secondary: #1e1e1e;
+    --dm-bg-card: #292929;
+    --dm-bg-input: #2b2b2b;
+    --dm-bg-accent: #2e004f;
+    --dm-text-primary: #ffb7ff;
+    --dm-text-heading: #f1c40f;
+    --dm-text-hover: #ffd700;
+    --dm-text-accent: #ff69b4;
+    --dm-border: #ffb7ff;
+    --dm-border-hover: #f1c40f;
+    --dm-shadow: 0 0 10px rgba(255, 183, 255, 0.2);
+}
+
+/* Auto dark mode from browser preference */
+@media (prefers-color-scheme: dark) {
+    body:not(.light-mode) {
+        background-color: var(--dm-bg-primary);
+        color: var(--dm-text-primary);
+    }
+}
+
+/* Manual dark mode override */
+.dark-mode {
+    background-color: var(--dm-bg-primary);
+    color: var(--dm-text-primary);
+}
+
+/* ========== PLANTILLA ========== */
+.dark-mode .promo-barra {
+    background-color: #4402b6;
+    color: white;
+}
+
+.dark-mode h3,
+.dark-mode .login-desplegable {
+    color: var(--dm-text-heading);
+}
+
+.dark-mode .formulario-login {
+    background-color: var(--dm-bg-primary);
+}
+
+.dark-mode .formulario-login input[type="email"],
+.dark-mode .formulario-login input[type="password"] {
+    background-color: var(--dm-bg-input);
+    border: 1px solid var(--dm-border);
+    color: var(--dm-text-primary);
+}
+
+.dark-mode .formulario-login button[type="submit"],
+.dark-mode .formulario-login button[type="button"] {
+    background-color: #c71585;
+    color: white;
+}
+
+.dark-mode .formulario-login input[type="email"]:focus,
+.dark-mode .formulario-login input[type="password"]:focus {
+    border-color: var(--dm-border-hover);
+}
+
+.dark-mode .formulario-login button[type="submit"]:hover,
+.dark-mode .formulario-login button[type="button"]:hover {
+    background-color: #a3136f;
+}
+
+.dark-mode input,
+.dark-mode button {
+    background-color: var(--dm-bg-secondary);
+    color: var(--dm-text-primary);
+    border: 1px solid var(--dm-border);
+}
+
+.dark-mode input:hover,
+.dark-mode button:hover {
+    background-color: #2b2b2b;
+    color: var(--dm-text-primary);
+    box-shadow: 0 0 15px var(--dm-text-accent), 0 0 25px var(--dm-text-accent);
+}
+
+.dark-mode .iconos-superiores {
+    background-color: var(--dm-bg-primary);
+}
+
+.dark-mode .menu {
+    background-color: var(--dm-bg-secondary);
+}
+
+.dark-mode .Busqueda {
+    background-color: var(--dm-bg-primary);
+}
+
+.dark-mode .menu ul li a:hover {
+    color: var(--dm-text-heading);
+}
+
+.dark-mode .Submenu {
+    background-color: var(--dm-bg-secondary) !important;
+    box-shadow: 0 4px 10px rgba(255, 183, 255, 0.2);
+}
+
+.dark-mode .Submenu ul a li {
+    color: var(--dm-text-primary) !important;
+}
+
+.dark-mode .Submenu ul a li:hover {
+    background-color: #333 !important;
+    color: var(--dm-text-heading) !important;
+}
+
+.dark-mode .Submenu ul a li:before {
+    background-color: var(--dm-text-heading) !important;
+}
+
+.dark-mode footer {
+    background-color: var(--dm-bg-secondary);
+    color: #f0e6ff;
+}
+
+.dark-mode .FooterColumna a {
+    color: var(--dm-text-primary);
+}
+
+.dark-mode .FooterColumna h4 {
+    color: var(--dm-text-heading);
+}
+
+.dark-mode .Social p {
+    color: #e0d7f5;
+}
+
+/* ========== STYLE (Pagina principal) ========== */
+.dark-mode .contenedorImagenes {
+    background-color: transparent;
+}
+
+.dark-mode .mangafoto img {
+    border: 2px solid var(--dm-border);
+    box-shadow: 0 0 15px var(--dm-text-accent);
+}
+
+.dark-mode .mangafoto .Titulo {
+    background-color: var(--dm-bg-secondary);
+    color: var(--dm-text-heading);
+    border: 1px solid var(--dm-border);
+}
+
+.dark-mode .Recomm {
+    background-color: var(--dm-bg-secondary);
+    color: var(--dm-text-primary);
+    border: 1px solid var(--dm-border);
+}
+
+.dark-mode .Recomm p {
+    color: var(--dm-text-heading);
+}
+
+.dark-mode .Container {
+    background-color: var(--dm-bg-accent);
+}
+
+.dark-mode .Container p {
+    color: var(--dm-text-primary);
+}
+
+.dark-mode .Populares {
+    background-color: var(--dm-bg-secondary);
+}
+
+.dark-mode .ListaPopulares {
+    background-color: var(--dm-bg-primary);
+}
+
+.dark-mode .Popular {
+    background-color: var(--dm-bg-card);
+    color: #ffeaff;
+    box-shadow: 0 2px 6px rgba(255, 183, 255, 0.3);
+    border: 1px solid var(--dm-border);
+}
+
+.dark-mode .Popular:hover {
+    border: 2px solid var(--dm-border-hover);
+    box-shadow: 0 0 10px var(--dm-border-hover);
+}
+
+.dark-mode .Popular .Nombre,
+.dark-mode .Popular .Seguidores,
+.dark-mode .Popular p {
+    color: var(--dm-text-heading);
+}
+
+/* ========== CATALOGO ========== */
+.dark-mode .Grid {
+    background-color: var(--dm-bg-primary);
+}
+
+.dark-mode .Filtros {
+    background-color: var(--dm-bg-primary);
+}
+
+.dark-mode #form-filtros,
+.dark-mode #form-filtros2,
+.dark-mode #form-filtros3 {
+    background-color: var(--dm-bg-secondary);
+}
+
+.dark-mode .Filtros legend {
+    color: var(--dm-text-heading);
+}
+
+.dark-mode .Filtros label {
+    color: var(--dm-text-primary);
+}
+
+.dark-mode .Catalogo {
+    background-color: var(--dm-bg-primary);
+}
+
+.dark-mode .Paginacion {
+    background-color: var(--dm-bg-primary);
+}
+
+.dark-mode .numeroPagina {
+    border: 1px solid var(--dm-border);
+    color: var(--dm-text-primary);
+}
+
+.dark-mode .numeroPagina:hover {
+    background-color: var(--dm-text-heading);
+    color: var(--dm-bg-primary);
+}
+
+.dark-mode .activo {
+    background-color: var(--dm-text-heading);
+    color: var(--dm-bg-primary);
+}
+
+/* ========== DETALLES ========== */
+.dark-mode .Detalles {
+    background-color: var(--dm-bg-card);
+    border: 1px solid var(--dm-border);
+}
+
+.dark-mode .informacionPersonaje {
+    color: var(--dm-text-primary);
+}
+
+.dark-mode .imagenManga img {
+    border: 5px solid var(--dm-border);
+}
+
+.dark-mode .detallesManga h4 {
+    color: var(--dm-text-primary);
+}
+
+.dark-mode .detallesManga ul {
+    color: var(--dm-text-primary);
+}
+
+.dark-mode .Info {
+    color: var(--dm-text-primary);
+}
+
+.dark-mode .Info a {
+    color: var(--dm-text-primary);
+}
+
+.dark-mode .Info strong {
+    color: var(--dm-text-heading);
+}
+
+.dark-mode .Info span {
+    color: var(--dm-text-primary);
+}
+
+.dark-mode .score {
+    color: var(--dm-text-heading);
+}
+
+.dark-mode .EstadisticasContainer {
+    background-color: var(--dm-bg-card);
+    border: 2px solid var(--dm-border);
+}
+
+.dark-mode .EstadisticaColumna {
+    color: var(--dm-text-primary);
+}
+
+.dark-mode .EstadisticaColumna:first-child {
+    border-left: none;
+}
+
+.dark-mode #sinopsis h3,
+.dark-mode #relacionados h3 {
+    color: var(--dm-text-heading);
+}
+
+.dark-mode #sinopsis p {
+    color: var(--dm-text-primary);
+}
+
+.dark-mode .relacionTipo {
+    background-color: var(--dm-bg-card);
+    color: var(--dm-text-primary);
+}
+
+.dark-mode .relacionTipo strong {
+    color: var(--dm-text-heading);
+}
+
+.dark-mode #personajes {
+    background-color: var(--dm-bg-primary);
+}
+
+.dark-mode #personajes div {
+    background-color: var(--dm-bg-card);
+    border: 1px solid var(--dm-border);
+}
+
+.dark-mode #personajes div:hover {
+    transform: scale(1.2);
+    box-shadow: 0 0 10px rgba(255, 183, 255, 0.3);
+}
+
+.dark-mode #personajes img {
+    border-radius: 25px;
+}
+
+.dark-mode #personajes p {
+    color: var(--dm-text-primary);
+}
+
+.dark-mode #foro {
+    background-color: var(--dm-bg-card);
+    border: 1px solid var(--dm-border);
+}
+
+.dark-mode #foro strong {
+    color: var(--dm-text-heading);
+}
+
+.dark-mode #foro h3 {
+    color: var(--dm-text-primary);
+}
+
+.dark-mode #foro p {
+    color: var(--dm-text-primary);
+}
+
+.dark-mode #foro li {
+    background-color: var(--dm-bg-card);
+    border: 1px solid var(--dm-border);
+}
+
+.dark-mode #foro li p:first-of-type {
+    color: var(--dm-text-heading);
+}
+
+.dark-mode #foro li em {
+    color: var(--dm-text-primary);
+}
+
+/* ========== FAVORITOS ========== */
+.dark-mode .numeroPagina {
+    border: 1px solid var(--dm-border);
+    color: var(--dm-text-primary);
+}
+
+.dark-mode .numeroPagina:hover {
+    background-color: var(--dm-text-heading);
+    color: var(--dm-bg-primary);
+}
+
+/* ========== PERSONAJES ========== */
+.dark-mode .informacionManga {
+    color: var(--dm-text-primary);
+}
+
+.dark-mode .imagenPersonaje img {
+    border: 1px solid var(--dm-border);
+}
+
+.dark-mode .detallesPersonaje h4,
+.dark-mode .detallesPersonaje h6 {
+    color: var(--dm-text-heading);
+}
+
+.dark-mode .aparicionesAnime h4,
+.dark-mode .aparicionesManga h4 {
+    color: var(--dm-text-heading);
+}
+
+.dark-mode .estadisticas p {
+    color: var(--dm-text-heading);
+}
+
+.dark-mode .itemAnime span {
+    color: var(--dm-text-primary);
+}
+
+.dark-mode .itemManga a {
+    color: var(--dm-text-primary);
+}
+
+.dark-mode .informacionPersonaje h4 {
+    color: var(--dm-text-heading);
+}
+
+.dark-mode #voz {
+    background-color: var(--dm-bg-primary);
+}
+
+.dark-mode #voz div {
+    border: 1px solid var(--dm-border);
+    background-color: var(--dm-bg-card);
+}
+
+.dark-mode #voz p {
+    color: var(--dm-text-primary);
+}
+
+.dark-mode #info .informacionContainer {
+    border: 2px solid var(--dm-border);
+    background-color: var(--dm-bg-card);
+}
+
+.dark-mode #info .atributosColumna,
+.dark-mode #info .biografiaColumna h4 {
+    color: var(--dm-text-heading);
+}
+
+.dark-mode #info .atributosColumna li strong {
+    color: var(--dm-text-primary);
+}
+
+.dark-mode #info .atributosColumna li span {
+    color: var(--dm-text-primary);
+}
+
+.dark-mode #info .biografiaColumna p {
+    color: var(--dm-text-primary);
+}
+
+/* ========== CATEGORIAS ========== */
+.dark-mode h2 {
+    color: var(--dm-text-heading);
+}
+
+.dark-mode .contenedor-generos {
+    background-color: var(--dm-bg-primary);
+}
+
+.dark-mode .grid-generos {
+    background-color: var(--dm-bg-primary);
+}
+
+.dark-mode .genero {
+    background-color: var(--dm-bg-card);
+    border: 2px solid var(--dm-border);
+    box-shadow: 0 0 5px var(--dm-text-accent);
+    color: var(--dm-text-heading);
+}
+
+.dark-mode .genero a {
+    color: var(--dm-text-heading);
+}
+
+.dark-mode .genero:hover {
+    background-color: var(--dm-text-accent);
+}
+
+/* ========== AYUDA ========== */
+.dark-mode .cuadro-info-contacto {
+    background-color: var(--dm-bg-card);
+    border-color: var(--dm-border);
+    box-shadow: 0 0 10px rgba(255, 183, 255, 0.3);
+    color: var(--dm-text-primary);
+}
+
+.dark-mode .formulario-ayuda form {
+    background-color: var(--dm-bg-card);
+    border-color: var(--dm-border);
+    box-shadow: 0 0 10px rgba(255, 183, 255, 0.3);
+}
+
+.dark-mode .formulario-ayuda label {
+    color: var(--dm-text-heading);
+}
+
+.dark-mode .formulario-ayuda input,
+.dark-mode .formulario-ayuda textarea {
+    background-color: var(--dm-bg-primary);
+    color: var(--dm-text-primary);
+    border: 1px solid var(--dm-border);
+}
+
+.dark-mode .formulario-ayuda button {
+    background-color: var(--dm-text-heading);
+    color: var(--dm-bg-primary);
+}
+
+.dark-mode .formulario-ayuda button:hover {
+    background-color: var(--dm-text-hover);
+}
+
+.dark-mode .titulo,
+.dark-mode .cuadro-info-contacto p {
+    color: var(--dm-text-primary);
+}
+
+.dark-mode .formulario-ayuda h2,
+.dark-mode .cuadro-info-contacto h2 {
+    color: var(--dm-text-heading);
+}
+
+/* ========== REGISTRAR / MODIFICAR ========== */
+.dark-mode .RegistroAdmin {
+    background-color: var(--dm-bg-input);
+    border: 2px solid var(--dm-border);
+    box-shadow: var(--dm-shadow);
+    color: var(--dm-text-primary);
+}
+
+.dark-mode .RegistroAdmin input[type="text"],
+.dark-mode .RegistroAdmin input[type="email"],
+.dark-mode .RegistroAdmin input[type="password"],
+.dark-mode .RegistroAdmin select {
+    background-color: var(--dm-bg-primary);
+    border: 1px solid var(--dm-border);
+    color: var(--dm-text-primary);
+}
+
+.dark-mode .RegistroAdmin input[type="text"]:hover,
+.dark-mode .RegistroAdmin input[type="email"]:hover,
+.dark-mode .RegistroAdmin input[type="password"]:hover,
+.dark-mode .RegistroAdmin select:hover {
+    background-color: var(--dm-bg-secondary);
+    border-color: var(--dm-border-hover);
+    color: var(--dm-border-hover);
+}
+
+.dark-mode .RegistroAdmin button {
+    background-color: var(--dm-text-heading);
+    color: var(--dm-bg-primary);
+}
+
+.dark-mode .RegistroAdmin button:hover {
+    background-color: var(--dm-text-hover);
+}
+
+/* ========== LISTAR ========== */
+.dark-mode table {
+    box-shadow: 0 0 10px rgba(255, 183, 255, 0.3);
+    background-color: var(--dm-bg-card);
+    color: var(--dm-text-primary);
+}
+
+.dark-mode th {
+    background-color: var(--dm-bg-accent);
+    color: var(--dm-text-heading);
+    border-bottom: 1px solid var(--dm-border);
+}
+
+.dark-mode td {
+    background-color: var(--dm-bg-input);
+    color: var(--dm-text-primary);
+    border-bottom: 1px solid #444;
+}
+
+.dark-mode tr:hover td {
+    background-color: #3a003d;
+}
+
+.dark-mode button#modificar,
+.dark-mode button#eliminar {
+    background-color: var(--dm-text-heading);
+    color: var(--dm-bg-primary);
+}
+
+.dark-mode button#modificar:hover,
+.dark-mode button#eliminar:hover {
+    background-color: var(--dm-text-hover);
+}
+
+/* ========== POLITICAS ========== */
+.dark-mode .pagina-devoluciones {
+    background-color: var(--dm-bg-card);
+    box-shadow: 0 4px 12px rgba(255, 183, 255, 0.2);
+    color: var(--dm-text-primary);
+}
+
+.dark-mode .pagina-devoluciones h1 {
+    color: var(--dm-text-heading);
+}
+
+.dark-mode .pagina-devoluciones h2 {
+    color: var(--dm-text-hover);
+}
+
+.dark-mode .pagina-devoluciones p,
+.dark-mode .pagina-devoluciones li {
+    color: var(--dm-text-primary);
+}
+
+.dark-mode .pagina-devoluciones a {
+    color: var(--dm-text-heading);
+}
+
+/* ========== TERMINOS ========== */
+.dark-mode .container {
+    background-color: var(--dm-bg-secondary);
+    box-shadow: 0 2px 10px rgba(255, 183, 255, 0.2);
+    color: var(--dm-text-primary);
+}
+
+.dark-mode a {
+    color: var(--dm-text-heading);
+}
+
+.dark-mode a:hover {
+    text-decoration: underline;
+}
+
+.dark-mode footer {
+    background-color: #000000;
+    color: var(--dm-text-primary);
+}
+
+.dark-mode footer a {
+    color: var(--dm-text-heading);
+}
+
+/* ========== FAQ ========== */
+.dark-mode .FaQ {
+    background-color: var(--dm-bg-card);
+    border: 2px solid var(--dm-border);
+    box-shadow: 0 0 10px var(--dm-text-accent);
+    color: var(--dm-text-primary);
+}
+
+.dark-mode .FaQ a {
+    color: var(--dm-text-primary);
+    text-decoration: underline;
+}
+
+.dark-mode .FaQ a:hover {
+    color: var(--dm-text-heading);
+    text-decoration: none;
+}
+
+.dark-mode .GitHub {
+    background-color: var(--dm-bg-card);
+    box-shadow: 0 0 10px var(--dm-text-accent);
+}
+
+.dark-mode .GitHub a {
+    color: var(--dm-text-primary);
+    background-color: var(--dm-bg-input);
+    border: 2px solid var(--dm-border);
+}
+
+.dark-mode .GitHub a:hover {
+    background-color: var(--dm-text-accent);
+    color: var(--dm-bg-primary);
+}
+
+.dark-mode .GitHub a:hover i {
+    color: var(--dm-bg-primary);
+}
+
+/* ========== AFILIADOS ========== */
+.dark-mode .divAfiliados {
+    background-color: var(--dm-bg-card);
+    border: 2px solid var(--dm-border);
+    box-shadow: 0 0 10px var(--dm-text-accent);
+    color: var(--dm-text-primary);
+}
+
+/* ========== FLASH MESSAGES ========== */
+.dark-mode .flash-message.flash-error {
+    background-color: #3a0000;
+    color: #ff6b6b;
+    border-color: #ff6b6b;
+}
+
+.dark-mode .flash-message.flash-success {
+    background-color: #003a00;
+    color: #69db7c;
+    border-color: #69db7c;
+}

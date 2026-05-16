@@ -6,7 +6,7 @@
       function cargarPopularesManga(page) {
         ListaPopulares.innerHTML += '<p id="cargando">Cargando...</p>';
   
-        fetch(`https://api.jikan.moe/v4/top/manga?page=${page}&limit=25`)
+        fetch(`${API_BASE}/top/manga?page=${page}&limit=25`)
           .then(response => response.json())
           .then(data => {
             document.getElementById('cargando')?.remove();
@@ -39,7 +39,7 @@
     function cargarPersonajes(page) {
       PopularesPersonaje.innerHTML += '<p id="cargandos">Cargando...</p>';
 
-      fetch(`https://api.jikan.moe/v4/top/characters?page=${page}&limit=25`)
+      fetch(`${API_BASE}/top/characters?page=${page}&limit=25`)
         .then(response => response.json())
         .then(data => {
           document.getElementById('cargandos')?.remove();
@@ -71,9 +71,9 @@
     cargarPopularesManga(currentPage);
   });
 function redirigirBusqueda() {
-    const titulo = document.getElementById('buscarTitulo').value.trim(); // Obtener el valor del input
+    const titulo = document.getElementById('buscarTitulo').value.trim();
     if (titulo) {
-        window.location.href = `index.php?controller=kiwi&action=catalogo&q=${encodeURIComponent(titulo)}`; // Redirigir con el parámetro de búsqueda
+        window.location.href = ROUTE_BASE + "catalogo&q=" + encodeURIComponent(titulo);
     }
 }
 

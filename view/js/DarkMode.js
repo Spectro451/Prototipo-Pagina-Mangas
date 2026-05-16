@@ -1,11 +1,28 @@
-// Función que se activa al hacer clic en el botón para cambiar el modo
 function cambiarModo() {
-  const body = document.body;
-  const modoOscuro = body.classList.toggle("dark-mode");
-  localStorage.setItem("modoOscuro", modoOscuro ? "activado" : "desactivado");
+  var estaOscuro = document.body.classList.contains("dark-mode") ||
+    (!document.body.classList.contains("light-mode") &&
+      window.matchMedia("(prefers-color-scheme: dark)").matches);
+
+  if (estaOscuro) {
+    localStorage.setItem("modoOscuro", "desactivado");
+  } else {
+    localStorage.setItem("modoOscuro", "activado");
+  }
+  aplicarModo();
 }
 
-// Verificar el estado del modo oscuro al cargar la página
-if (localStorage.getItem("modoOscuro") === "activado") {
-  document.body.classList.add("dark-mode");
+function aplicarModo() {
+  var preferencia = localStorage.getItem("modoOscuro");
+  if (preferencia === "activado") {
+    document.body.classList.add("dark-mode");
+    document.body.classList.remove("light-mode");
+  } else if (preferencia === "desactivado") {
+    document.body.classList.remove("dark-mode");
+    document.body.classList.add("light-mode");
+  } else {
+    document.body.classList.remove("dark-mode");
+    document.body.classList.remove("light-mode");
+  }
 }
+
+aplicarModo();

@@ -11,8 +11,10 @@ if (session_status() === PHP_SESSION_NONE) {
     <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@500;700&display=swap" rel="stylesheet">
     <link rel="icon" href="../view/img/kitsune.png" type="image/png">
     <link rel="stylesheet" href="../view/stylesheets/plantilla.css">
+    <link rel="stylesheet" href="../view/stylesheets/dark-mode.css">
     <?php if (isset($styles)) echo $styles; ?>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title><?= isset($title) ? $title : 'KiwiMangas' ?></title>
 </head>
 <body>
@@ -88,8 +90,9 @@ if (session_status() === PHP_SESSION_NONE) {
         </li>
         <li><a href="index.php?controller=kiwi&action=catalogo&categoria=populares">CATALOGO</a></li><!--Enlace a catalogo-->
         <?php if (isset($_SESSION['usuario'])): ?>
-<li><a href="index.php?controller=favoritos&action=listarFavoritos">FAVORITOS</a></li><!--Enlace a catalogo-->
-        <li><a href="index.php?controller=kiwi&action=ayuda">AYUDA</a></li><!--Enlace a Ayuda-->
+            <li><a href="index.php?controller=favoritos&action=listarFavoritos">FAVORITOS</a></li>
+        <?php endif; ?>
+        <li><a href="index.php?controller=kiwi&action=ayuda">AYUDA</a></li>
         
         <?php if (!empty($_SESSION['usuario']['admin']) && $_SESSION['usuario']['admin'] === 'SI'): ?>
             <li>
@@ -144,6 +147,7 @@ if (session_status() === PHP_SESSION_NONE) {
         window.usuario_id = <?php echo isset($_SESSION['usuario']['id']) ? $_SESSION['usuario']['id'] : 'null'; ?>;
     </script>
     <script src="../view/js/DarkMode.js"></script>
+    <script src="../view/js/utils.js"></script>
     <?php if (isset($scripts)) echo $scripts; ?>
 </body>
 </html>

@@ -9,7 +9,7 @@ const estadisticas = document.querySelector('.estadisticas');
 const anime = document.querySelector('.aparicionesAnime');
 const manga = document.querySelector('.aparicionesManga');
 if (idPersonaje) {
-    fetch(`https://api.jikan.moe/v4/characters/${idPersonaje}/full`)
+    fetch(`${API_BASE}/characters/${idPersonaje}/full`)
         .then(response => response.json())
         .then(data => {
             const Personaje = data.data;
@@ -114,12 +114,5 @@ if (idPersonaje) {
         .catch(error => console.error('Error al obtener los datos del Personaje:', error));
 }
 if (!parametros.has("id")) {
-       
     window.location.href = window.location.pathname + "?id=1";
-  }
-function redirigirBusqueda() {
-    const titulo = document.getElementById('buscarTitulo').value.trim(); // Obtener el valor del input
-    if (titulo) {
-        window.location.href = `index.php?controller=kiwi&action=catalogo&q=${encodeURIComponent(titulo)}`; // Redirigir con el parámetro de búsqueda
-    }
 }

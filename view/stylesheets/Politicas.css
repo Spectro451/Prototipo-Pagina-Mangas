@@ -33,29 +33,6 @@
   text-decoration: underline;
 }
 
-.dark-mode .pagina-devoluciones {
-  background-color: #292929;
-  box-shadow: 0 4px 12px rgba(255, 183, 255, 0.2);
-  color: #ffb7ff;
-}
-
-.dark-mode .pagina-devoluciones h1 {
-  color: #f1c40f;
-}
-
-.dark-mode .pagina-devoluciones h2 {
-  color: #ffd700;
-}
-
-.dark-mode .pagina-devoluciones p,
-.dark-mode .pagina-devoluciones li {
-  color: #ffb7ff;
-}
-
-.dark-mode .pagina-devoluciones a {
-  color: #f1c40f;
-}
-
 /* Estilos para pantallas más pequeñas */
 @media only screen and (max-width: 1000px) {
   .pagina-devoluciones {

@@ -2,7 +2,7 @@
   document.addEventListener("DOMContentLoaded", () => {
     const contenedor = document.getElementById("lista-generos");
 
-    fetch("https://api.jikan.moe/v4/genres/manga")
+    fetch(`${API_BASE}/genres/manga`)
     .then(response => response.json())
     .then(data => {
       const nombresUnicos = new Set();
@@ -23,9 +23,4 @@
     });
   
   });
-function redirigirBusqueda() {
-    const titulo = document.getElementById('buscarTitulo').value.trim(); // Obtener el valor del input
-    if (titulo) {
-        window.location.href = `index.php?controller=kiwi&action=catalogo&q=${encodeURIComponent(titulo)}`; // Redirigir con el parámetro de búsqueda
-    }
-}
+

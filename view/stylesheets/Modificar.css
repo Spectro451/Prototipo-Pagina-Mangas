@@ -53,39 +53,4 @@
 {
     background-color: #a0146b;
 }
-.dark-mode .RegistroAdmin {
-    background-color: #2b2b2b;
-    border: 2px solid #ffb7ff;
-    box-shadow: 0 0 10px rgba(255, 183, 255, 0.2);
-    color: #ffb7ff;
-}
 
-.dark-mode .RegistroAdmin input[type="text"],
-.dark-mode .RegistroAdmin input[type="email"],
-.dark-mode .RegistroAdmin select {
-    background-color: #121212;
-    border: 1px solid #ffb7ff;
-    color: #ffb7ff;
-}
-
-.dark-mode .RegistroAdmin input[type="text"]:hover,
-.dark-mode .RegistroAdmin input[type="email"]:hover,
-.dark-mode .RegistroAdmin select:hover {
-    background-color: #1e1e1e;
-    border-color: #f1c40f;
-    color: #f1c40f;
-}
-
-.dark-mode .RegistroAdmin button {
-    background-color: #f1c40f;
-    color: #121212;
-}
-
-.dark-mode .RegistroAdmin button:hover {
-    background-color: #ffd700;
-}
-
-.dark-mode h2 
-{
-    color: #f1c40f;
-}

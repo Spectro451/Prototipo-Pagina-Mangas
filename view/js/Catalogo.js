@@ -52,13 +52,8 @@ async function agregarAlCatalogo(url) {
       data.data.forEach((manga) => 
         {
           const Popular = document.createElement("div");
-          const Favorito = document.createElement("div");
           const idManga = manga.mal_id;
 
-          Favorito.innerHTML = `<i class="far fa-heart"></i>`;
-          const icono = Favorito.querySelector("i");
-
-          Favorito.classList.add("Favorito");
           Popular.classList.add("Popular");
           Popular.innerHTML = `
                             <a href="index.php?controller=kiwi&action=detalles&id=${manga.mal_id}">
@@ -72,7 +67,15 @@ async function agregarAlCatalogo(url) {
                                 </p>
                             </a>
                         `;
-       
+        
+        if (window.usuario_id) {
+            const Favorito = document.createElement("div");
+            const icono = document.createElement("i");
+            icono.classList.add("far", "fa-heart");
+            Favorito.appendChild(icono);
+
+            Favorito.classList.add("Favorito");
+
             fetch('index.php?controller=favoritos&action=verificar', 
               {
                 method: 'POST',
@@ -91,13 +94,7 @@ async function agregarAlCatalogo(url) {
                   icono.classList.add('fas');
                   icono.style.color = 'red';
                 } 
-                else 
-                {
-                  icono.classList.remove('fas');
-                  icono.classList.add('far');
-                  icono.style.color = 'gray';
-                }
-            })
+              })
             .catch(error => 
               {
                 console.error('Error al verificar estado de favorito:', error);
@@ -140,9 +137,10 @@ async function agregarAlCatalogo(url) {
                   console.error('Error al modificar favorito:', error);
               });
             });
+            Popular.appendChild(Favorito);
+        }
 
         catalogo.appendChild(Popular);
-        Popular.appendChild(Favorito);
       });
       crearPaginacion(data.pagination.last_visible_page);
     });
@@ -168,22 +166,22 @@ async function cargarmangas() {
   switch (categoria) {
     case "populares":
       agregarAlCatalogo(
-        `https://api.jikan.moe/v4/top/manga?page=${currentPage}&limit=25&sfw=true`
+        `${API_BASE}/top/manga?page=${currentPage}&limit=25&sfw=true`
       );
       break;
     case "Publishing":
       agregarAlCatalogo(
-        `https://api.jikan.moe/v4/manga?status=Publishing&limit=25&page=${currentPage}&sfw=true`
+        `${API_BASE}/manga?status=Publishing&limit=25&page=${currentPage}&sfw=true`
       );
       break;
     case "Complete":
       agregarAlCatalogo(
-        `https://api.jikan.moe/v4/manga?status=Complete&limit=25&page=${currentPage}&sfw=true`
+        `${API_BASE}/manga?status=Complete&limit=25&page=${currentPage}&sfw=true`
       );
       break;
     default:
       agregarAlCatalogo(
-        `https://api.jikan.moe/v4/manga?genres=${categoria}&limit=25&page=${currentPage}&sfw=true`
+        `${API_BASE}/manga?genres=${categoria}&limit=25&page=${currentPage}&sfw=true`
       );
       break;
   }
@@ -216,7 +214,7 @@ async function buscarMangas(resetPage = true) {
     }
   });
 
-  let url = `https://api.jikan.moe/v4/manga`;
+  let url = `${API_BASE}/manga`;
 
   const fechaInicio = document.getElementById('fechaInicio').value;
   const fechaFinal = document.getElementById('fechaFinal').value;

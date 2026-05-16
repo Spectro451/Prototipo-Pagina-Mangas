@@ -8,7 +8,7 @@ const detallesManga = document.querySelector('.detallesManga');
 const estadisticas = document.querySelector('.estadisticas');
 const divFavorito = document.querySelector('.favoritos')
 if (idManga) {
-    fetch(`https://api.jikan.moe/v4/manga/${idManga}/full`)
+    fetch(`${API_BASE}/manga/${idManga}/full`)
         .then(response => response.json())
         .then(data => {
             const manga = data.data;
@@ -32,12 +32,13 @@ if (idManga) {
                     .join('');
             }
 
-            divFavorito.innerHTML = 
+            if (window.usuario_id) {
+                divFavorito.innerHTML = 
             `
                 <button id="btn-Favorito"></button>
             `;
             const btnFavorito = document.getElementById('btn-Favorito');
-            fetch('/manga/public/index.php?controller=favoritos&action=verificar', {
+            fetch('index.php?controller=favoritos&action=verificar', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json'
@@ -58,7 +59,7 @@ if (idManga) {
                 console.error('Error al verificar estado de favorito:', error);
             });
             btnFavorito.addEventListener('click', function () {
-                fetch('/manga/public/index.php?controller=favoritos&action=toggleFavorito', {
+                fetch('index.php?controller=favoritos&action=toggleFavorito', {
                     method: 'POST',
                     headers: {
                         'Content-Type': 'application/json'
@@ -89,6 +90,7 @@ if (idManga) {
                     console.error('Error al modificar favorito:', error);
                 });
             });
+            }
 
 
             img.src=manga.images.jpg.image_url;
@@ -203,7 +205,7 @@ if (idManga) {
                 <hr>
             ` : '';
 
-            fetch(`https://api.jikan.moe/v4/manga/${manga.mal_id}/characters`)
+            fetch(`${API_BASE}/manga/${manga.mal_id}/characters`)
             .then(res => res.json())
             .then(data => {
               data.data.forEach(personaje => {
@@ -220,7 +222,7 @@ if (idManga) {
                 personajes.appendChild(divPersonaje);
               });
             });
-            fetch(`https://api.jikan.moe/v4/manga/${manga.mal_id}/reviews`)
+            fetch(`${API_BASE}/manga/${manga.mal_id}/reviews`)
             .then(res => res.json())
             .then(data => {
                 if (data.data && data.data.length > 0) {
@@ -266,15 +268,7 @@ if (idManga) {
 }
 if (!parametros.has("id")) 
 {
-       
     window.location.href = window.location.pathname + "?id=1";
-}
-function redirigirBusqueda() 
-{
-    const titulo = document.getElementById('buscarTitulo').value.trim(); // Obtener el valor del input
-    if (titulo) {
-        window.location.href = `index.php?controller=kiwi&action=catalogo&q=${encodeURIComponent(titulo)}`; // Redirigir con el parámetro de búsqueda
-    }
 }
 
 

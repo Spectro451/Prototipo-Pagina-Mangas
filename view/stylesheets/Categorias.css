@@ -49,38 +49,6 @@
     transform: translateY(-5px);
     background-color: #ffe6f0;
 }
-.dark-mode h2 
-{
-    color: #f1c40f;
-}
-.dark-mode .contenedor-generos 
-{
-    background-color: #121212;
-}
-
-.dark-mode .grid-generos 
-{
-    background-color: #121212;
-}
-
-.dark-mode .genero 
-{
-    background-color: #292929;
-    border: 2px solid #ffb7ff;
-    box-shadow: 0 0 5px #ff69b4;
-    color: #f1c40f;
-}
-
-.dark-mode .genero a
-{
-    color: #f1c40f;
-}
-
-.dark-mode .genero:hover 
-{
-    background-color: #ff69b4; /* Fondo rosado suave */
-}
-
 /* Reglas para pantallas de un ancho maximo*/
 @media only screen and (max-width: 1000px)
 {
