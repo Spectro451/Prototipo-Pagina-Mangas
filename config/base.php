@@ -11,7 +11,8 @@ function Conexion()
         $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
         return $pdo;
     } catch(PDOException $error) {
-        die("Ta malo la conexion" . $error->getMessage());
+        error_log("Error de conexión BD: " . $error->getMessage());
+        die("Error de conexión a la base de datos.");
     }
 }
 ?>

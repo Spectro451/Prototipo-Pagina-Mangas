@@ -6,6 +6,27 @@ body {
     text-align: center; /* Centra el texto del contenido*/
 }
 
+.flash-message {
+    padding: 12px 20px;
+    margin: 10px auto;
+    max-width: 500px;
+    border-radius: 8px;
+    font-weight: bold;
+    text-align: center;
+}
+
+.flash-error {
+    background-color: #ffe0e0;
+    color: #c0392b;
+    border: 1px solid #c0392b;
+}
+
+.flash-success {
+    background-color: #e0ffe0;
+    color: #27ae60;
+    border: 1px solid #27ae60;
+}
+
 /*Barra descuento bonita*/
 .promo-barra {
     background-color: #10d0de; /* Un tono turquesa bonito como el de la imagen */

@@ -17,11 +17,11 @@ class Usuario
         $stmt->execute();
         return $stmt->fetchAll(PDO::FETCH_ASSOC);
     }
-    public function crearUsuario($nombre, $email, $passwordHash)
+    public function crearUsuario($nombre, $email, $passwordHash, $admin = 'NO')
     {
-        $query = "INSERT INTO usuario(nombre, email, password) VALUES (?,?,?)";
+        $query = "INSERT INTO usuario(nombre, email, password, admin) VALUES (?,?,?,?)";
         $stmt = $this->pdo->prepare($query);
-        $stmt->execute([$nombre, $email, $passwordHash]);
+        $stmt->execute([$nombre, $email, $passwordHash, $admin]);
         return $stmt;
     }
     public function obtenerUsuarioPorEmail($email)

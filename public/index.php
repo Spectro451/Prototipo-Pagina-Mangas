@@ -1,23 +1,37 @@
 <?php
 
+require_once __DIR__ . '/../config/helpers.php';
+
+$rutas = [
+    'kiwi' => [
+        'paginaManga', 'catalogo', 'detalles', 'categorias',
+        'personajes', 'ayuda', 'quienesSomos', 'afiliados',
+        'politicas', 'terminos'
+    ],
+    'Auth' => [
+        'mostrarFormularioRegistro', 'login', 'logout',
+        'registrarUsuario', 'listarUsuarios', 'registro'
+    ],
+    'Admin' => [
+        'listarUsuarios', 'modificarUsuario',
+        'guardarModificacionUsuario', 'eliminarUsuario'
+    ],
+    'favoritos' => [
+        'toggleFavorito', 'verificar', 'listarFavoritos'
+    ]
+];
+
 $controller = $_GET['controller'] ?? 'kiwi';
 $action = $_GET['action'] ?? 'paginaManga';
+
+if (!isset($rutas[$controller]) || !in_array($action, $rutas[$controller])) {
+    http_response_code(404);
+    die('Página no encontrada.');
+}
 
 $controllerFile = "../Controller/{$controller}Controller.php";
 $controllerClass = "{$controller}Controller";
 
-if (file_exists($controllerFile)) {
-    require $controllerFile;
-    if (class_exists($controllerClass)) {
-        $obj = new $controllerClass();
-        if (method_exists($obj, $action)) {
-            $obj->$action();
-        } else {
-            die("Acción '$action' no encontrada en el controlador '$controllerClass'");
-        }
-    } else {
-        die("Controlador '$controllerClass' no encontrado.");
-    }
-} else {
-    die("Archivo del controlador '$controllerFile' no existe.");
-}
+require $controllerFile;
+$obj = new $controllerClass();
+$obj->$action();

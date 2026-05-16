@@ -11,7 +11,7 @@
 
     <div class="formulario-ayuda">
       <h2>¿Necesitas ayuda? Envíanos un mensaje 💭</h2>
-      <form action="enviarAyuda.php" method="POST">
+      <form id="formAyuda" method="POST" onsubmit="event.preventDefault(); alert('Función no disponible por el momento.');">
         <label for="nombre">Nombre</label>
         <input type="text" id="nombre" name="nombre" required>
 

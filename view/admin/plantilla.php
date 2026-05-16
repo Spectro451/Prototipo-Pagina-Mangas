@@ -1,5 +1,7 @@
 <?php
-session_start();
+if (session_status() === PHP_SESSION_NONE) {
+    session_start();
+}
 ?>
 <!DOCTYPE html>
 <html lang="es">
@@ -14,6 +16,15 @@ session_start();
     <title><?= isset($title) ? $title : 'KiwiMangas' ?></title>
 </head>
 <body>
+    <?php
+    $flashError = getFlash('error');
+    $flashSuccess = getFlash('success');
+    if ($flashError): ?>
+        <div class="flash-message flash-error"><?= htmlspecialchars($flashError) ?></div>
+    <?php endif; ?>
+    <?php if ($flashSuccess): ?>
+        <div class="flash-message flash-success"><?= htmlspecialchars($flashSuccess) ?></div>
+    <?php endif; ?>
     <!--barra de descuento-->
     <div class="promo-barra">
         <i>CÓDIGO DE DESCUENTO DE COMPRAS ACA 💖 Usa <b>"KIWI10"</b> para 10% off</i>
@@ -36,28 +47,20 @@ session_start();
         <?php endif; ?>
 
         <div class="formulario-login">
-            <?php if (!isset($_SESSION['usuario'])): ?>
-                <form action="../public/index.php?controller=Usuario&action=login" method="POST">
+<?php if (!isset($_SESSION['usuario'])): ?>
+                <form action="../public/index.php?controller=Auth&action=login" method="POST">
                     <input type="email" name="correo" placeholder="Correo" required>
                     <input type="password" name="clave" placeholder="Contraseña" required>
                     <button type="submit">Entrar</button>
                 </form>
-                <button type="button" onclick="window.location.href='../public/index.php?controller=Usuario&action=registro'">Registrarse</button>
-
-            <?php if (isset($_SESSION['mensajeError'])): ?>
-                <script type="text/javascript">
-                alert("<?php echo $_SESSION['mensajeError']; ?>");
-                </script>
-                <?php unset($_SESSION['mensajeError']); // Limpiar el mensaje después de mostrarlo ?>
+                <button type="button" onclick="window.location.href='../public/index.php?controller=Auth&action=registro'">Registrarse</button>
             <?php endif; ?>
-            <?php else: ?>
-                <!-- Formulario de Cerrar Sesión -->
-                <form action="../public/index.php?controller=Usuario&action=logout" method="POST">
+            <?php if (isset($_SESSION['usuario'])): ?>
+                <form action="../public/index.php?controller=Auth&action=logout" method="POST">
                     <button type="submit">Cerrar sesión</button>
                     
                     <?php if (!empty($_SESSION['usuario']['admin']) && $_SESSION['usuario']['admin'] === 'SI'): ?>
-                        <!-- Botón Panel Admin con type="button" para no enviar el formulario -->
-                        <button type="button" onclick="window.location.href='../public/index.php?controller=Usuario&action=listarUsuarios'">Panel Admin</button>
+                        <button type="button" onclick="window.location.href='../public/index.php?controller=Admin&action=listarUsuarios'">Panel Admin</button>
                     <?php endif; ?>
                 </form>
             <?php endif; ?>
@@ -85,17 +88,16 @@ session_start();
         </li>
         <li><a href="index.php?controller=kiwi&action=catalogo&categoria=populares">CATALOGO</a></li><!--Enlace a catalogo-->
         <?php if (isset($_SESSION['usuario'])): ?>
-            <li><a href="index.php?controller=favoritos&action=listarFavoritos">FAVORITOS</a></li><!--Enlace a catalogo-->
-        <?php endif; ?>
+<li><a href="index.php?controller=favoritos&action=listarFavoritos">FAVORITOS</a></li><!--Enlace a catalogo-->
         <li><a href="index.php?controller=kiwi&action=ayuda">AYUDA</a></li><!--Enlace a Ayuda-->
         
         <?php if (!empty($_SESSION['usuario']['admin']) && $_SESSION['usuario']['admin'] === 'SI'): ?>
             <li>
-                <a href="../public/index.php?controller=Usuario&action=listarUsuarios">PANEL ADMIN</a>
+                <a href="../public/index.php?controller=Admin&action=listarUsuarios">PANEL ADMIN</a>
                 <div class="Submenu"><!--Submenu-->
                 <ul><!--Lista de Categorias-->
-                    <a href="?controller=Usuario&action=listarUsuarios"><li>Listar Usuarios</li></a>
-                    <a href="?controller=Usuario&action=registro"><li>Crear Usuarios</li></a>
+                    <a href="?controller=Admin&action=listarUsuarios"><li>Listar Usuarios</li></a>
+                    <a href="?controller=Auth&action=registro"><li>Crear Usuarios</li></a>
                 </ul><!--Fin Lista de Categorias-->
                 </div><!--Fin Submenu-->
             </li>
