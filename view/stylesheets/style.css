@@ -13,6 +13,14 @@
     margin: 5px;/* Declara el margen*/
     border-radius: 15px;/* Redondea el borde*/
     object-fit:cover; /* Ajusta la imagen al contenedor*/
+    background: linear-gradient(90deg, #e0e0e0 25%, #f0f0f0 50%, #e0e0e0 75%);
+    background-size: 200% 100%;
+    animation: skeleton-loading 1.2s infinite;
+}
+
+@keyframes skeleton-loading {
+    0% { background-position: 200% 0; }
+    100% { background-position: -200% 0; }
 }
 /* Style del ContenedorImagenes*/
 .contenedorImagenes
