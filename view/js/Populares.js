@@ -68,21 +68,21 @@
     cargarPersonajes(currentPage);
     cargarPopularesManga(currentPage);
 
-    async function cargarImagenesRecomendaciones() {
+    function cargarImagenesRecomendaciones() {
         const cards = document.querySelectorAll('.mangafoto a');
-        for (const link of cards) {
+        cards.forEach(link => {
             const params = new URLSearchParams(link.href.split('?')[1]);
             const id = params.get('id');
-            if (!id) continue;
-            try {
-                const data = await cachedFetch(`${API_BASE}/manga/${id}`);
-                const img = link.querySelector('img');
-                if (img && data.data?.images?.jpg?.image_url) {
-                    img.src = data.data.images.jpg.image_url;
-                }
-            } catch (e) {}
-            await new Promise(r => setTimeout(r, 350));
-        }
+            if (!id) return;
+            cachedFetch(`${API_BASE}/manga/${id}`)
+                .then(data => {
+                    const img = link.querySelector('img');
+                    if (img && data.data?.images?.jpg?.image_url) {
+                        img.src = data.data.images.jpg.image_url;
+                    }
+                })
+                .catch(() => {});
+        });
     }
 
     cargarImagenesRecomendaciones();
