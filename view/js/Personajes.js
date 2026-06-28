@@ -9,8 +9,7 @@ const estadisticas = document.querySelector('.estadisticas');
 const anime = document.querySelector('.aparicionesAnime');
 const manga = document.querySelector('.aparicionesManga');
 if (idPersonaje) {
-    fetch(`${API_BASE}/characters/${idPersonaje}/full`)
-        .then(response => response.json())
+    cachedFetch(`${API_BASE}/characters/${idPersonaje}/full`)
         .then(data => {
             const Personaje = data.data;
             const img = document.createElement('img');

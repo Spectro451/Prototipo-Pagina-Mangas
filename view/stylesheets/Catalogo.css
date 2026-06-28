@@ -230,6 +230,15 @@
     #form-filtros3
     {
         height: fit-content;
-    
+
     }
+}
+
+.catalogo-error
+{
+    grid-column: 1 / -1;
+    text-align: center;
+    padding: 40px;
+    font-size: 18px;
+    color: #c0392b;
 }

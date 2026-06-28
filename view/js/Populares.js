@@ -6,8 +6,7 @@
       function cargarPopularesManga(page) {
         ListaPopulares.innerHTML += '<p id="cargando">Cargando...</p>';
   
-        fetch(`${API_BASE}/top/manga?page=${page}&limit=25`)
-          .then(response => response.json())
+        cachedFetch(`${API_BASE}/top/manga?page=${page}&limit=25`)
           .then(data => {
             document.getElementById('cargando')?.remove();
   
@@ -39,8 +38,7 @@
     function cargarPersonajes(page) {
       PopularesPersonaje.innerHTML += '<p id="cargandos">Cargando...</p>';
 
-      fetch(`${API_BASE}/top/characters?page=${page}&limit=25`)
-        .then(response => response.json())
+      cachedFetch(`${API_BASE}/top/characters?page=${page}&limit=25`)
         .then(data => {
           document.getElementById('cargandos')?.remove();
 
@@ -69,6 +67,25 @@
     // Cargar la primera página al iniciar
     cargarPersonajes(currentPage);
     cargarPopularesManga(currentPage);
+
+    async function cargarImagenesRecomendaciones() {
+        const cards = document.querySelectorAll('.mangafoto a');
+        for (const link of cards) {
+            const params = new URLSearchParams(link.href.split('?')[1]);
+            const id = params.get('id');
+            if (!id) continue;
+            try {
+                const data = await cachedFetch(`${API_BASE}/manga/${id}`);
+                const img = link.querySelector('img');
+                if (img && data.data?.images?.jpg?.image_url) {
+                    img.src = data.data.images.jpg.image_url;
+                }
+            } catch (e) {}
+            await new Promise(r => setTimeout(r, 350));
+        }
+    }
+
+    cargarImagenesRecomendaciones();
   });
 function redirigirBusqueda() {
     const titulo = document.getElementById('buscarTitulo').value.trim();

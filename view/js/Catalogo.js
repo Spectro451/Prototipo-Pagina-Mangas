@@ -45,12 +45,16 @@ window.addEventListener("DOMContentLoaded", () => {
   }
 });
 
-async function agregarAlCatalogo(url) {
-  await fetch(url)
-    .then((response) => response.json())
-    .then((data) => {
-      data.data.forEach((manga) => 
-        {
+async function agregarAlCatalogo(url, reintento = false) {
+  try {
+    const data = await cachedFetch(url);
+
+    if (!data.data || data.data.length === 0) {
+      catalogo.innerHTML = '<p class="catalogo-error">No se encontraron resultados.</p>';
+      return;
+    }
+
+    data.data.forEach((manga) => {
           const Popular = document.createElement("div");
           const idManga = manga.mal_id;
 
@@ -67,7 +71,7 @@ async function agregarAlCatalogo(url) {
                                 </p>
                             </a>
                         `;
-        
+
         if (window.usuario_id) {
             const Favorito = document.createElement("div");
             const icono = document.createElement("i");
@@ -76,30 +80,30 @@ async function agregarAlCatalogo(url) {
 
             Favorito.classList.add("Favorito");
 
-            fetch('index.php?controller=favoritos&action=verificar', 
+            fetch('index.php?controller=favoritos&action=verificar',
               {
                 method: 'POST',
-                headers: 
+                headers:
                 {
                   'Content-Type': 'application/json'
                 },
                   body: JSON.stringify({ id: idManga })
               })
             .then(response => response.json())
-            .then(data => 
+            .then(data =>
               {
-                if (data.favorito) 
+                if (data.favorito)
                 {
                   icono.classList.remove('far');
                   icono.classList.add('fas');
                   icono.style.color = 'red';
-                } 
+                }
               })
-            .catch(error => 
+            .catch(error =>
               {
                 console.error('Error al verificar estado de favorito:', error);
               });
-            Favorito.addEventListener('click', function () 
+            Favorito.addEventListener('click', function ()
             {
               fetch('index.php?controller=favoritos&action=toggleFavorito', {
                   method: 'POST',
@@ -117,13 +121,13 @@ async function agregarAlCatalogo(url) {
                   if (data.success) {
                       alert(data.message);
 
-                      if (data.estado === 'agregado') 
+                      if (data.estado === 'agregado')
                       {
                         icono.classList.remove('far');
                         icono.classList.add('fas');
                         icono.style.color = 'red';
-                      } 
-                      else if (data.estado === 'eliminado') 
+                      }
+                      else if (data.estado === 'eliminado')
                       {
                         icono.classList.remove('fas');
                         icono.classList.add('far');
@@ -143,7 +147,19 @@ async function agregarAlCatalogo(url) {
         catalogo.appendChild(Popular);
       });
       crearPaginacion(data.pagination.last_visible_page);
-    });
+
+  } catch (error) {
+    if (error.status === 429) {
+      if (reintento) {
+        catalogo.innerHTML = '<p class="catalogo-error">La API está saturada, intenta en unos segundos.</p>';
+        return;
+      }
+      await new Promise(r => setTimeout(r, 1500));
+      return agregarAlCatalogo(url, true);
+    }
+    console.error('Error al cargar catálogo:', error);
+    catalogo.innerHTML = '<p class="catalogo-error">Error al cargar los mangas. Intenta de nuevo.</p>';
+  }
 }
 
 function agregarEasterEgg(link, img, p1, p2) {
@@ -163,25 +179,26 @@ function agregarEasterEgg(link, img, p1, p2) {
 
 async function cargarmangas() {
   catalogo.innerHTML = "";
+  const sfw = nsfw ? "false" : "true";
   switch (categoria) {
     case "populares":
       agregarAlCatalogo(
-        `${API_BASE}/top/manga?page=${currentPage}&limit=25&sfw=true`
+        `${API_BASE}/top/manga?page=${currentPage}&limit=25&sfw=${sfw}`
       );
       break;
     case "Publishing":
       agregarAlCatalogo(
-        `${API_BASE}/manga?status=Publishing&limit=25&page=${currentPage}&sfw=true`
+        `${API_BASE}/manga?status=Publishing&limit=25&page=${currentPage}&sfw=${sfw}`
       );
       break;
     case "Complete":
       agregarAlCatalogo(
-        `${API_BASE}/manga?status=Complete&limit=25&page=${currentPage}&sfw=true`
+        `${API_BASE}/manga?status=Complete&limit=25&page=${currentPage}&sfw=${sfw}`
       );
       break;
     default:
       agregarAlCatalogo(
-        `${API_BASE}/manga?genres=${categoria}&limit=25&page=${currentPage}&sfw=true`
+        `${API_BASE}/manga?genres=${categoria}&limit=25&page=${currentPage}&sfw=${sfw}`
       );
       break;
   }
@@ -220,13 +237,21 @@ async function buscarMangas(resetPage = true) {
   const fechaFinal = document.getElementById('fechaFinal').value;
 
   const params = new URLSearchParams();
-  
+
   if (busqueda) params.set("q", busqueda);
   if (filtro) params.set("type", filtro);
   nsfw ? params.set("sfw", "false") : params.set("sfw", "true");
   params.set("page", currentPage);
   isNaN(parseInt(fechaInicio)) ? params.append("start_date", `1934-01-01`) : params.append("start_date", `${fechaInicio}-01-01`);
   isNaN(parseInt(fechaFinal)) ? params.append("end_date", `2025-12-31`) : params.append("end_date", `${fechaFinal}-12-31`);
+
+  if (!busqueda && categoria && categoria !== 'populares') {
+    if (categoria === 'Publishing' || categoria === 'Complete') {
+      params.set("status", categoria);
+    } else {
+      params.set("genres", categoria);
+    }
+  }
 
   url += `?${params.toString()}`;
   agregarAlCatalogo(url);
@@ -298,21 +323,31 @@ function aplicarFiltros() {
     ? "?" + urlParams.toString()
     : window.location.pathname;
   window.history.pushState({}, "", newUrl);
-  buscarMangas();
+
+  const hayBusqueda = document.getElementById("buscarTitulo").value.trim();
+  if (!hayBusqueda && !filtro) {
+    Buscado = false;
+    cargarmangas();
+  } else {
+    buscarMangas();
+  }
 }
 
 function aplicarNsfw() {
   nsfw = !nsfw;
   const urlParams = new URLSearchParams(window.location.search);
   urlParams.delete("sfw");
-
   urlParams.append("sfw", !nsfw);
-
-  const newUrl = urlParams.toString()
-    ? "?" + urlParams.toString()
-    : window.location.pathname;
+  const newUrl = urlParams.toString() ? "?" + urlParams.toString() : window.location.pathname;
   window.history.pushState({}, "", newUrl);
-  buscarMangas();
+
+  const hayBusqueda = document.getElementById("buscarTitulo").value.trim();
+  if (!hayBusqueda && !filtro) {
+    Buscado = false;
+    cargarmangas();
+  } else {
+    buscarMangas();
+  }
 }
 
 function cambioFecha(e) {

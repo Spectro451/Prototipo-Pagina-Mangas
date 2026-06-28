@@ -8,8 +8,7 @@ const detallesManga = document.querySelector('.detallesManga');
 const estadisticas = document.querySelector('.estadisticas');
 const divFavorito = document.querySelector('.favoritos')
 if (idManga) {
-    fetch(`${API_BASE}/manga/${idManga}/full`)
-        .then(response => response.json())
+    cachedFetch(`${API_BASE}/manga/${idManga}/full`)
         .then(data => {
             const manga = data.data;
             const relaciones = manga.relations || [];
@@ -205,8 +204,7 @@ if (idManga) {
                 <hr>
             ` : '';
 
-            fetch(`${API_BASE}/manga/${manga.mal_id}/characters`)
-            .then(res => res.json())
+            cachedFetch(`${API_BASE}/manga/${manga.mal_id}/characters`)
             .then(data => {
               data.data.forEach(personaje => {
                 const divPersonaje = document.createElement('div');
@@ -222,8 +220,7 @@ if (idManga) {
                 personajes.appendChild(divPersonaje);
               });
             });
-            fetch(`${API_BASE}/manga/${manga.mal_id}/reviews`)
-            .then(res => res.json())
+            cachedFetch(`${API_BASE}/manga/${manga.mal_id}/reviews`)
             .then(data => {
                 if (data.data && data.data.length > 0) {
                     const reseñas = data.data.slice(0, 3); // Limita a 3 reseñas
