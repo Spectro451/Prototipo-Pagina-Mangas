@@ -18,26 +18,24 @@ Este es un proyecto web que hice junto a [@camicarrascoi](http://github.com/cami
 
 # Tecnologías usadas
 
-- HTML
 - CSS
 - JavaScript
 - Jikan API (https://docs.api.jikan.moe)
-- infinityFree(host)
-- Xampp
-- Php
-- Mysql
+- PHP
+- MySQL
+- Docker
 
 # Cómo usarlo?
 
-Puedes ver el sitio en línea desde este enlace:  
-[Ver página](https://spectro451.infinityfreeapp.com/manga)
-
 Si quieres descargarlo y probarlo localmente:
 
-- git clone https://github.com/Spectro451/Prototipo-Pagina-Mangas.git
-- copiar carpeta en htdocs
-- ejecutar xampp
-- disfrutar
+```bash
+git clone https://github.com/Spectro451/Prototipo-Pagina-Mangas.git
+cd Prototipo-Pagina-Mangas
+docker compose up --build
+```
+
+Luego abre `http://localhost:8000`
 
 
 
