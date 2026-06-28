@@ -87,12 +87,6 @@
 
     cargarImagenesRecomendaciones();
   });
-function redirigirBusqueda() {
-    const titulo = document.getElementById('buscarTitulo').value.trim();
-    if (titulo) {
-        window.location.href = ROUTE_BASE + "catalogo&q=" + encodeURIComponent(titulo);
-    }
-}
 
 let scrollContainers = document.querySelectorAll('.ListaPopulares');
 

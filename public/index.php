@@ -9,8 +9,7 @@ $rutas = [
         'politicas', 'terminos'
     ],
     'Auth' => [
-        'mostrarFormularioRegistro', 'login', 'logout',
-        'registrarUsuario', 'listarUsuarios', 'registro'
+        'login', 'logout', 'registrarUsuario', 'registro'
     ],
     'Admin' => [
         'listarUsuarios', 'modificarUsuario',

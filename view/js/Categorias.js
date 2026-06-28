@@ -2,8 +2,7 @@
   document.addEventListener("DOMContentLoaded", () => {
     const contenedor = document.getElementById("lista-generos");
 
-    fetch(`${API_BASE}/genres/manga`)
-    .then(response => response.json())
+    cachedFetch(`${API_BASE}/genres/manga`)
     .then(data => {
       const nombresUnicos = new Set();
       data.data.forEach(genero => {

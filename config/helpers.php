@@ -1,5 +1,14 @@
 <?php
 
+function requerirAdmin() {
+    if (session_status() === PHP_SESSION_NONE) {
+        session_start();
+    }
+    if (!isset($_SESSION['usuario']) || $_SESSION['usuario']['admin'] !== 'SI') {
+        redirect('index.php?controller=kiwi&action=paginaManga');
+    }
+}
+
 function redirect($url) {
     header("Location: $url");
     exit;

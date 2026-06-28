@@ -24,6 +24,34 @@ async function cachedFetch(url) {
     return data;
 }
 
+function verificarFavorito(mangaId, onResult) {
+    fetch('index.php?controller=favoritos&action=verificar', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ id: mangaId })
+    })
+    .then(r => r.json())
+    .then(data => onResult(data.favorito))
+    .catch(error => console.error('Error al verificar favorito:', error));
+}
+
+function toggleFavorito(mangaId, titulo, imagen, onResult) {
+    fetch('index.php?controller=favoritos&action=toggleFavorito', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ id: mangaId, titulo, imagen })
+    })
+    .then(r => r.json())
+    .then(data => {
+        if (data.success) {
+            onResult(data.estado, data.message);
+        } else {
+            alert('Error: ' + data.message);
+        }
+    })
+    .catch(error => console.error('Error al modificar favorito:', error));
+}
+
 function redirigirBusqueda() {
     const titulo = document.getElementById('buscarTitulo').value.trim();
     if (titulo) {

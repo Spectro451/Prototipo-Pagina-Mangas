@@ -5,19 +5,9 @@ require_once '../config/helpers.php';
 
 class AdminController
 {
-    private function requerirAdmin()
-    {
-        if (session_status() === PHP_SESSION_NONE) {
-            session_start();
-        }
-        if (!isset($_SESSION['usuario']) || $_SESSION['usuario']['admin'] !== 'SI') {
-            redirect('index.php?controller=kiwi&action=paginaManga');
-        }
-    }
-
     public function listarUsuarios()
     {
-        $this->requerirAdmin();
+        requerirAdmin();
         $styles = '<link rel="stylesheet" href="../view/stylesheets/Listar.css">';
         $title = "ListaUsuarios";
         $usuarioModel = new Usuario();
@@ -28,7 +18,7 @@ class AdminController
 
     public function modificarUsuario()
     {
-        $this->requerirAdmin();
+        requerirAdmin();
         $title = "Modificar";
         $styles = '<link rel="stylesheet" href="../view/stylesheets/Modificar.css">';
         $id = $_POST['id_usuario'] ?? 0;
@@ -40,7 +30,7 @@ class AdminController
 
     public function guardarModificacionUsuario()
     {
-        $this->requerirAdmin();
+        requerirAdmin();
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             $id = $_POST['id_usuario'] ?? 0;
             $nombre = $_POST['nombre'] ?? '';
@@ -61,7 +51,7 @@ class AdminController
 
     public function eliminarUsuario()
     {
-        $this->requerirAdmin();
+        requerirAdmin();
         $id = $_POST['id_usuario'] ?? 0;
         $usuario = new Usuario();
         $eliminado = $usuario->eliminarUsuario($id);

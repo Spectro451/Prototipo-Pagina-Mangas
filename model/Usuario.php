@@ -22,7 +22,7 @@ class Usuario
         $query = "INSERT INTO usuario(nombre, email, password, admin) VALUES (?,?,?,?)";
         $stmt = $this->pdo->prepare($query);
         $stmt->execute([$nombre, $email, $passwordHash, $admin]);
-        return $stmt;
+        return (int) $this->pdo->lastInsertId();
     }
     public function obtenerUsuarioPorEmail($email)
     {
@@ -44,15 +44,23 @@ class Usuario
         $stmt->execute([$id]);
         return $stmt->fetch(PDO::FETCH_ASSOC);
     }
-    public function eliminarUsuario($id) 
+    public function eliminarUsuario($id)
     {
-        $query1 = "DELETE FROM favoritos WHERE usuario_id = ?";
-        $stmt1 = $this->pdo->prepare($query1);
-        $stmt1->execute([$id]);
+        try {
+            $this->pdo->beginTransaction();
 
-        $query2 = "DELETE FROM usuario WHERE id = ?";
-        $stmt2 = $this->pdo->prepare($query2);
-        return $stmt2->execute([$id]);
+            $stmt1 = $this->pdo->prepare("DELETE FROM favoritos WHERE usuario_id = ?");
+            $stmt1->execute([$id]);
+
+            $stmt2 = $this->pdo->prepare("DELETE FROM usuario WHERE id = ?");
+            $stmt2->execute([$id]);
+
+            $this->pdo->commit();
+            return $stmt2->rowCount() > 0;
+        } catch (PDOException $e) {
+            $this->pdo->rollBack();
+            return false;
+        }
     }
     public function modificarUsuario($id, $nombre, $email, $admin)
     {

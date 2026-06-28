@@ -50,19 +50,19 @@ if (session_status() === PHP_SESSION_NONE) {
 
         <div class="formulario-login">
 <?php if (!isset($_SESSION['usuario'])): ?>
-                <form action="../public/index.php?controller=Auth&action=login" method="POST">
+                <form action="index.php?controller=Auth&action=login" method="POST">
                     <input type="email" name="correo" placeholder="Correo" required>
                     <input type="password" name="clave" placeholder="Contraseña" required>
                     <button type="submit">Entrar</button>
                 </form>
-                <button type="button" onclick="window.location.href='../public/index.php?controller=Auth&action=registro'">Registrarse</button>
+                <button type="button" onclick="window.location.href='index.php?controller=Auth&action=registro'">Registrarse</button>
             <?php endif; ?>
             <?php if (isset($_SESSION['usuario'])): ?>
-                <form action="../public/index.php?controller=Auth&action=logout" method="POST">
+                <form action="index.php?controller=Auth&action=logout" method="POST">
                     <button type="submit">Cerrar sesión</button>
-                    
+
                     <?php if (!empty($_SESSION['usuario']['admin']) && $_SESSION['usuario']['admin'] === 'SI'): ?>
-                        <button type="button" onclick="window.location.href='../public/index.php?controller=Admin&action=listarUsuarios'">Panel Admin</button>
+                        <button type="button" onclick="window.location.href='index.php?controller=Admin&action=listarUsuarios'">Panel Admin</button>
                     <?php endif; ?>
                 </form>
             <?php endif; ?>
@@ -96,7 +96,7 @@ if (session_status() === PHP_SESSION_NONE) {
         
         <?php if (!empty($_SESSION['usuario']['admin']) && $_SESSION['usuario']['admin'] === 'SI'): ?>
             <li>
-                <a href="../public/index.php?controller=Admin&action=listarUsuarios">PANEL ADMIN</a>
+                <a href="index.php?controller=Admin&action=listarUsuarios">PANEL ADMIN</a>
                 <div class="Submenu"><!--Submenu-->
                 <ul><!--Lista de Categorias-->
                     <a href="?controller=Admin&action=listarUsuarios"><li>Listar Usuarios</li></a>

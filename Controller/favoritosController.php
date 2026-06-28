@@ -72,10 +72,12 @@ class favoritosController
         if (session_status() === PHP_SESSION_NONE) {
             session_start();
         }
+        if (!isset($_SESSION['usuario'])) {
+            redirect('index.php?controller=kiwi&action=paginaManga');
+        }
         $usuario_id = $_SESSION['usuario']['id'];
 
-        $modelo = new Favoritos();
-        $favoritos = $modelo->listarFavoritos($usuario_id);
+        $favoritos = $this->favoritos->listarFavoritos($usuario_id);
 
         $title = "Favoritos";
         $styles = '<link rel="stylesheet" href="../view/stylesheets/Favoritos.css">';

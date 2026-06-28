@@ -5,11 +5,6 @@ require_once '../config/helpers.php';
 
 class AuthController
 {
-    public function mostrarFormularioRegistro()
-    {
-        require '../view/usuario/crear.php';
-    }
-
     public function login() {
         $usuarioModel = new Usuario();
 
@@ -68,8 +63,7 @@ class AuthController
                     setFlash('error', 'El nombre de usuario ya está en uso.');
                     redirect('index.php?controller=Auth&action=registro');
                 } else {
-                    $usuarioModel->crearUsuario($nombre, $email, $passwordHash, 'NO');
-                    $id = $usuarioModel->obtenerUsuarioPorNombre($nombre)['id'];
+                    $id = $usuarioModel->crearUsuario($nombre, $email, $passwordHash, 'NO');
                     if (session_status() === PHP_SESSION_NONE) {
                         session_start();
                     }
@@ -89,32 +83,11 @@ class AuthController
         }
     }
 
-    public function listarUsuarios()
-    {
-        $this->requerirAdmin();
-        $styles = '<link rel="stylesheet" href="../view/stylesheets/Listar.css">';
-        $title = "ListaUsuarios";
-        $usuarioModel = new Usuario();
-        $usuarios = $usuarioModel->listarUsuario();
-        $contenido = '../view/usuario/listar.php';
-        require '../view/admin/plantilla.php';
-    }
-
     public function registro()
     {
         $styles = '<link rel="stylesheet" href="../view/stylesheets/Registrar.css">';
         $title = "Registro";
         $contenido = '../view/usuario/crear.php';
         require '../view/admin/plantilla.php';
-    }
-
-    private function requerirAdmin()
-    {
-        if (session_status() === PHP_SESSION_NONE) {
-            session_start();
-        }
-        if (!isset($_SESSION['usuario']) || $_SESSION['usuario']['admin'] !== 'SI') {
-            redirect('index.php?controller=kiwi&action=paginaManga');
-        }
     }
 }

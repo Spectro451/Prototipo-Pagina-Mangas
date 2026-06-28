@@ -2,10 +2,8 @@ const params = new URLSearchParams(window.location.search);
 const categoria = params.get("categoria");
 const busqueda = params.get("q");
 const catalogo = document.querySelector(".Catalogo");
-const verMas = document.getElementById("verMas");
 let currentPage = 1;
 let Buscado = false;
-const paginasMaxima = 20;
 var filtro = "";
 var nsfw = false;
 
@@ -80,66 +78,23 @@ async function agregarAlCatalogo(url, reintento = false) {
 
             Favorito.classList.add("Favorito");
 
-            fetch('index.php?controller=favoritos&action=verificar',
-              {
-                method: 'POST',
-                headers:
-                {
-                  'Content-Type': 'application/json'
-                },
-                  body: JSON.stringify({ id: idManga })
-              })
-            .then(response => response.json())
-            .then(data =>
-              {
-                if (data.favorito)
-                {
-                  icono.classList.remove('far');
-                  icono.classList.add('fas');
-                  icono.style.color = 'red';
+            verificarFavorito(idManga, (esFavorito) => {
+                if (esFavorito) {
+                    icono.classList.replace('far', 'fas');
+                    icono.style.color = 'red';
                 }
-              })
-            .catch(error =>
-              {
-                console.error('Error al verificar estado de favorito:', error);
-              });
-            Favorito.addEventListener('click', function ()
-            {
-              fetch('index.php?controller=favoritos&action=toggleFavorito', {
-                  method: 'POST',
-                  headers: {
-                      'Content-Type': 'application/json'
-                  },
-                  body: JSON.stringify({
-                      id: idManga,
-                      titulo: manga.titles[0].title,
-                      imagen: manga.images.jpg.image_url
-                  })
-              })
-              .then(response => response.json())
-              .then(data => {
-                  if (data.success) {
-                      alert(data.message);
-
-                      if (data.estado === 'agregado')
-                      {
-                        icono.classList.remove('far');
-                        icono.classList.add('fas');
+            });
+            Favorito.addEventListener('click', function () {
+                toggleFavorito(idManga, manga.titles[0].title, manga.images.jpg.image_url, (estado, mensaje) => {
+                    alert(mensaje);
+                    if (estado === 'agregado') {
+                        icono.classList.replace('far', 'fas');
                         icono.style.color = 'red';
-                      }
-                      else if (data.estado === 'eliminado')
-                      {
-                        icono.classList.remove('fas');
-                        icono.classList.add('far');
+                    } else if (estado === 'eliminado') {
+                        icono.classList.replace('fas', 'far');
                         icono.style.color = 'gray';
-                      }
-                  } else {
-                      alert('Error: ' + data.message);
-                  }
-              })
-              .catch(error => {
-                  console.error('Error al modificar favorito:', error);
-              });
+                    }
+                });
             });
             Popular.appendChild(Favorito);
         }
@@ -202,9 +157,6 @@ async function cargarmangas() {
       );
       break;
   }
-  const url = new URL(window.location.href);
-url.searchParams.set("pagina", currentPage); // ejemplo
-history.replaceState(null, '', url);
 }
 async function buscarMangas(resetPage = true) {
   Buscado = true;

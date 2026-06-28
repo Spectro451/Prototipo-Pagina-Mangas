@@ -37,56 +37,16 @@ if (idManga) {
                 <button id="btn-Favorito"></button>
             `;
             const btnFavorito = document.getElementById('btn-Favorito');
-            fetch('index.php?controller=favoritos&action=verificar', {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json'
-                },
-                body: JSON.stringify({ id: idManga })
-            })
-            .then(response => response.json())
-            .then(data => {
-                if (data.favorito) {
-                    btnFavorito.textContent = "Eliminar de Favoritos";
-                    btnFavorito.style.backgroundColor = "red";
-                } else {
-                    btnFavorito.textContent = "Agregar a Favoritos";
-                    btnFavorito.style.backgroundColor = "green";
-                }
-            })
-            .catch(error => {
-                console.error('Error al verificar estado de favorito:', error);
+            verificarFavorito(idManga, (esFavorito) => {
+                btnFavorito.textContent = esFavorito ? "Eliminar de Favoritos" : "Agregar a Favoritos";
+                btnFavorito.style.backgroundColor = esFavorito ? "red" : "green";
             });
             btnFavorito.addEventListener('click', function () {
-                fetch('index.php?controller=favoritos&action=toggleFavorito', {
-                    method: 'POST',
-                    headers: {
-                        'Content-Type': 'application/json'
-                    },
-                    body: JSON.stringify({
-                        id: idManga,
-                        titulo: manga.titles[0].title,
-                        imagen: manga.images.jpg.image_url
-                    })
-                })
-                .then(response => response.json())
-                .then(data => {
-                    if (data.success) {
-                        alert(data.message);
-
-                        if (data.estado === 'agregado') {
-                            btnFavorito.textContent = "Eliminar de Favoritos";
-                            btnFavorito.style.backgroundColor = "red";
-                        } else if (data.estado === 'eliminado') {
-                            btnFavorito.textContent = "Agregar a Favoritos";
-                            btnFavorito.style.backgroundColor = "green";
-                        }
-                    } else {
-                        alert('Error: ' + data.message);
-                    }
-                })
-                .catch(error => {
-                    console.error('Error al modificar favorito:', error);
+                toggleFavorito(idManga, manga.titles[0].title, manga.images.jpg.image_url, (estado, mensaje) => {
+                    alert(mensaje);
+                    const agregado = estado === 'agregado';
+                    btnFavorito.textContent = agregado ? "Eliminar de Favoritos" : "Agregar a Favoritos";
+                    btnFavorito.style.backgroundColor = agregado ? "red" : "green";
                 });
             });
             }
