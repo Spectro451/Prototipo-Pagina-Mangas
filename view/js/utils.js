@@ -1,6 +1,37 @@
 const API_BASE = "https://api.jikan.moe/v4";
 const ROUTE_BASE = "index.php?controller=kiwi&action=";
 const CACHE_TTL = 5 * 60 * 1000;
+const JIKAN_MIN_INTERVAL = 400;
+
+let jikanQueue = Promise.resolve();
+let lastJikanRequest = 0;
+
+function throttleJikan(fn) {
+    const run = jikanQueue.then(async () => {
+        const wait = JIKAN_MIN_INTERVAL - (Date.now() - lastJikanRequest);
+        if (wait > 0) await new Promise(r => setTimeout(r, wait));
+        lastJikanRequest = Date.now();
+        return fn();
+    });
+    jikanQueue = run.catch(() => {});
+    return run;
+}
+
+async function fetchWithRetry(url) {
+    const maxRetries = 3;
+    const retryableStatuses = [429, 502, 503, 504];
+    const isJikan = url.startsWith(API_BASE);
+    for (let attempt = 0; attempt <= maxRetries; attempt++) {
+        if (attempt > 0) {
+            await new Promise(r => setTimeout(r, 500 * Math.pow(2, attempt - 1)));
+        }
+        const res = isJikan ? await throttleJikan(() => fetch(url)) : await fetch(url);
+        if (res.ok) return res;
+        if (!retryableStatuses.includes(res.status) || attempt === maxRetries) {
+            throw new Error(`HTTP ${res.status}`);
+        }
+    }
+}
 
 async function cachedFetch(url) {
     const key = 'api_' + url;
@@ -10,13 +41,7 @@ async function cachedFetch(url) {
         if (Date.now() - ts < CACHE_TTL) return data;
         localStorage.removeItem(key);
     }
-    const res = await fetch(url);
-    if (res.status === 429) {
-        const err = new Error('rate_limit');
-        err.status = 429;
-        throw err;
-    }
-    if (!res.ok) throw new Error(`HTTP ${res.status}`);
+    const res = await fetchWithRetry(url);
     const data = await res.json();
     try {
         localStorage.setItem(key, JSON.stringify({ data, ts: Date.now() }));
