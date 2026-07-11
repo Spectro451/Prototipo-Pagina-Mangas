@@ -37,5 +37,5 @@ docker compose up --build
 
 Luego abre `http://localhost:8000`
 
-
+lamentablemente la app depende de JikanApi, asi que si no cargan algunos datos favor no reportarlo como error
 
